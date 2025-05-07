@@ -1,0 +1,100 @@
+\section{第二类曲线积分}
+
+本节讨论第二类曲线积分。
+所谓“第二类曲线积分”是向量值函数对曲线的积分。
+
+本节要点：
+\begin{itemize}
+    \item 掌握第二类曲线积分的概念；
+    \item 掌握第二类曲线积分的计算，重点掌握积分表达式的内积计算。
+\end{itemize}
+
+%============================================================
+\subsection{第二类曲线积分的概念}
+
+\begin{definition}[第二类曲线积分]
+若三维空间中有曲线$L$，$\mathbf{n}\left( \boldsymbol{p} \right) $为曲线上任一点处的单位切向量，$\boldsymbol{f}\left( \boldsymbol{p} \right) $为定义在该空间上的三元向量值函数，若内积$\boldsymbol{f}\left( \boldsymbol{p} \right) ^T\mathbf{n}\left( \boldsymbol{p} \right) $在$L$上的第一类曲线积分存在，则称此积分值为{\bf $\boldsymbol{f}\left( \boldsymbol{p} \right) $在$L$上的第二类曲线积分}，记为$\int_L{\left[ \boldsymbol{f}\left( \boldsymbol{p} \right) ^T\mathbf{n}\left( \boldsymbol{p} \right) \right] \cdot dl}$，由于$\mathbf{n}\left( \boldsymbol{p} \right) dl=\boldsymbol{dl}$为弧微分在{\it xyz}坐标的投影向量，所以也可以写为$\int_L{\boldsymbol{f}\left( \boldsymbol{p} \right) ^T\boldsymbol{dl}}$，即：
+\begin{align*}
+&\int\limits_L{\left[ \boldsymbol{f}\left( \boldsymbol{p} \right) ^T\mathbf{n}\left( \boldsymbol{p} \right) \right] \cdot dl}=\int\limits_L{\boldsymbol{f}\left( \boldsymbol{p} \right) ^T\boldsymbol{dl}} \\
+&:=\underset{\lambda \rightarrow 0}{\lim}\sum_{i=1}^n{\left[ \boldsymbol{f}\left( \xi _i,\eta _i,\zeta _i \right) ^T\mathbf{n}\left( \xi _i,\eta _i,\zeta _i \right) \cdot \Delta l_i \right]}
+\end{align*}
+其中：
+\begin{itemize}
+    \item $\boldsymbol{f}\left( \boldsymbol{p} \right) $：{\bf 被积函数}；
+    \item $\mathbf{n}\left( \boldsymbol{p} \right) $：曲线上任一点处的{\bf 单位切向量}，也即切线的方向余弦；
+    \item $\boldsymbol{dl}=\mathbf{n}\left( \boldsymbol{p} \right) dl$：{\bf 有向弧微分}；
+    \item $L,t\in \left[ t_1,t_2 \right] $：{\bf 积分曲线}。
+\end{itemize}
+特别地，当$L$为封闭曲线时，记为$\oint_L{\boldsymbol{f}\left( \boldsymbol{p} \right) ^T\boldsymbol{dl}}$。
+\end{definition}
+
+这里要注意，第二类曲线积分是有方向性的，$t_1\rightarrow t_2$的方向是切线的方向，如果取反方向，则写为：
+\[
+\int\limits_{L^-}{\boldsymbol{f}\left( \boldsymbol{p} \right) ^T\boldsymbol{dl}}
+\]
+
+第二类曲线积分的性质：
+\begin{itemize}
+    \item 线性性：
+    \[
+    \int\limits_L{\left( a\boldsymbol{f}+b\boldsymbol{g} \right) ^T\boldsymbol{dl}}=a\int\limits_L{\boldsymbol{f}^T\boldsymbol{dl}}+b\int\limits_L{\boldsymbol{g}^T\boldsymbol{dl}}
+    \]
+    \item 区域可加性：
+    \[
+    \int\limits_L{\boldsymbol{f}^T\boldsymbol{dl}}=\int\limits_{L_1}{\boldsymbol{f}^T\boldsymbol{dl}}+\int\limits_{L_2}{\boldsymbol{f}^T\boldsymbol{dl}}
+    \]
+    \item 有向性：
+    \[
+    \int\limits_{L^-}{\boldsymbol{f}^T\boldsymbol{dl}}=-\int\limits_L{\boldsymbol{f}^T\boldsymbol{dl}}
+    \]
+\end{itemize}
+
+%============================================================
+\subsection{第二类曲线积分的计算}
+
+\begin{theorem}[第二类曲线积分的计算公式]
+曲线在某点的切向量：
+\[
+\boldsymbol{n}\left( \boldsymbol{p}_0 \right) =\left. \left( x'\,\,y'\,\,z' \right) ^T \right|_{t=t_0}=\left( x'\left( t_0 \right) \,\,y'\left( t_0 \right) \,\,z'\left( t_0 \right) \right) ^T
+\]
+其方向余弦为：
+\[
+\mathbf{n}\left( \boldsymbol{p}_0 \right) =\frac{\boldsymbol{n}\left( \boldsymbol{p}_0 \right)}{\left\| \boldsymbol{n}\left( \boldsymbol{p}_0 \right) \right\|} =\frac{\left( x'\left( t_0 \right) \,\,y'\left( t_0 \right) \,\,z'\left( t_0 \right) \right) ^T}{\sqrt{\left( x'\left( t_0 \right) \right) ^2+\left( y'\left( t_0 \right) \right) ^2+\left( z'\left( t_0 \right) \right) ^2}}
+\]
+在第一类曲线积分中，我们知道弧微分$dl=\sqrt{\left( x' \right) ^2+\left( y' \right) ^2+\left( z' \right) ^2}\cdot dt$，结合以上，有向弧微分有：
+\begin{align*}
+\boldsymbol{dl}&=\mathbf{n}\left( \boldsymbol{p} \right) dl \frac{\left( x'\,\,y'\,\,z' \right) ^T}{\sqrt{\left( x' \right) ^2+\left( y' \right) ^2+\left( z' \right) ^2}} \left( \sqrt{\left( x' \right) ^2+\left( y' \right) ^2+\left( z' \right) ^2}\cdot dt \right) \\
+&=\left( x'\,\,y'\,\,z' \right) ^Tdt
+\end{align*}
+%于是$\boldsymbol{f}\left( \boldsymbol{p} \right) $在$L$上的第二类曲线积分的计算有：
+于是$\boldsymbol{f}\left( \boldsymbol{p} \right) =\left( P\left( x,y,z \right) \,\,Q\left( x,y,z \right) \,\,R\left( x,y,z \right) \right) ^T$在$L$上的第二类曲线积分的计算有：
+\[
+\int\limits_L{\boldsymbol{f}\left( \boldsymbol{p} \right) ^T\boldsymbol{dl}}=\int\limits_L{\left( \begin{array}{c}
+	P\\
+	Q\\
+	R\\
+\end{array} \right) ^T\left( \begin{array}{c}
+	x'\\
+	y'\\
+	z'\\
+\end{array} \right) dt} =\int_{t_1}^{t_2}{\left( P\cdot x'+Q\cdot y'+R\cdot z' \right) \cdot dt}
+\]
+\end{theorem}
+
+由于有向弧微分还可以写为$\boldsymbol{dl}=\left( x'\,\,y'\,\,z' \right) ^Tdt=\left( dx\,\,dy\,\,dz \right) ^T$，所以第二类曲线积分还可以写为：
+\[
+\int\limits_L{\boldsymbol{f}\left( \boldsymbol{p} \right) ^T\boldsymbol{dl}}=\int\limits_L{\left( \begin{array}{c}
+	P\\
+	Q\\
+	R\\
+\end{array} \right) ^T\left( \begin{array}{c}
+	dx\\
+	dy\\
+	dz\\
+\end{array} \right)}=\int\limits_L{P\cdot dx+Q\cdot dy+R\cdot dz}
+\]
+这个写法有深刻的物理意义，表明$\boldsymbol{f}\left( \boldsymbol{p} \right) $在$L$上的积分可以分解为$\boldsymbol{f}$的三个坐标分量（$P,Q,R$）分别对坐标轴（{\it x}、{\it y}和{\it z}）积分的代数和。
+
+
+
+

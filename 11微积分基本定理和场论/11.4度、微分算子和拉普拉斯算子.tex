@@ -1,0 +1,45 @@
+\section{度、微分算子和拉普拉斯算子}
+
+梯度作用于标量场，得到其关于变化率的一个矢量场：
+\[
+\mathbf{grad}f=\nabla f=\left( \frac{\partial f}{\partial x} \quad \frac{\partial f}{\partial y} \quad \frac{\partial f}{\partial z} \right) ^T
+\]
+散度作用于矢量场，得到其关于流出汇入程度的一个标量场：
+\[
+\mathrm{div}\boldsymbol{f}=\nabla ^T\boldsymbol{f}=\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}
+\]
+旋度作用于矢量场，得到其关于旋转速度的一个矢量场：
+\[
+\mathbf{rot}\boldsymbol{f}=\nabla \times \boldsymbol{f}=\left| \begin{matrix}
+	\mathbf{i}&		\mathbf{j}&		\mathbf{k}\\
+	\frac{\partial}{\partial x}&		\frac{\partial}{\partial y}&		\frac{\partial}{\partial z}\\
+	P&		Q&		R\\
+\end{matrix} \right|=\left( \begin{array}{c}
+	\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\\
+	\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\\
+	\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\\
+\end{array} \right)
+\]
+特别地，标量场的梯度可以再次作散度，记作$\nabla ^2f$，即：
+\[
+\nabla ^2f=\nabla ^T\left( \nabla f \right) =\left( \begin{array}{c}
+	\frac{\partial}{\partial x}\\
+	\frac{\partial}{\partial y}\\
+	\frac{\partial}{\partial z}\\
+\end{array} \right) ^T\left( \begin{array}{c}
+	\frac{\partial f}{\partial x}\\
+	\frac{\partial f}{\partial y}\\
+	\frac{\partial f}{\partial z}\\
+\end{array} \right) =\frac{\partial ^2f}{\partial x^2}+\frac{\partial ^2f}{\partial y^2}+\frac{\partial ^2f}{\partial z^2}
+\]
+我们称$\nabla ^2$为{\bf 拉普拉斯算子}，记作$\Delta $，即：
+\[
+\Delta :=\nabla ^2=\frac{\partial ^2}{\partial x^2}+\frac{\partial ^2}{\partial y^2}+\frac{\partial ^2}{\partial z^2}
+\]
+
+拉普拉斯算子作用于标量场，首先得到变化率的矢量场，再得到该矢量场的汇入流出情况。
+最终，拉普拉斯算子等价于得到一个标量场的最高点和最低点。
+
+
+
+

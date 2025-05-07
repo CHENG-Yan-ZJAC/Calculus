@@ -1,0 +1,72 @@
+\section{傅里叶积分和傅里叶变换}
+
+本节继续考察任意周期函数。
+如果周期为无穷大，就相当于任意函数。
+
+本节要点：
+\begin{itemize}
+    \item 理解傅里叶积分的推导过程；
+    \item 理解傅里叶变换。
+\end{itemize}
+
+\begin{definition}[傅里叶积分]
+将非周期函数$f\left( x \right) $依照$T$的周期函数在$\left[ -T/2,T/2 \right] $内的傅里叶展开：
+\begin{align*}
+f\left( x \right) &=\sum_{n=-\infty}^{+\infty}{c_ne^{i\frac{2n\pi}{T}x}}=\sum_{n=-\infty}^{+\infty}{\left[ \frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}{f\left( \xi \right) e^{-i\frac{2n\pi}{T}\xi}\cdot d\xi} \right] e^{i\frac{2n\pi}{T}x}} \\
+&=\sum_{n=-\infty}^{+\infty}{\left[ \frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}{f\left( \xi \right) e^{-i\omega \xi}\cdot d\xi} \right] e^{i\omega x}} \\
+&=\sum_{n=-\infty}^{+\infty}{\left[ \frac{\Delta \omega}{2\pi}\int_{-\frac{T}{2}}^{\frac{T}{2}}{f\left( \xi \right) e^{-i\omega \xi}\cdot d\xi} \right] e^{i\omega x}} \\
+&=\frac{1}{2\pi}\sum_{n=-\infty}^{+\infty}{\left[ \int_{-\frac{T}{2}}^{\frac{T}{2}}{f\left( \xi \right) e^{-i\omega \xi}\cdot d\xi} \right] e^{i\omega x}\Delta \omega}
+\end{align*}
+其中$\omega =2n\pi /T,\Delta \omega =2\pi /T$，如果$T\rightarrow \infty $时，极限
+\begin{align*}
+f\left( x \right) &=\underset{T\rightarrow +\infty}{\lim}\sum_{n=-\infty}^{+\infty}{c_ne^{i\frac{2n\pi}{T}x}} \\
+&=\underset{T\rightarrow +\infty}{\lim}\frac{1}{2\pi}\sum_{n=-\infty}^{+\infty}{\left[ \int_{-\frac{T}{2}}^{\frac{T}{2}}{f\left( \xi \right) e^{-i\omega \xi}\cdot d\xi} \right] e^{i\omega x}\Delta \omega}
+\end{align*}
+存在且唯一，则称该极限为{\bf $f\left( x \right) $的傅里叶积分}，此时写为：
+\[
+f\left( x \right) =\frac{1}{2\pi}\int_{-\infty}^{+\infty}{\left[ \int_{-\infty}^{+\infty}{f\left( x \right) e^{-i\omega x}dx} \right] e^{i\omega x}d\omega}
+\]
+同时，我们称$\int_{-\infty}^{+\infty}{f\left( x \right) e^{-i\omega x}dx}$部分为{\bf $f\left( x \right) $的傅里叶变换}，记为$F\left( \omega \right) $，即：
+\[
+F\left( \omega \right) =\int_{-\infty}^{+\infty}{f\left( x \right) e^{-i\omega x}dx}
+\]
+相应地，称：
+\[
+f\left( x \right) =\frac{1}{2\pi}\int_{-\infty}^{+\infty}{F\left( \omega \right) e^{i\omega x}d\omega}
+\]
+为{\bf 傅里叶逆变换}。
+\end{definition}
+
+\begin{tcolorbox}
+微积分的角度，傅里叶积分是一个加权和，这点和定积分一样。
+\end{tcolorbox}
+
+对比傅里叶级数和傅里叶变换：
+\begin{align*}
+&\begin{cases}
+	f\left( x \right) =\sum_{n=-\infty}^{+\infty}{c_ne^{inx}} \qquad x\in \left[ -\pi ,\pi \right]\\
+	c_n=\frac{1}{2\pi}\int_{-\pi}^{\pi}{f\left( x \right) e^{-inx}dx} \quad n=0,\pm 1,\pm 2,...\\
+\end{cases} \\
+&\begin{cases}
+	F\left( \omega \right) =\int_{-\infty}^{+\infty}{f\left( x \right) e^{-i\omega x}dx}\\
+	f\left( x \right) =\frac{1}{2\pi}\int_{-\infty}^{+\infty}{F\left( \omega \right) e^{i\omega x}d\omega}\\
+\end{cases}
+\end{align*}
+根据$f\left( x \right) =\frac{1}{2\pi}\int_{-\infty}^{+\infty}{\left[ \int_{-\infty}^{+\infty}{f\left( x \right) e^{-i\omega x}dx} \right] e^{i\omega x}d\omega}$，其实这个$\frac{1}{2\pi}$放在哪里都可以，只是习惯上放在逆变换中。
+$\frac{1}{2\pi}$来自于我们使用的函数基并不是规范的，即长度并不是1。
+
+\begin{theorem}
+若函数$f\left( x \right) $在整个实数域满足：
+\begin{itemize}
+    \item 任一有限区域上满足狄利克雷收敛条件；
+    \item 在$\mathbb{R} $上绝对可积，即$\int_{-\infty}^{+\infty}{\left| f\left( x \right) \right|dx}$收敛；
+\end{itemize}
+则有：
+\[
+f\left( x \right) =\frac{1}{2\pi}\int_{-\infty}^{+\infty}{\left[ \int_{-\infty}^{+\infty}{f\left( x \right) e^{-i\omega x}dx} \right] e^{i\omega x}d\omega}
+\]
+对$f\left( x \right) $所有的连续点成立，在间断点$x_0$处，可以用$\frac{1}{2}\left[ f\left( {x_0}^+ \right) +f\left( {x_0}^- \right) \right] $代替。
+\end{theorem}
+
+
+

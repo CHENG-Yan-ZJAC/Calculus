@@ -1,0 +1,51 @@
+\section{交错级数}
+
+本节介绍交错级数。
+
+本节要点：
+\begin{itemize}
+    \item 了解交错级数的概念；
+    \item 掌握交错级数敛散性的判断。
+\end{itemize}
+
+%============================================================
+\subsection{交错级数的概念}
+
+\begin{definition}[交错级数]
+若$u_n>0$，则称级数
+\[
+\sum_{n=1}^{\infty}{\left( -1 \right) ^nu_n} \quad \text{或} \quad \sum_{n=1}^{\infty}{\left( -1 \right) ^{n-1}u_n}
+\]
+为{\bf 交错级数}。
+\end{definition}
+
+简而言之，交错级数就是正项级数的基础上其一般项一正一负。
+
+%============================================================
+\subsection{交错级数的性质}
+
+\begin{theorem}[莱布尼兹判别法]
+若交错级数$\sum_{n=1}^{\infty}{\left( -1 \right) ^nu_n}$满足$u_n\geqslant u_{n+1}$且$\underset{n\rightarrow \infty}{\lim}u_n=0$，则级数收敛，且其和有$S\leqslant u_1$，余项有$\left| R_n \right|\leqslant u_{n+1}$。
+\end{theorem}
+
+交错级数由于一般项的正负交替，使得收敛性加强。
+
+%============================================================
+\subsection{例}
+
+\begin{example}
+交错调和级数$\sum_{n=1}^{\infty}{\left( -1 \right) ^{n-1}\frac{1}{n}}$。
+\end{example}
+
+解：
+
+由于
+\begin{align*}
+&\frac{1}{n}>\frac{1}{n+1} \\
+&\underset{n\rightarrow \infty}{\lim}\frac{1}{n}=0
+\end{align*}
+所以级数收敛。
+
+
+
+

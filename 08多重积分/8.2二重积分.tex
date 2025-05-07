@@ -1,0 +1,195 @@
+\section{二重积分}
+
+本节讨论二重积分的定义、意义和计算方法。
+
+本节要点：
+\begin{itemize}
+    \item 掌握二重积分的定义；
+    \item 了解二重积分的数学意义、物理意义和几何意义；
+    \item 掌握二重积分在直角坐标下的计算方法；
+    \item 了解二重积分在极坐标下的计算方法。
+\end{itemize}
+
+%============================================================
+\subsection{二重积分的概念}
+
+\begin{definition}[二重积分]
+若$f\left( \boldsymbol{p} \right) $是定义在平面区域$D$上的二元数量值函数，则将{\bf $f\left( \boldsymbol{p} \right) $在$D$上的积分为二重积分}写成：
+\begin{align*}
+&\iint\limits_D{f\left( \boldsymbol{p} \right) d\sigma} \\
+&D=\left\{ \left( x,y \right) \middle| x_1\leqslant x\leqslant x_2,y_1\left( x \right) \leqslant y\leqslant y_2\left( x \right) \right\}
+\end{align*}
+其中：
+\begin{itemize}
+    \item $f\left( \boldsymbol{p} \right) $：{\bf 被积函数}；
+    \item $d\sigma$：{\bf 积分微元}；
+    \item $D$：{\bf 积分区域}。
+\end{itemize}
+\end{definition}
+
+这里需要注意一个地方。
+$f\left( \boldsymbol{p} \right) $是一个二元数量值函数，也可以写成$z=z\left( x,y \right) $，$z$被$x,y$约束，$x,y$之间没有约束关系，反应几何上的一个曲面。
+但是作为定积分，{\it xOy}平面上还是有一个积分区域的，它被一组曲线（或直线）包围，所以$y_1\left( x \right) \leqslant y\leqslant y_2\left( x \right) $描述的是这个积分区域，而不是$x,y$的约束关系。
+
+%============================================================
+\subsection{二重积分的几何意义和物理意义}
+
+对比一元积分，二重积分在数学上是对一个指定平面的“加权和”。
+\begin{align*}
+&\int_a^b{f\left( x \right) dx} \quad x\in \left[ a,b \right] \\
+&\iint\limits_D{f\left( \boldsymbol{p} \right) d\sigma} \quad D=\left\{ \left( x,y \right) \middle| x_1\leqslant x\leqslant x_2,y_1\left( x \right) \leqslant y\leqslant y_2\left( x \right) \right\}
+\end{align*}
+几何上，这个“权”可以由{\it z}轴表示，则二重积分的几何意义可以理解为以$D$为底、$f\left( \boldsymbol{p} \right) $为曲顶的曲顶柱体的体积。
+
+物理上，如果这个“权”是密度，则二重积分表示这个指定平面的总质量，如果这个“权”是电荷密度，则二重积分表示这个指定平面的总电荷量。
+
+\begin{figure}[h]
+\centering
+\includegraphics[height=4cm]{8.1.png}
+\end{figure}
+
+%============================================================
+\subsection{二重积分的直角坐标计算}
+
+总体来讲，二重积分的计算归根结底要化为一元积分，就是要将微元和被积函数都一元化。
+在直角坐标下，面积微元可以表示为$d\sigma =dxdy$，于是：
+\begin{align*}
+&\iint\limits_D{f\left( \boldsymbol{p} \right) d\sigma}=\iint\limits_D{f\left( x,y \right) dxdy} \\
+&D=\left\{ \left( x,y \right) \middle| x_1\leqslant x\leqslant x_2,y_1\left( x \right) \leqslant y\leqslant y_2\left( x \right) \right\}
+\end{align*}
+$D$可以理解为由两条直线$x=x_1,x=x_2$和两条曲线$y=y_1\left( x \right) ,y=y_2\left( x \right) $围成。
+其次，将被积函数一元化。
+曲顶柱体的体积的求解可以通过“切片”处理，先处理“一片”，再将“片”累加起来。
+
+计算步骤：
+\begin{enumerate}
+    \item 计算$x_0$时的薄片的面积，即将$x_0$看成常数，求$y$从$y_1\left( x_0 \right) $到$y_2\left( x_0 \right) $的定积分，此时$f\left( x,y \right) $变为一元函数，薄片面积$S\left( x \right) $是$x$的函数
+    \[
+    S\left( x_0 \right) =\int_{y_1\left( x_0 \right)}^{y_2\left( x_0 \right)}{f\left( x_0,y \right) dy}
+    \]
+    \item 将这些薄片累积，即为该二重积分的结果
+    \[
+    \iint\limits_D{f\left( x,y \right) dxdy}=\int_{x_1}^{x_2}{S\left( x \right) dx}=\int_{x_1}^{x_2}{\left[ \int_{y_1\left( x \right)}^{y_2\left( x \right)}{f\left( x,y \right) dy} \right] dx}
+    \]
+\end{enumerate}
+
+上式即为在直角坐标下二重积分$\iint_D{f\left( x,y \right)}$在区域$D$上的计算公式，常写作：
+\begin{align*}
+&\iint\limits_D{f\left( x,y \right) d\sigma}=\int_{x_1}^{x_2}{dx\int_{y_1\left( x \right)}^{y_2\left( x \right)}{f\left( x,y \right) dy}} \\
+&D=\left\{ \left( x,y \right) \middle| x_1\leqslant x\leqslant x_2,y_1\left( x \right) \leqslant y\leqslant y_2\left( x \right) \right\}
+\end{align*}
+类似地，若积分区域$D$由两条直线$y=y_1,y=y_2$和两条曲线$x=x_1\left( y \right) ,x=x_2\left( y \right) $围成，则有：
+\begin{align*}
+&\iint\limits_D{f\left( x,y \right) d\sigma}=\int_{y_1}^{y_2}{dy\int_{x_1\left( y \right)}^{x_2\left( y \right)}{f\left( x,y \right) dx}} \\
+&D=\left\{ \left( x,y \right) \middle| x_1\left( y \right) \leqslant x\leqslant x_2\left( y \right) ,y_1\leqslant y\leqslant y_2 \right\}
+\end{align*}
+最后要注意，如果积分区域$D$为凸区域，则二重积分结果和积分次序无关。
+
+~
+
+\begin{example}
+计算$\iint_D{xyd\sigma}$，其中$D$由$y=x$和$y=x^2$围成。
+\end{example}
+
+解：
+
+易得，围成的区域可以表示为$D=\left\{ \left( x,y \right) \middle| 0\leqslant x\leqslant 1,x^2\leqslant y\leqslant x \right\} $。
+\begin{figure}[h]
+\centering
+\includegraphics[height=3cm]{8.2.png}
+\end{figure}
+\begin{align*}
+\iint\limits_D{f\left( x,y \right) d\sigma}&=\int_0^1{dx\int_{x^2}^x{xydy}}=\int_0^1{dx\left[ \left. \frac{1}{2}xy^2 \right|_{x^2}^{x} \right]} \\
+&=\int_0^1{\left( \frac{1}{2}x^3-\frac{1}{2}x^5 \right) dx}=\frac{1}{24}
+\end{align*}
+也可以看成$D=\left\{ \left( x,y \right) \middle| y\leqslant x\leqslant \sqrt{y},0\leqslant y\leqslant 1 \right\} $：
+\begin{align*}
+\iint\limits_D{f\left( x,y \right) d\sigma}&=\int_0^1{dy\int_y^{\sqrt{y}}{xydx}}=\int_0^1{dy\left[ \left. \frac{1}{2}x^2y \right|_{y}^{\sqrt{y}} \right]} =\frac{1}{24}
+\end{align*}
+
+~
+
+\begin{example}
+求由柱面$x^2+y^2=R^2$和$x^2+z^2=R^2$所围成的立体（称为牟合立方）的体积。
+\begin{figure}[ht]
+\centering
+\includegraphics[height=3.5cm]{8.3.png}
+\end{figure}
+\end{example}
+
+解：
+
+以计算第一卦限为例。
+该题可以理解成求一个均匀体的体积，可以用二重积分计算。
+横的柱面的{\it z}轴值可以理解为高，纵的柱面在{\it xOy}平面的区域可以理解为积分区域，得到被积函数和积分区域：
+\begin{align*}
+&z\left( x,y \right) =\sqrt{R^2-x^2} \\
+&D=\left\{ \left( x,y \right) \middle| 1\leqslant x\leqslant R,0\leqslant y\leqslant \sqrt{R^2-x^2} \right\}
+\end{align*}
+得到第一卦限部分的体积：
+\begin{align*}
+V&=\iint\limits_D{z\left( x,y \right) d\sigma}=\iint\limits_D{\sqrt{R^2-x^2}d\sigma} \\
+&=\int_0^R{dx\int_0^{\sqrt{R^2-x^2}}{\sqrt{R^2-x^2}dy}}=\int_0^R{\left( R^2-x^2 \right) dx}=\frac{2}{3}R^2
+\end{align*}
+
+%============================================================
+\subsection{二重积分的极坐标计算}
+
+极坐标$\left( r,\theta \right) $的计算，在数学上和直角坐标一样：
+\begin{align*}
+&\iint\limits_D{f\left( r,\theta \right) d\sigma} \\
+&D=\left\{ \left( r,\theta \right) \middle| \theta _1\leqslant \theta \leqslant \theta _2,r_1\left( \theta \right) \leqslant r\leqslant r_2\left( \theta \right) \right\}
+\end{align*}
+求解过程和直角坐标一样。
+但如果方程以直角坐标的形式的给出，需要转换到极坐标。
+这里，需要对变量进行变换以得到新的被积函数，还需要对$d\sigma $进行计算得到极坐标下的表达式。
+
+坐标变换：
+\[
+\begin{cases}
+	x=r\cos \theta\\
+	y=r\sin \theta\\
+\end{cases}
+\]
+微元$d\sigma $计算：
+\begin{align*}
+&\because \Delta \sigma =\frac{1}{2}\left( r+\Delta r \right) ^2\Delta \theta -\frac{1}{2}r^2\Delta \theta =r\Delta r\Delta \theta +\frac{1}{2}\Delta r^2\Delta \theta \\
+&\therefore d\sigma =r\cdot drd\theta
+\end{align*}
+所以，直角坐标和极坐标的转换公式为：
+\[
+\iint\limits_D{f\left( x,y \right) dxdy}=\iint\limits_D{\left[ f\left( r\cos \theta ,r\sin \theta \right) \cdot r \right] drd\theta}
+\]
+
+二重积分，无论在直角坐标下计算，还是极坐标下计算，计算过程是一样的——“切片+累加”。
+只是如果被积函数含有“弧状”（如$x^2+y^2$），极坐标下求解不定积分就会方便。
+
+~
+
+\begin{example}
+计算以半径$R$的圆形为底，$H$为高的圆柱体体积。
+\end{example}
+
+解：
+
+分析题干，相当于计算一个二重积分，被积函数恒为$H$，积分区域为一个圆，可假设该圆在圆心。
+根据对称性，只要计算第一象限即可。
+\[
+V=4\iint\limits_D{Hd\sigma}=4\iint\limits_D{Hdxdy}
+\]
+直角坐标下，这个不定积分难解，换到极坐标就好解了。
+将得到的式子转成极坐标求解：
+\begin{align*}
+V&=4\iint\limits_D{Hdxdy}=4\iint\limits_D{Hrdrd\theta}=4H\int_0^R{dr\int_0^{\pi /2}{rd\theta}} \\
+&=4H\int_0^R{\frac{1}{2}\pi rdr}=\pi R^2H
+\end{align*}
+注意，这里虽然积分区域$D$没变，但是在极坐标下的表达式变了：
+\begin{align*}
+&D\left\{ \left( x,y \right) \middle| 0\leqslant x\leqslant R,0\leqslant y\leqslant \sqrt{R^2-x^2} \right\} \\
+&\downarrow \\
+&D\left\{ \left( r,\theta \right) \middle| 0\leqslant \theta \leqslant \frac{\pi}{2},0\leqslant r\leqslant R \right\}
+\end{align*}
+
+
+
+

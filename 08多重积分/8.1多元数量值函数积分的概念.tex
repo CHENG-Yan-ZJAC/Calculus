@@ -1,0 +1,80 @@
+\section{多元数量值函数积分的概念}
+
+本节讨论多元数量积分的概念、性质、分类。
+
+本节要点：
+\begin{itemize}
+    \item 掌握数量积分的概念；
+    \item 掌握数量积分的性质。
+\end{itemize}
+
+%============================================================
+\subsection{多元数量值函数积分的概念}
+
+\begin{definition}[数量积分]
+假设$\varOmega $为一可度量的有界的封闭几何体，函数$f$是定义在$\varOmega $上的一个有界的数量值函数，将$\varOmega $任意划分为$n$个小部分，并用$\Delta \varOmega _i$表示每一个小部分的度量，在每一个小部分上任取一点$M_i$，作乘积后再作和式：
+\[
+\sum_{i=1}^n{\left[ f\left( M_i \right) \cdot \Delta \varOmega _i \right]}
+\]
+记$\lambda =\max \left\{ diameter \ of \ \Delta \varOmega _i \right\} $，如果不论对$\varOmega $如何划分，也不论点$M_i$在$\varOmega $中如何选取，若当$\lambda \rightarrow 0$时上述和式有极限且相等，则称{\bf 函数$f$在$\varOmega $上可积}，此极限值称为{\bf 多元数量值函数$f$在几何体$\varOmega $上的积分}，记作$\int_{\varOmega}{f\left( M \right) d\varOmega}$，即：
+\[
+\int\limits_{\varOmega}{f\left( M \right) d\varOmega}:=\underset{\lambda \rightarrow 0}{\lim}\sum_{i=1}^n{\left[ f\left( M_i \right) \cdot \Delta \varOmega _i \right]}
+\]
+其中：
+\begin{itemize}
+    \item $\varOmega $：{\bf 积分区域}，可以是二维、三维、甚至$n$维，并没有规定维度；
+    \item $f$：{\bf 被积函数}，是几何体$\varOmega $相应的维度的数量值函数，如果$\varOmega $是二维，则$f$是二元函数，如果$\varOmega $是三维，则$f$是三元函数。
+\end{itemize}
+\end{definition}
+
+数学上，数量积分依旧是“加权和”的概念，$d\varOmega $对应加权$f\left( M \right) $后，在$\varOmega $范围内的和。
+
+\begin{theorem}[存在性定理]
+如果函数$f$在有界闭几何体$\varOmega $上是连续的，则$f$在$\varOmega $上必可积。
+\end{theorem}
+
+%============================================================
+\subsection{多元数量值函数积分的性质和定理}
+
+线性性：
+\[
+\int\limits_{\varOmega}{\left[ af\left( M \right) +bg\left( M \right) \right] d\varOmega}=a\int\limits_{\varOmega}{f\left( M \right) d\varOmega}+b\int\limits_{\varOmega}{g\left( M \right) d\varOmega}
+\]
+
+区域可加性：
+\[
+\int\limits_{\varOmega}{f\left( M \right) d\varOmega}=\int\limits_{\varOmega _1}{f\left( M \right) d\varOmega}+\int\limits_{\varOmega _2}{f\left( M \right) d\varOmega}
+\]
+
+不等式性质：
+\[
+f\left( M \right) \leqslant g\left( M \right) \quad \Rightarrow \quad \int\limits_{\varOmega}{f\left( M \right) d\varOmega}\leqslant \int\limits_{\varOmega}{g\left( M \right) d\varOmega}
+\]
+
+~
+
+\begin{theorem}[估值定理]
+设$m,M$分别是$f$在闭几何体$\varOmega $上的最小值和最大值，则：
+\[
+m\int\limits_{\varOmega}{d\varOmega}\leqslant \int\limits_{\varOmega}{f\left( M \right) d\varOmega}\leqslant M\int\limits_{\varOmega}{d\varOmega}
+\]
+\end{theorem}
+
+\begin{theorem}[积分中值定理]
+设$f$在闭几何体$\varOmega $上连续，则存在$M_0\in \varOmega $，有：
+\[
+\int\limits_{\varOmega}{f\left( M \right) d\varOmega}=f\left( M_0 \right) \int\limits_{\varOmega}{d\varOmega}
+\]
+\end{theorem}
+
+\begin{theorem}[对称性定理]
+当积分域$\varOmega $关于$x$对称时，
+\begin{itemize}
+    \item 若$f$关于$x=0$为奇函数，则$\int_{\varOmega}{f\left( M \right) d\varOmega}=0$；
+    \item 若$f$关于$x=0$为偶函数，则$\int_{\varOmega}{f\left( M \right) d\varOmega}=2\int_{\varOmega '}{f\left( M \right) d\varOmega}$，其中$\varOmega '$为$\varOmega $ 位于$x<0$部分。
+\end{itemize}
+\end{theorem}
+
+
+
+

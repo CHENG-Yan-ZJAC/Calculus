@@ -1,0 +1,441 @@
+\section{扩展的假想}
+
+到上一节，多元函数积分学算是结束了。如果不考虑下篇的级数，整个微积分可以说是结束了。
+
+本节讨论一些有趣的话题，算是对微积分这个学习过程中一开始挖下的坑进行填补。
+当然，这个填坑是我假想的，并没有严格的数学证明。
+
+%============================================================
+\subsection{外积交换时符号的来源}
+
+矢量和微分都有内积和外积：
+\begin{align*}
+&\boldsymbol{a}^T\boldsymbol{b}=\boldsymbol{b}^T\boldsymbol{a} \\
+&\boldsymbol{a}\times \boldsymbol{b}=-\boldsymbol{b}\times \boldsymbol{a} \\
+&dxdy=dydx \\
+&dx\land dy=-dy\land dx
+\end{align*}
+“外积”交换时产生负号，是源于我们对外积的定义，还是外积的某种必然属性？
+
+首先考察矢量外积。
+由外积的定义发现，负号来源于矢量的方向性，确切来讲，是方向中的“正反性”。
+矢量是带有方向的量，这个方向中的“正反性”，体现在外积中就是交换公式中出现的负号。
+同样，微分外积的交换公式中的负号也是体现方向“正反性”的体现。
+切线有往前和往后之分，切面有上侧下侧（或者说左右侧、前后侧）之分，还是源于矢量的方向性。
+
+在物理上，这个正反性代表着积可以使某个量增大，或者减小，也即这个结果不是一个单一的数量，其作用效果也不是单方面的，而是有着两种截然相反的效果。
+数学上，方向的正反性源于一维坐标的正反性。
+如果一维坐标里，只有正方向这一个方向，那么最基本的数学运算里只能剩下加法，不会有减法。
+所以说，一维坐标的“负向”（或者说负数）是引入减法的必然结果。只有扩充了负向（也即负数），实数才能对减法封闭。
+
+顺着这个思路，实数加法也有“内外”之分，可以定义：
+\[
+a\oplus b=-b\oplus a
+\]
+其实，这就是减法，而且还满足：
+\[
+a\oplus a=0
+\]
+可见，对于带有方向的一维坐标来讲，有“内加”和“外加”，而减法，就可以说是“外加”。
+
+更进一步说，一物理量只要是矢量，必然有一种运算符合交换后出现负号这个要求，好比顺着不同的“方向”去做同一件事，会得到相反的结果。
+
+%============================================================
+\subsection{负数的矢量性和一维矢量}
+
+接着上面的讨论，负数是数量还是矢量？
+从数学的学习来看，负数是一个数量，因为它是实数。
+但根据上面的讨论，负数似乎带有一定的矢量概念，至少它有矢量的那种正反性。
+
+更深入的问题是二维矢量有没有外积？
+如果依照微积分中对外积的定义，二维矢量是没有外积的，因为这样的行列式是不存在的：
+\[
+\boldsymbol{a}\times \boldsymbol{b}=\left( \begin{array}{c}
+	x_{\boldsymbol{a}}\\
+	y_{\boldsymbol{a}}\\
+\end{array} \right) \times \left( \begin{array}{c}
+	x_{\boldsymbol{b}}\\
+	y_{\boldsymbol{b}}\\
+\end{array} \right) =\left| \begin{matrix}
+	\mathbf{i}&		\mathbf{j}\\
+	x_{\boldsymbol{a}}&		y_{\boldsymbol{a}}\\
+	x_{\boldsymbol{b}}&		y_{\boldsymbol{b}}\\
+\end{matrix} \right|
+\]
+虽然从线性代数的角度看二维矢量是有外积的：
+\[
+\boldsymbol{a}\times \boldsymbol{b}=\left( \begin{array}{c}
+	x_{\boldsymbol{a}}\\
+	y_{\boldsymbol{a}}\\
+\end{array} \right) \times \left( \begin{array}{c}
+	x_{\boldsymbol{b}}\\
+	y_{\boldsymbol{b}}\\
+\end{array} \right) =x_{\boldsymbol{a}}y_{\boldsymbol{b}}-y_{\boldsymbol{a}}x_{\boldsymbol{b}}
+\]
+从Green公式来看，它是Stokes公式的二维特例，那么Green公式右边出现的必然是二维矢量的旋度。
+从这点看来二维矢量的外积确实应该存在。
+再进一步的问题，一维有没有矢量？
+如果有，一维矢量的外积是什么？
+
+先看第二个问题，二维矢量的外积，因为这个问题是第一个问题的起源。
+Stokes公式的二维化：
+\begin{align*}
+&\oint\limits_L{\boldsymbol{f}^T\boldsymbol{dl}} \\
+&=\iint\limits_S{\left( \frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z} \right) dydz+\left( \frac{\partial P}{\partial z}-\frac{\partial R}{\partial x} \right) dzdx+\left( \frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y} \right) dxdy} \\
+&\begin{cases}
+	z\equiv 0,dz=0\\
+	R\left( x,y,z \right) \equiv 0,\frac{\partial R}{\partial x}=\frac{\partial R}{\partial y}=\frac{\partial R}{\partial z}=0\\
+\end{cases}
+\end{align*}
+于是：
+\[
+\oint\limits_L{\boldsymbol{f}^T\boldsymbol{dl}}=\iint\limits_S{\left( \frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y} \right) dxdy}
+\]
+这提醒我们，二维矢量外积的方法是虚拟一个{\it z}轴，并使之恒等于0。
+
+\begin{definition}[二维矢量外积]
+设二维矢量$\boldsymbol{a}=\left( x_{\boldsymbol{a}}\,\,y_{\boldsymbol{a}} \right) ^T,\boldsymbol{b}=\left( x_{\boldsymbol{b}}\,\,y_{\boldsymbol{b}}  \right) ^T$，令其对应的三维矢量$\boldsymbol{c}=\left( x_{\boldsymbol{a}}\,\,y_{\boldsymbol{a}}\,\,0  \right) ^T,\boldsymbol{d}=\left( x_{\boldsymbol{b}}\,\,y_{\boldsymbol{b}}\,\,0 \right) ^T$的外积
+\[
+\boldsymbol{c}\times \boldsymbol{d}=\left( \begin{array}{c}
+	x_{\boldsymbol{a}}\\
+	y_{\boldsymbol{a}}\\
+	0\\
+\end{array} \right) \times \left( \begin{array}{c}
+	x_{\boldsymbol{b}}\\
+	y_{\boldsymbol{b}}\\
+	0\\
+\end{array} \right) =\left| \begin{matrix}
+	\mathbf{i}&		\mathbf{j}&		\mathbf{k}\\
+	x_{\boldsymbol{a}}&		x_{\boldsymbol{b}}&		0\\
+	y_{\boldsymbol{a}}&		y_{\boldsymbol{b}}&		0\\
+\end{matrix} \right|=\left( \begin{array}{c}
+	0\\
+	0\\
+	x_{\boldsymbol{a}}y_{\boldsymbol{b}}-y_{\boldsymbol{a}}x_{\boldsymbol{b}}\\
+\end{array} \right)
+\]
+的$\mathbf{k}$分量$x_{\boldsymbol{a}}y_{\boldsymbol{b}}-y_{\boldsymbol{a}}x_{\boldsymbol{b}}$规定为{\bf 两个二维矢量$\boldsymbol{a},\boldsymbol{b}$的外积}，即
+\[
+\boldsymbol{a}\times \boldsymbol{b}=\left( \begin{array}{c}
+	x_{\boldsymbol{a}}\\
+	y_{\boldsymbol{a}}\\
+\end{array} \right) \times \left( \begin{array}{c}
+	x_{\boldsymbol{b}}\\
+	y_{\boldsymbol{b}}\\
+\end{array} \right) =x_{\boldsymbol{a}}y_{\boldsymbol{b}}-y_{\boldsymbol{a}}x_{\boldsymbol{b}}
+\]
+而且依然满足：
+\begin{align*}
+&\boldsymbol{a}\times \boldsymbol{b}=-\boldsymbol{b}\times \boldsymbol{a} \\
+&\boldsymbol{a}\times \left( \boldsymbol{b}+\boldsymbol{c} \right) =\boldsymbol{a}\times \boldsymbol{b}+\boldsymbol{a}\times \boldsymbol{c} \\
+&\boldsymbol{a}\times \boldsymbol{a}=0
+\end{align*}
+\end{definition}
+
+根据这个定义回头再看Green公式：
+\begin{align*}
+&\because \oint\limits_L{\boldsymbol{f}^T\mathbf{dl}}=\iint\limits_S{\left( \nabla \times \boldsymbol{f} \right) ^T\boldsymbol{ds}} \\
+&\because \begin{cases}
+	\nabla \times \boldsymbol{f}=\left( \begin{array}{c}
+	\frac{\partial}{\partial x}\\
+	\frac{\partial}{\partial y}\\
+\end{array} \right) \times \left( \begin{array}{c}
+	P\\
+	Q\\
+\end{array} \right) =\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\\
+	\boldsymbol{ds}=dxdy\\
+\end{cases} \\
+&\therefore \oint\limits_L{\boldsymbol{f}^T\mathbf{dl}}=\iint\limits_S{\left( \frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y} \right) dxdy}
+\end{align*}
+可见Stokes公式推导出Green公式非常自然。
+
+但随之而来的问题是，二维矢量的外积是矢量还是数量？
+如果承认了是数量就否认了矢量外积依然是矢量，如果承认了是矢量，那就承认数量也是矢量（即承认$x_{\boldsymbol{a}}y_{\boldsymbol{b}}-y_{\boldsymbol{a}}x_{\boldsymbol{b}}$是一个矢量）。
+这是“负数是数量还是矢量”这一问题的延续。
+也就是说，只要定义了二维矢量的外积，就必然要回答负数是数量还是矢量。
+为了不破坏旋度的完美性，我们决定承认二维矢量的外积是矢量，也即承认$x_{\boldsymbol{a}}y_{\boldsymbol{b}}-y_{\boldsymbol{a}}x_{\boldsymbol{b}}$是一个矢量。为此我们需要定义一维矢量。
+
+\begin{definition}[一维矢量]
+规定$\mathbb{R} $中的元素是{\bf 一维矢量}，采用矢量形式记为$\boldsymbol{a}$，大小为其绝对值$\left| \boldsymbol{a} \right|$，方向只取正负两个方向，并规定正方向是沿着x轴变大的方向，反方向是沿{\it x}轴变小的方向。
+同样借助扩展维度的方法规定{\bf 一维矢量的外积}：
+\[
+\boldsymbol{c}\times \boldsymbol{d}=\left( \begin{array}{c}
+	x_{\boldsymbol{a}}\\
+	0\\
+	0\\
+\end{array} \right) \times \left( \begin{array}{c}
+	x_{\boldsymbol{b}}\\
+	0\\
+	0\\
+\end{array} \right) =\left| \begin{matrix}
+	\mathbf{i}&		\mathbf{j}&		\mathbf{k}\\
+	x_{\boldsymbol{a}}&		0&		0\\
+	x_{\boldsymbol{b}}&		0&		0\\
+\end{matrix} \right|=\left( \begin{array}{c}
+	0\\
+	0\\
+	0\\
+\end{array} \right) =\mathbf{0}
+\]
+得到一维矢量的外积始终是0，而且依然满足外积的运算法则：
+\begin{align*}
+&\boldsymbol{a}\times \boldsymbol{b}=-\boldsymbol{b}\times \boldsymbol{a} \\
+&\boldsymbol{a}\times \left( \boldsymbol{b}+\boldsymbol{c} \right) =\boldsymbol{a}\times \boldsymbol{b}+\boldsymbol{a}\times \boldsymbol{c} \\
+&\boldsymbol{a}\times \boldsymbol{a}=0
+\end{align*}
+\end{definition}
+
+%============================================================
+\subsection{一维空间中的度}
+
+顺着上面的定义，将三个度的定义扩充到一维向量空间：
+\[
+\begin{cases}
+	f=f\left( x \right)\\
+	\boldsymbol{f}=\left( \begin{array}{c}
+	P\\
+	0\\
+	0\\
+\end{array} \right) =f\\
+\end{cases} \Rightarrow \quad \begin{cases}
+	\nabla f=\left( \frac{\partial f}{\partial x} \right) =\frac{df}{dx}\\
+	\nabla ^T\boldsymbol{f}=\frac{\partial P}{\partial x}=\frac{df}{dx}\\
+	\nabla \times \boldsymbol{f}=0\\
+\end{cases}
+\]
+一维矢量空间的梯度和散度是一个意思，都是一元函数的导数，几何上是切线的斜率，这个斜率可正可负。
+斜率值可以看成传统意义上的数量，此时相当于作散度；也可以继续看成一维矢量，此时相当于作梯度。
+
+\begin{tcolorbox}
+可以认为，一维空间中只有一个度——导数。
+或者说，一元函数中导数的概念对应了三维空间中向量值函数的三个度的概念。
+所以，在一元函数微积分中，对一个一元函数的考察除了导数就没有其他的方法了。
+\end{tcolorbox}
+
+我们在一维空间有了梯度、散度和旋度，我们用这些概念考察一维空间的Gauss公式和Stokes公式。
+
+先看Gauss公式：
+\[
+\oiint\limits_S{\boldsymbol{f}^T\boldsymbol{ds}}=\iiint\limits_V{\left( \nabla ^T\boldsymbol{f} \right) dv}
+\]
+在一维空间中：
+\begin{itemize}
+    \item $\iiint_V{\left( \frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z} \right) dv}$：对应$\int_L{\frac{\partial P}{\partial x}dx}$，其中$L:\left\{ x \middle| x\in \left[ a,b \right] \right\} ,\frac{\partial P}{\partial x}=f'\left( x \right) $，于是可以写为$\int_a^b{f'\left( x \right) dx}$；
+    \item $S$：对应区间的两个端点$a,b$；
+    \item $\oiint_S{\boldsymbol{f}^T\boldsymbol{ds}}$：表示在边界的通量，这里，边界只有$a,b$两个端点，于是有$\oiint_S{\boldsymbol{f}^T\boldsymbol{ds}}=\boldsymbol{f}\left( a \right) +\boldsymbol{f}\left( b \right) $，由于端点是左边端点，所以根据一维矢量的几何意义，有$\boldsymbol{f}\left( a \right) =-f\left( a \right) $，同样道理$\boldsymbol{f}\left( b \right) =f\left( b \right) $。
+\end{itemize}
+综合以上3点，我们可以得到一维空间中Gauss公式：
+\[
+f\left( b \right) -f\left( a \right) =\int_a^b{f'\left( x \right) dx}
+\]
+即牛顿莱布尼兹公式。
+
+再考察Stokes公式：
+\[
+\oint\limits_L{\boldsymbol{f}^T\boldsymbol{dl}}=\iint\limits_S{\left( \nabla \times \boldsymbol{f} \right) ^T\boldsymbol{ds}}
+\]
+左边的$L$为一元函数区间的一个来回，即$L:\left\{ x \middle| x\in \left[ a,b \right] \right\} \cup \left\{ x \middle| x\in \left[ b,a \right] \right\} $，即：
+\[
+\oint\limits_L{\boldsymbol{f}^T\boldsymbol{dl}}=\int_a^b{f\left( x \right) dx}+\int_b^a{f\left( x \right) dx}=0
+\]
+右边：
+\[
+\iint\limits_S{\left( \nabla \times \boldsymbol{f} \right) ^T\boldsymbol{ds}}=\iint\limits_S{\left( \left( \frac{\partial}{\partial x} \right) \times \left( P \right) \right) ^T\mathbf{ds}}=\iint\limits_S{\mathbf{0}^T\boldsymbol{ds}}=0
+\]
+Stokes公式依然成立。
+
+\begin{tcolorbox}
+可见，由于一维空间中三个度的退化，Green公式、Gauss公式、Stokes公式都将退化成牛顿莱布尼兹公式。
+\end{tcolorbox}
+
+%============================================================
+\subsection{再论散度和旋度的物理意义}
+
+根据之前的分析，我们可以进一步理解散度和旋度。
+设空间中有一个封闭区域，内部有一个源（或数个源），以某种方式形成一个矢量场，则这个矢量场对区域边界有两个作用：
+\begin{itemize}
+	\item “瞄着”区域边界的作用，造成边界膨胀的效果，就是散度要描述的；
+	\item “切着”区域边界的作用，造成区域自旋的效果，就是旋度要描述的。
+\end{itemize}
+
+如果这个源本身不带有自旋，可能对边界没有“切向”作用，如点电荷产生的电场。
+如果这个源本身在旋转，则可能对边界起到旋转作用。
+想象一个水桶，底部有一个漏点，桶里的水流入该漏点并绕着漏点发生旋转，水流场可以认为是一个矢量场。
+如果围着漏点，放置一根圆形的橡皮筋，则这根橡皮筋一方面受到水流冲击有缩小的趋势，另一方面会顺着涡流的旋转而旋转。
+这就是散度和旋度。
+如果这个水桶放在赤道上，则这个漏点不产生旋涡，就相当于一个没有自旋的矢量场。
+
+%============================================================
+\subsection{梯度散度旋度之外的度}
+
+梯度，散度，旋度：
+\begin{align*}
+&\mathbf{grad}f=\nabla f=\left( \frac{\partial f}{\partial x}\,\,\frac{\partial f}{\partial y}\,\,\frac{\partial f}{\partial z} \right) ^T \\
+&\mathrm{div}\boldsymbol{f}=\nabla ^T\boldsymbol{f}=\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z} \\
+&\mathbf{rot}\boldsymbol{f}=\nabla \times \boldsymbol{f}=\left| \begin{matrix}
+	\mathbf{i}&		\mathbf{j}&		\mathbf{k}\\
+	\frac{\partial}{\partial x}&		\frac{\partial}{\partial y}&		\frac{\partial}{\partial z}\\
+	P&		Q&		R\\
+\end{matrix} \right|=\left( \begin{array}{c}
+	\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\\
+	\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\\
+	\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\\
+\end{array} \right)
+\end{align*}
+
+0、一、二阶外微分形式的外微分算子运算：
+\begin{align*}
+&\begin{cases}
+	\omega =f\\
+	d\omega =\frac{\partial f}{\partial x}dx+\frac{\partial f}{\partial y}dy+\frac{\partial f}{\partial z}dz\\
+\end{cases} \\
+&\begin{cases}
+	\omega =Pdx+Qdy+Rdz\\
+	d\omega =\left( \frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z} \right) dy\land dz+\left( \frac{\partial P}{\partial z}-\frac{\partial R}{\partial x} \right) dz\land dx+\left( \frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y} \right) dx\land dy\\
+\end{cases} \\
+&\begin{cases}
+	\omega =Pdy\land dz+Qdz\land dx+Rdx\land dy\\
+	d\omega =\left( \frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z} \right) dx\land dy\land dz\\
+\end{cases}
+\end{align*}
+
+对比发现：
+\begin{itemize}
+    \item “0阶外微分形式的外微分算子运算”对应“梯度”；
+    \item “一阶外微分形式的外微分算子运算”对应“旋度”；
+    \item “二阶外微分形式的外微分算子运算”对应“散度”。
+\end{itemize}
+从外微分的角度看，三维空间不可能再产生其他的度，因为三阶外微分形式的外微分算子运算为0。
+或者从数量场和矢量场的相互转换的角度分析：
+\begin{itemize}
+    \item “数量场、矢量场”的运算：梯度；
+    \item “矢量场、数量场”的运算：散度；
+    \item “矢量场、矢量场”的运算：旋度；
+    \item “数量场、数量场”的运算：没有这样的运算，或类比三阶外微分形式的外微分算子运算为0，即得到的数量场处处为0。
+\end{itemize}
+从两类场的转化角度看，也不可能有其他的度了。
+
+\begin{tcolorbox}
+更严格地讲，是三维矢量（即一阶张量）限制了度的产生，如果考察更多维的空间，或者即便在三维空间中，放开对张量的一阶限制，应该会产生额外的度。
+\end{tcolorbox}
+
+%============================================================
+\subsection{Gauss公式和数量守恒}
+
+Gauss公式结合麦克斯韦方程可以写为：
+\[
+\begin{cases}
+	\oiint_S{\boldsymbol{f}^T\boldsymbol{ds}}=\iiint\limits_V{\left( \nabla ^T\boldsymbol{f} \right) dv}\\
+	\oiint_S{\boldsymbol{E}^T\boldsymbol{ds}}=\frac{q}{\varepsilon _0}\\
+	\nabla ^T\boldsymbol{E}=\frac{\rho}{\varepsilon _0\varepsilon _r}\\
+\end{cases} \Rightarrow \quad \oiint\limits_S{\boldsymbol{E}^T\boldsymbol{ds}}=\varepsilon _r\iiint\limits_V{\left( \nabla ^T\boldsymbol{E} \right) \cdot dv}=\frac{q}{\varepsilon _0}
+\]
+从麦克斯韦的电场方程来看，Gauss公式的左边的矢量场表示电场，右边的矢量场的散度表示电荷密度。
+
+\begin{tcolorbox}
+{\bf 数量场守恒猜想}：如果一个矢量场及其散度满足Gauss公式描述的相互关系，则其散度所指的那个数量场必守恒。这就是Gauss公式的数量守恒猜想。
+\end{tcolorbox}
+
+%============================================================
+\subsection{矢量内积和数量守恒}
+
+上面讨论了Gauss公式和数量守恒。
+其实矢量的内积运算，就其目的来说，最终是为了引出Gauss公式。
+公式里两个地方用到了内积，左边的矢量场和有向面积微元的内积，右边有向微分算子和矢量场的内积。
+
+如果说Gauss公式体现了数量场守恒，则是通过矢量的内积运算表示这个守恒律。
+所以，矢量的内积运算是数量守恒的必然结果。
+也就是如果你相信数量守恒，则在数学上必须定义一种矢量之间的运算表示为：
+\[
+\boldsymbol{a}^T\boldsymbol{b}=x_{\boldsymbol{a}}x_{\boldsymbol{b}}+y_{\boldsymbol{a}}y_{\boldsymbol{b}}+z_{\boldsymbol{a}}z_{\boldsymbol{b}}
+\]
+至于称为“点积”、“内积”还是张三李四积都可以。
+或者说，如果你穿越到了某个平行宇宙，发现那边也有矢量，但是很奇怪：
+\[
+\boldsymbol{a}^T\boldsymbol{b}\ne x_{\boldsymbol{a}}x_{\boldsymbol{b}}+y_{\boldsymbol{a}}y_{\boldsymbol{b}}+z_{\boldsymbol{a}}z_{\boldsymbol{b}}
+\]
+这就说明那个平行宇宙不遵循数量场守恒。
+
+%============================================================
+\subsection{Stokes公式和矢量守恒}
+
+麦克斯韦方程左边是表示电场的环流效果，代表在一个环形上正在产生（或消耗）电能，右边对应着表示磁场的变化，代表磁能的减弱（或增强），结合Stokes公式可写成：
+\[
+\begin{cases}
+	\oint_L{\boldsymbol{f}^T\boldsymbol{dl}}=\iint\limits_S{\left( \nabla \times \boldsymbol{f} \right) ^T\boldsymbol{ds}}\\
+	\oint_L{\boldsymbol{E}^T\boldsymbol{dl}}=-\iint\limits_S{\left( \frac{\partial \boldsymbol{B}}{\partial t} \right) ^T\boldsymbol{ds}}\\
+	\nabla \times \boldsymbol{E}=-\frac{\partial \boldsymbol{B}}{\partial t}\\
+\end{cases} \Rightarrow \quad \oint\limits_L{\boldsymbol{E}^T\boldsymbol{dl}}=\iint\limits_S{\left( \nabla \times \boldsymbol{E} \right) ^T\boldsymbol{ds}}
+\]
+表示如果一个矢量场能造成一个涡流场（即环流量不为0的矢量场），则矢量场损失的量必然是涡流场的量。
+
+\begin{tcolorbox}
+{\bf 矢量场守恒猜想}：如果一个矢量场及其旋度满足Stokes公式描述的关系，则这两个矢量场构成守恒关系。
+这就是Stokes公式的矢量守恒猜想。
+\end{tcolorbox}
+
+%============================================================
+\subsection{矢量外积和矢量守恒}
+
+读任何一本微积分的书，你会发现，矢量外积就是给Stokes公式准备的。
+从外积的定义开始，到讲述Stokes公式或者旋度之前，就没说起过外积。
+Stokes中旋度表示一个守恒的矢量场。
+
+和矢量内积一样，我们同样也可以认为，矢量外积是矢量守恒的必然结果。
+如果你相信矢量守恒，则必须定义：
+\[
+\boldsymbol{a}\times \boldsymbol{b}=\left( \begin{array}{c}
+	x_{\boldsymbol{a}}\\
+	y_{\boldsymbol{a}}\\
+	z_{\boldsymbol{a}}\\
+\end{array} \right) \times \left( \begin{array}{c}
+	x_{\boldsymbol{b}}\\
+	y_{\boldsymbol{b}}\\
+	z_{\boldsymbol{b}}\\
+\end{array} \right) =\left| \begin{matrix}
+	\mathbf{i}&		\mathbf{j}&		\mathbf{k}\\
+	x_{\boldsymbol{a}}&		y_{\boldsymbol{a}}&		z_{\boldsymbol{a}}\\
+	x_{\boldsymbol{b}}&		y_{\boldsymbol{b}}&		z_{\boldsymbol{b}}\\
+\end{matrix} \right|=\left( \begin{array}{c}
+	y_{\boldsymbol{a}}z_{\boldsymbol{b}}-z_{\boldsymbol{a}}y_{\boldsymbol{b}}\\
+	z_{\boldsymbol{a}}x_{\boldsymbol{b}}-x_{\boldsymbol{a}}z_{\boldsymbol{b}}\\
+	x_{\boldsymbol{a}}y_{\boldsymbol{b}}-y_{\boldsymbol{a}}x_{\boldsymbol{b}}\\
+\end{array} \right)
+\]
+同样，如果某个平行宇宙矢量外积不是这个样子，这就说明那个平行宇宙不遵循矢量场守恒。
+
+\begin{tcolorbox}
+或者更大胆一点，矢量的内积和外积是不是三维一阶张量的必然结果？
+\end{tcolorbox}
+
+%============================================================
+\subsection{守恒和超距作用}
+
+上面讨论了数量场和矢量场的守恒。
+一个场的增减，必然会在另一处有相反的增减，或者在其区域边界体现出来。
+那么这种守恒，或者变化的空间传递，能够超距作用，还是需要时间传播。
+
+从Gauss公式出发：
+\[
+\oiint\limits_S{\boldsymbol{f}^T\boldsymbol{ds}}=\iiint\limits_V{\left( \nabla ^T\boldsymbol{f} \right) dv}
+\]
+空间里，区域$V$中的一个源（$\nabla ^T\boldsymbol{f}$）无论是不是在另一个区域中产生对应的源，都会在该区域$V$边界$S$产生效应$\oiint_S{\boldsymbol{f}^T\boldsymbol{ds}}$。
+这个效应跟能不能，或者需不需要考虑，产生相对应的源没有关系。
+或者说，无论区域$V$中的源要不要在另一个区域产生对应源，都会经过边界$S$。
+基于这点，我们可以认为，超距作用，至少对于守恒的数量场是不存在的。
+同样分析可以认为，超距作用对于守恒的矢量场也是不存在的。
+
+从Stokes公式的角度看：
+\[
+\oint\limits_L{\boldsymbol{f}^T\boldsymbol{dl}}=\iint\limits_S{\left( \nabla \times \boldsymbol{f} \right) ^T\boldsymbol{ds}}
+\]
+如果既要承认超距作用又要矢量守恒，则矢量场必然会发生突变。
+相当于磁场$\boldsymbol{B}$在时间上会出现间断点，即在那个时间点$\frac{\partial \boldsymbol{B}}{\partial t}$不存在。
+所以如果你既要承认超距作用又要矢量守恒，则从Stokes公式来讲，必然有一个矢量场不是光滑的。
+
+综合来讲，如果一个物理量守恒，它就不可能具有超距属性。
+或者说，这个宇宙中，“守恒”和“超距”，你只能选择其一。
+
+
+
+

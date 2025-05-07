@@ -1,0 +1,93 @@
+\section{正项级数}
+
+本节介绍正项级数。
+
+本节要点：
+\begin{itemize}
+    \item 了解正项级数的概念；
+    \item 掌握正项级数敛散性的判断。
+\end{itemize}
+
+%============================================================
+\subsection{正项级数的概念}
+
+\begin{definition}[正项级数]
+称$u_n\geqslant 0$的级数为{\bf 正项级数}。
+\end{definition}
+
+%============================================================
+\subsection{正项级数的定理}
+
+\begin{theorem}
+正项级数$\sum_{n=1}^{\infty}{u_n}$收敛$\Leftrightarrow $部分和数列$\left\{ S_n \right\} $有界，且这个界就是级数和。
+\end{theorem}
+
+\begin{theorem}[达朗贝尔判别法]
+若正项级数有$\underset{n\rightarrow \infty}{\lim}\frac{u_{n+1}}{u_n}=\rho <1$，则级数收敛，若$\rho >1$，则级数发散，若$\rho =1$，则级数敛散性不定。
+\end{theorem}
+
+该定理描述的级数就是等比数列。
+
+\begin{theorem}[柯西判别法]
+若正项级数有$\underset{n\rightarrow \infty}{\lim}\sqrt[n]{u_n}=\rho <1$，则级数收敛，若$\rho >1$，则级数发散，若$\rho =1$，则级数敛散性不定。
+\end{theorem}
+
+\begin{theorem} \label{th_12_2_1}
+设两个正项级数$\sum_{n=1}^{\infty}{u_n},\sum_{n=1}^{\infty}{v_n}$，若对应的一般项$u_n\leqslant v_n$，则：$\sum_{n=1}^{\infty}{v_n}$收敛$\Rightarrow \sum_{n=1}^{\infty}{u_n}$收敛，$\sum_{n=1}^{\infty}{u_n}$发散$\Rightarrow \sum_{n=1}^{\infty}{v_n}$发散。
+\end{theorem}
+
+\begin{theorem} \label{th_12_2_2}
+设两个正项级数$\sum_{n=1}^{\infty}{u_n},\sum_{n=1}^{\infty}{v_n}$，若对应的一般项有极限$\underset{n\rightarrow \infty}{\lim}\frac{u_n}{v_n}=C\ne 0$且为一固定常数，则两个级数的敛散性一致，即若两级数的一般项的变化规则相同，则具有一致的敛散性。
+\end{theorem}
+
+由于正项级数不会出现“正负振荡”，所以归根结底就是考察一般项。
+达朗贝尔（比值）判别法和柯西（根值）判别法是通过考察级数自身一般项判断级数的敛散性。
+定理\ref{th_12_2_1}、\ref{th_12_2_2}是通过与一个已知敛散性的级数对比一般项判断原级数的敛散性。
+
+%============================================================
+\subsection{例}
+
+\begin{example}
+判断p级数$\sum_{n=1}^{\infty}{\frac{1}{n^p}}$。
+\end{example}
+
+解：
+
+当$p\leqslant 1$时，一般项$\frac{1}{n^p}\geqslant \frac{1}{n}$，加之调和级数发散，所以原级数发散。
+当$p>1$时：
+\begin{align*}
+&\because \frac{1}{n^p}\leqslant \frac{1}{x^p} \quad x\in \left[ n-1,n \right] \\
+&\therefore \frac{1}{n^p}=\int_{n-1}^n{\frac{1}{n^p}dx}\leqslant \int_{n-1}^n{\frac{1}{x^p}dx}=\frac{1}{p-1}\left[ \frac{1}{\left( n-1 \right) ^{p-1}}-\frac{1}{n^{p-1}} \right]
+\end{align*}
+考察级数：
+\begin{align*}
+S=\sum_{n=1}^{\infty}{\frac{1}{p-1}\left[ \frac{1}{\left( n-1 \right) ^{p-1}}-\frac{1}{n^{p-1}} \right]}=\underset{n\rightarrow \infty}{\lim}\frac{1}{p-1}\left( 1-\frac{1}{n^{p-1}} \right) =\frac{1}{p-1}
+\end{align*}
+所以，当$p>1$时原级数收敛。
+综上所述，$p$级数$p>1$时收敛，$p\leqslant 1$时发散。
+更一般地，级数：
+\[
+\sum_{n=1}^{\infty}{\frac{1}{\left( a+bn \right) ^p}} \qquad a>0,b>0
+\]
+$p>1$时收敛，$p\leqslant 1$时发散。
+
+~
+
+\begin{example}
+判断级数$\sum_{n=1}^{\infty}{\frac{1}{\sqrt{n\left( n+1 \right)}}}$。
+\end{example}
+
+解：
+\begin{align*}
+&\because n^2<n\left( n+1 \right) <\left( n+1 \right) ^2 \\
+&\therefore \frac{1}{n+1}<\frac{1}{\sqrt{n\left( n+1 \right)}}<\frac{1}{n}
+\end{align*}
+虽然好于调和级数，但还是发散。
+注意，该级数不能用达朗贝尔判别法：
+\[
+\underset{n\rightarrow \infty}{\lim}\frac{\sqrt{n\left( n+1 \right)}}{\sqrt{\left( n+1 \right) \left( n+2 \right)}}=1
+\]
+
+
+
+

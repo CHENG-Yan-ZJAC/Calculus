@@ -1,0 +1,73 @@
+\section{习题}
+
+\begin{exercise}
+已知球面$x^2+y^2+z^2=R^2$，求包含在柱面$x^2+y^2=Rx$中的部分的面积。
+\end{exercise}
+
+解：
+
+基本思路是求解一个区域内曲面的面积。
+由于对称性，只计算第一卦限。
+首先分析积分区域，得：
+\[
+S=\left\{ \left( x,y,z \right) \middle| 0\leqslant x\leqslant R,0\leqslant y\leqslant \sqrt{Rx-x^2},z=\sqrt{R^2-x^2-y^2} \right\}
+\]
+于是面积：
+\begin{align*}
+&A=4\iint\limits_S{ds}=4\iint\limits_D{\sqrt{1+{z_x}^2+{z_y}^2}dxdy}=4R\iint\limits_D{\frac{1}{\sqrt{R^2-x^2-y^2}}dxdy} \\
+&D=\left\{ \left( x,y \right) \middle| 0\leqslant x\leqslant R,0\leqslant y\leqslant \sqrt{Rx-x^2} \right\}
+\end{align*}
+为计算简单，化为极坐标：
+\begin{align*}
+&A=4R\iint\limits_D{\frac{r}{\sqrt{R^2-r^2}}drd\theta} \\
+&D=\left\{ \left( r,\theta \right) \middle| 0\leqslant \theta \leqslant \frac{\pi}{2},0\leqslant r\leqslant R\cos \theta \right\}
+\end{align*}
+解得：
+\begin{align*}
+A&=4R\int_0^{\frac{\pi}{2}}{d\theta \int_0^{R\cos \theta}{\frac{r}{\sqrt{R^2-r^2}}dr}} \\
+&=4R\int_0^{\frac{\pi}{2}}{\left( R-R\sin \theta \right) d\theta}=\left( 2\pi -4 \right) R^2
+\end{align*}
+
+
+~
+
+\begin{exercise}
+设有流速场$\boldsymbol{v}\left( \boldsymbol{p} \right) =\left( x\,\,y\,\,z \right) $，求通过曲面$S:x^2+y^2+z^2=R^2,z\geqslant 0$的流量。
+\end{exercise}
+
+解：
+
+曲面是一个位于原点的球形的上半部分。
+大致思路就是构建第二类曲面积分方程，主要是被积函数和积分曲面，然后求解。
+
+首先构建积分方程：
+\[
+\varPhi =\iint\limits_S{\boldsymbol{v}^T\boldsymbol{ds}}=\iint\limits_S{\left( \begin{array}{c}
+	x\\
+	y\\
+	z\\
+\end{array} \right) ^T\left( \begin{array}{c}
+	-z_x\\
+	-z_y\\
+	1\\
+\end{array} \right) dxdy}=\iint\limits_S{\left( -xz_x-yz_y+z \right) dxdy}
+\]
+求解$z_x,z_y$，需要用到隐函数偏导方法，构建隐函数$F\left( x,y,z \right) =x^2+y^2+z^2-R^2$：
+\begin{align*}
+&z_x=-\frac{F_x}{F_z}=-\frac{x}{z} \\
+&z_y=-\frac{F_y}{F_z}=-\frac{y}{z}
+\end{align*}
+代入得：
+\begin{align*}
+&\varPhi =\iint\limits_S{\left( \frac{x^2}{z}+\frac{y^2}{z}+z \right) dxdy}=\iint\limits_S{\frac{R^2}{z}dxdy}=\iint\limits_D{\frac{R^2}{\sqrt{R^2-x^2-y^2}}dxdy} \\
+&D=\left\{ \left( x,y \right) \middle| -R\leqslant x\leqslant R,-\sqrt{R^2-x^2}\leqslant y\leqslant \sqrt{R^2-x^2} \right\}
+\end{align*}
+转换到极坐标求解：
+\begin{align*}
+\varPhi &=\iint\limits_D{\frac{R^2}{\sqrt{R^2-r^2}}rdrd\theta}=R^2\int_0^{2\pi}{d\theta \int_0^R{\frac{r}{\sqrt{R^2-r^2}}dr}} \\
+&=R^2\int_0^{2\pi}{Rd\theta}=2\pi R^3
+\end{align*}
+
+
+
+

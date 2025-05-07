@@ -1,0 +1,83 @@
+\section{傅里叶级数的复数形式}
+
+本节讨论傅里叶级数的另一种形式，复数形式。
+
+本节要点：
+\begin{itemize}
+    \item 理解复数级数的概念；
+    \item 了解通过欧拉公式的转换过程；
+    \item 理解复数级数的数学意义。
+\end{itemize}
+
+%============================================================
+\subsection{傅里叶复数级数的概念}
+
+利用欧拉公式，可以联系傅里叶级数的三角形式和复数形式：
+\begin{align*}
+&e^{ix}=\cos x+i\sin x \\
+&e^{-ix}=\cos x-i\sin x
+\end{align*}
+三角展开如下：
+\begin{align*}
+&f\left( x \right) =a_0+\sum_{n=1}^{\infty}{a_n\cos nx}+\sum_{n=1}^{\infty}{b_n\sin nx} \qquad x\in \left[ -\pi ,\pi \right] \\
+&\begin{cases}
+	a_0=\frac{1}{2\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot 1 \right] \cdot dx}\\
+	a_n=\frac{1}{\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot \cos nx \right] \cdot dx}\\
+	b_n=\frac{1}{\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot \sin nx \right] \cdot dx}\\
+\end{cases} \quad n=1,2,\cdots
+\end{align*}
+将傅里叶展开里的三角函数化成指数函数：
+\begin{align*}
+f\left( x \right) &=a_0+\sum_{n=1}^{+\infty}{\left( a_n\cos nx+b_n\sin nx \right)} \qquad x\in \left[ -\pi ,\pi \right] \\
+&=a_0+\sum_{n=1}^{+\infty}{\left[ a_n\frac{e^{inx}+e^{-inx}}{2}+b_n\frac{-i\left( e^{inx}-e^{-inx} \right)}{2} \right]} \\
+&=a_0+\sum_{n=1}^{+\infty}{\left( \frac{a_n-ib_n}{2}e^{inx}+\frac{a_n+ib_n}{2}e^{-inx} \right)}
+\end{align*}
+记：
+\begin{align*}
+&\left\{ \begin{aligned}
+	c_0&=a_0=\frac{1}{2\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot 1 \right] \cdot dx}\\
+	c_n&=\frac{a_n-ib_n}{2}=\frac{1}{2\pi}\int_{-\pi}^{\pi}{f\left( x \right) \cdot \left( \cos nx-i\sin nx \right) \cdot dx}\\
+	&=\frac{1}{2\pi}\int_{-\pi}^{\pi}{f\left( x \right) \cdot e^{-inx}\cdot dx}\\
+	c_{-n}&=\frac{a_n+ib_n}{2}=\frac{1}{2\pi}\int_{-\pi}^{\pi}{f\left( x \right) \cdot \left( \cos nx+i\sin nx \right) \cdot dx}\\
+	&=\frac{1}{2\pi}\int_{-\pi}^{\pi}{f\left( x \right) \cdot e^{inx}\cdot dx}\\
+\end{aligned} \right. \\
+&n=1,2,\cdots
+\end{align*}
+则可以写成：
+\begin{align*}
+&f\left( x \right) =c_0+\sum_{n=1}^{+\infty}{\left( c_ne^{inx}+c_{-n}e^{-inx} \right)}=\sum_{n=-\infty}^{+\infty}{c_ne^{inx}} \quad x\in \left[ -\pi ,\pi \right] \\
+&c_n=\frac{1}{2\pi}\int_{-\pi}^{\pi}{f\left( x \right) \cdot e^{-inx}\cdot dx} \qquad \qquad \qquad \qquad \qquad \quad n=1,2,\cdots
+\end{align*}
+
+\begin{definition}[傅里叶复数级数]
+若周期函数$f\left( x \right) $满足狄利克雷收敛条件，则函数在$\left[ -\pi ,\pi \right] $上可以展开为复指数级数，且该级数收敛于$f\left( x \right) $，即：
+\begin{align*}
+&f\left( x \right) =\sum_{n=-\infty}^{+\infty}{c_ne^{inx}} \qquad \qquad \quad x\in \left[ -\pi ,\pi \right] \\
+&c_n=\frac{1}{2\pi}\int_{-\pi}^{\pi}{f\left( x \right) \cdot e^{-inx}\cdot dx} \quad n=0,\pm 1,\pm 2,\cdots
+\end{align*}
+该展开式称为{\bf $f\left( x \right) $的傅里叶级数的复数形式}，$c_n$称为{\bf 傅里叶系数的复数形式}。
+\end{definition}
+
+%============================================================
+\subsection{傅里叶复数级数的向量空间意义}
+
+从线性代数的角度看，傅里叶级数的复数形式的本质依然是空间变换，将原本在实数$x$空间的函数映射到虚数$c_n$空间。
+\begin{align*}
+&c_n=\frac{1}{2\pi}\int_{-\pi}^{\pi}{f\left( x \right) e^{-inx}\cdot dx} \\
+f\left( x \right) \gets &------------\rightarrow c_n
+\end{align*}
+其中狄利克雷充分条件保证了哪些函数可以变换。
+寻找变换的过程就是求解傅里叶系数$c_n$，在线性代数角度看，就是求解一个非常“稠密的”线性方程组。
+
+%============================================================
+\subsection{任意周期的傅里叶复数级数}
+
+同样，若考虑任意周期$T$，则有：
+\begin{align*}
+&f\left( x \right) =\sum_{n=-\infty}^{+\infty}{c_ne^{i\frac{2n\pi}{T}x}} \qquad \qquad \quad x\in \left[ -\frac{T}{2},\frac{T}{2} \right] \\
+&c_n=\frac{1}{T}\int_{-T/2}^{T/2}{f\left( x \right) \cdot e^{-i\frac{2n\pi}{T}x}\cdot dx} \quad n=0,\pm 1,\pm 2,\cdots
+\end{align*}
+
+
+
+

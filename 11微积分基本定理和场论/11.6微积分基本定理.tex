@@ -1,0 +1,142 @@
+\section{微积分基本定理}
+
+本节在纯数学的抽象上讨论Gauss公式和Stokes公式的意义。
+首先引入微分的外积、外微分形式和外微分算子，将两个公式进行外微分化，得到微积分基本定理的统一公式。
+最后在外微分的角度重新考察一下三个度。
+
+本节要点：
+\begin{itemize}
+    \item 了解微分外积的概念；
+    \item 了解外微分形式的概念；
+    \item 了解统一公式。
+\end{itemize}
+
+%============================================================
+\subsection{微分的外积}
+
+在一元积分中，有方向的概念，即$\int_a^b{fdx}=-\int_b^a{fdx}$。
+在第二类曲线积分和第二类曲面积分中，也有方向的概念。
+第二类曲线积分中的方向是曲线的切线的方向，第二类曲面积分中的方向是曲面的切平面的法方向。
+但公式中的如$dxdy$本身不承担方向的正负性，即$dxdy=dydx$。
+方向及其正反性都由切线和切平面决定。
+讨论微积分基本定理、挖掘三个公式的共同点时，需要把这个方向的“正反性”让$dxdy$承担，即我们需要定义一个概念，或者说一个运算规则，使得$dx\bigcirc dy=-dy\bigcirc dx$。
+
+\begin{definition}[微分外积]
+规定一种微分的乘法运算，记为$\land $，使得：
+\begin{itemize}
+    \item $dx\land dy=-dy\land dx$
+    \item $dx\land dx=0$
+\end{itemize}
+满足这两条的微分乘法称为{\bf 微分的外积}。同时称$dxdy$为{\bf 微分的内积}。
+\end{definition}
+
+\begin{tcolorbox}
+微分的内积和外积，可以类比于矢量的内积和外积。
+\end{tcolorbox}
+
+%============================================================
+\subsection{外微分形式}
+
+\begin{definition}[外微分形式]
+设$P,Q,R$均为定义在三维空间的三元数量值函数，且在三维空间的某区域$V$内可微，我们定义如下概念。
+
+称它们各自对三个坐标轴微分的积的代数和为{\bf $V$上的一个一阶外微分形式}，记为$\omega $，即：
+\[
+\omega =Pdx+Qdy+Rdz
+\]
+$P,Q,R$称为这个{\bf 一阶外微分形式$\omega $的系数}。
+
+称它们各自对三个坐标平面的外积微分的积的代数和为{\bf $V$上的一个二阶外微分形式}，同样可以记为$\omega $，即：
+\[
+\omega =Pdy\land dz+Qdz\land dx+Rdx\land dy
+\]
+$P,Q,R$称为这个{\bf 二阶外微分形式$\omega $的系数}。
+
+设$f$在三维空间$V$内可微，则称它对$V$上的外积形式的体积微元为{\bf $V$上的一个三阶外微分形式}，记为$\omega $，即：
+\[
+\omega =fdx\land dy\land dz
+\]
+$f$称为这个{\bf 三阶外微分形式$\omega $的系数}。
+
+特别地，我们称这个可微函数$f$本身为{\bf $V$上的一个零阶外微分形式}。
+
+\end{definition}
+
+%============================================================
+\subsection{外微分算子}
+
+对外微分形式$\omega $定义外微分算子$d$。
+
+对于零阶外微分形式，即函数$f$本身，外微分算子为$f$的全微分：
+\[
+d\omega =df=\frac{\partial f}{\partial x}dx+\frac{\partial f}{\partial y}dy+\frac{\partial f}{\partial z}dz
+\]
+
+对于一阶外微分形式$\omega =Pdx+Qdy+Rdz$，外微分算子为：
+\begin{align*}
+&d\omega =dP\land dx+dQ\land dy+dR\land dz \\
+&\because \left\{ \begin{aligned}
+	dP\land dx&=\left( \frac{\partial P}{\partial x}dx+\frac{\partial P}{\partial y}dy+\frac{\partial P}{\partial z}dz \right) \land dx\\
+	&=\frac{\partial P}{\partial y}dy\land dx+\frac{\partial P}{\partial z}dz\land dx\\
+	dQ\land dy&=\left( \frac{\partial Q}{\partial x}dx+\frac{\partial Q}{\partial y}dy+\frac{\partial Q}{\partial z}dz \right) \land dy\\
+	&=\frac{\partial Q}{\partial x}dx\land dy+\frac{\partial Q}{\partial z}dz\land dy\\
+	dR\land dz&=\left( \frac{\partial R}{\partial x}dx+\frac{\partial R}{\partial y}dy+\frac{\partial R}{\partial z}dz \right) \land dz\\
+	&=\frac{\partial R}{\partial x}dx\land dz+\frac{\partial R}{\partial y}dy\land dz\\
+\end{aligned} \right. \\
+&\therefore d\omega =\left( \frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z} \right) dy\land dz+\left( \frac{\partial P}{\partial z}-\frac{\partial R}{\partial x} \right) dz\land dx \\
+& \qquad \qquad +\left( \frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y} \right) dx\land dy
+\end{align*}
+
+对于二阶外微分形式$\omega =Pdy\land dz+Qdz\land dx+Rdx\land dy$，外微分算子为：
+\begin{align*}
+&d\omega =dP\land dy\land dz+dQ\land dz\land dx+dR\land dx\land dy \\
+&\because \left\{ \begin{aligned}
+	dP\land dy\land dz&=\left( \frac{\partial P}{\partial x}dx+\frac{\partial P}{\partial y}dy+\frac{\partial P}{\partial z}dz \right) \land dy\land dz\\
+	&=\frac{\partial P}{\partial y}\land dx\land dy\land dz\\
+	dQ\land dz\land dx&=\left( \frac{\partial Q}{\partial x}dx+\frac{\partial Q}{\partial y}dy+\frac{\partial Q}{\partial z}dz \right) \land dz\land dx\\
+	&=\frac{\partial Q}{\partial y}dx\land dy\land dz\\
+	dR\land dx\land dy&=\left( \frac{\partial R}{\partial x}dx+\frac{\partial R}{\partial y}dy+\frac{\partial R}{\partial z}dz \right) \land dx\land dy\\
+	&=\frac{\partial R}{\partial z}dx\land dy\land dz\\
+\end{aligned} \right. \\
+&\therefore d\omega =\left( \frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z} \right) dx\land dy\land dz
+\end{align*}
+
+对于三阶外微分形式$\omega =fdx\land dy\land dz$，外微分算子为：
+\begin{align*}
+&d\omega =dfdx\land dy\land dz \\
+&\because df=\frac{\partial f}{\partial x}dx+\frac{\partial f}{\partial y}dy+\frac{\partial f}{\partial z}dz \\
+&\therefore d\omega =\left( \frac{\partial f}{\partial x}dx+\frac{\partial f}{\partial y}dy+\frac{\partial f}{\partial z}dz \right) \land dx\land dy\land dz=0
+\end{align*}
+
+%============================================================
+\subsection{统一公式}
+
+将Gauss公式和Stokes公式写成外微分形式：
+\begin{align*}
+&\oiint\limits_S{Pdy\land dz+Qdz\land dx+Rdx\land dy} \\
+& \qquad \qquad \qquad \qquad =\iiint\limits_V{\left( \frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z} \right) dx\land dy\land dz} \\
+&\oint\limits_L{Pdx+Qdy+Rdz}=\iint\limits_S{\left( \frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z} \right) dy\land dz+\left( \frac{\partial P}{\partial z}-\frac{\partial R}{\partial x} \right) dz\land dx} \\
+& \qquad \qquad \qquad \qquad +\left( \frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y} \right) dx\land dy
+\end{align*}
+进一步采用外微分算子可以写成：
+\begin{align*}
+&\oiint\limits_S{\omega}=\iiint\limits_V{d\omega} \\
+&\oint\limits_L{\omega}=\iint\limits_S{d\omega}
+\end{align*}
+Gauss公式和Stokes公式有共同点，左边是对外微分形式在区域边界的积分，右边是对其外微分算子在该区域的积分。
+
+\begin{theorem}[微积分基本定理的统一公式]
+设某$n$维空间内有一封闭区域$\varOmega $，$\varOmega $上有$n$阶外微分形式$\omega $满足其系数为定义在$\varOmega $上的可微数量值函数，$\omega $对应有外微分算子$d\omega $，有：
+\[
+\oint\limits_{d\varOmega}{\omega}=\iint\limits_{\varOmega}{d\omega}
+\]
+\end{theorem}
+
+统一公式说明，如果空间中有一个光滑场，则其在对考察区域的边界的作用（即方程的左边），等于该场的源在该区域内的累积（即方程的右边）。
+从纯粹公式来看，并不刻意区分场和源的先后问题。
+从右向左看，说明源导致一个场；但从左向右看，场必然汇到一个源。
+考虑一个球体，电磁场流入球体表面，则必然在内部形成一个负电荷。
+
+
+
+

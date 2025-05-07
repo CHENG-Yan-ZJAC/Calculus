@@ -1,0 +1,134 @@
+\section{复指函数系}
+
+之前讲到的傅里叶复数级数的推导过程是一般微积分教材中使用的方法。
+本节介绍从正交函数系开始推导。
+
+%============================================================
+\subsection{正交的复指数函数系}
+
+构建基于复指数的正交函数系是一个不直观的过程，单个$e^{inx}$的基长度总是为0。
+参考欧拉公式的推导过程，采用如下复指数函数系：
+\begin{align*}
+&1 \\
+&\left( e^{ix}+e^{-ix} \right) ,\left( e^{i2x}+e^{-i2x} \right) ,\cdots ,\left( e^{inx}+e^{-inx} \right) ,\cdots \\
+&i\left( e^{ix}-e^{-ix} \right) ,i\left( e^{i2x}-e^{-i2x} \right) ,\cdots ,i\left( e^{inx}-e^{-inx} \right) ,\cdots
+\end{align*}
+
+\begin{tcolorbox}
+寻找过程颇为繁琐，反复试了好几组。
+单个$e^{inx}$由于长度为0是不行的，单纯的共轭对$e^{inx}+e^{-inx}$张不成$C\left[ -\pi ,\pi \right] $。
+\end{tcolorbox}
+
+验证正交性：
+\begin{align*}
+&\left< 1,\left( e^{inx}+e^{-inx} \right) \right> =\int_{-\pi}^{\pi}{\left( e^{inx}+e^{-inx} \right) \cdot dx}=0 \\
+&\left< 1,i\left( e^{inx}-e^{-inx} \right) \right> =\int_{-\pi}^{\pi}{i\left( e^{inx}-e^{-inx} \right) \cdot dx}=0 \\
+&\left< \left( e^{inx}+e^{-inx} \right) ,\left( e^{imx}+e^{-imx} \right) \right> = \\
+& \qquad \qquad \qquad \int_{-\pi}^{\pi}{\left( e^{inx}+e^{-inx} \right) \cdot \left( e^{imx}+e^{-imx} \right) \cdot dx}=0 \\
+&\left< i\left( e^{inx}-e^{-inx} \right) ,i\left( e^{imx}-e^{-imx} \right) \right> = \\
+& \qquad \qquad \qquad \int_{-\pi}^{\pi}{i\left( e^{inx}-e^{-inx} \right) \cdot i\left( e^{imx}-e^{-imx} \right) \cdot dx}=0 \\
+&\left< \left( e^{inx}+e^{-inx} \right) ,i\left( e^{imx}-e^{-imx} \right) \right> = \\
+& \qquad \qquad \qquad \int_{-\pi}^{\pi}{\left( e^{inx}+e^{-inx} \right) \cdot i\left( e^{imx}-e^{-imx} \right) \cdot dx}=0
+\end{align*}
+这里注意，中间两个内积必须$n\ne m$，最后这个内积没有要求，即便$n\ne m$也是为0。
+
+计算基的长度：
+\begin{align*}
+\left\| 1 \right\| ^2=\left< 1,1 \right> &=\int_{-\pi}^{\pi}{1\cdot dx}=2\pi \\
+\left\| \left( e^{inx}+e^{-inx} \right) \right\| ^2&=\left< \left( e^{inx}+e^{-inx} \right) ,\left( e^{inx}+e^{-inx} \right) \right> \\
+&=\int_{-\pi}^{\pi}{\left( e^{i2nx}+e^{-i2nx}+2 \right) \cdot dx}=4\pi \\
+\left\| i\left( e^{inx}-e^{-inx} \right) \right\| ^2&=\left< i\left( e^{inx}-e^{-inx} \right) ,i\left( e^{inx}-e^{-inx} \right) \right> \\
+&=\int_{-\pi}^{\pi}{i^2\left( e^{i2nx}+e^{-i2nx}-2 \right) \cdot dx}=4\pi
+\end{align*}
+
+%============================================================
+\subsection{傅里叶复数级数}
+
+于是，满足狄利克雷收敛条件的周期函数$f\left( x \right) $在$\left[ -\pi ,\pi \right] $的展开式为：
+\begin{align*}
+&f\left( x \right) =a_0+\sum_{n=1}^{\infty}{b_n\left( e^{inx}+e^{-inx} \right)}+\sum_{n=1}^{\infty}{c_ni\left( e^{inx}-e^{-inx} \right)} \\
+&a_0=\frac{1}{2\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot 1 \right] \cdot dx} \\
+&b_n=\frac{1}{4\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot \left( e^{inx}+e^{-inx} \right) \right] \cdot dx}=\frac{1}{2\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot \cos nx \right] \cdot dx} \\
+&c_n=\frac{1}{4\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot i\left( e^{inx}-e^{-inx} \right) \right] \cdot dx}=-\frac{1}{2\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot \sin nx \right] \cdot dx}
+\end{align*}
+
+傅里叶系数的计算过程略，基本就是使用正交性和长度。
+
+%============================================================
+\subsection{化简}
+
+上述展开式并不是我们想要的，需要化简。
+
+先考察：
+\[
+\sum_{n=1}^{\infty}{b_n\left( e^{inx}+e^{-inx} \right)}=\sum_{n=1}^{\infty}{b_ne^{inx}}+\sum_{n=1}^{\infty}{b_ne^{-inx}}
+\]
+由于
+\[
+b_{-n}=\frac{1}{2\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot \cos \left( -n \right) x \right] \cdot dx}=\frac{1}{2\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot \cos nx \right] \cdot dx}=b_n
+\]
+对于$\sum_{n=1}^{\infty}{b_ne^{-inx}}$，我们令$m=-n$后得到：
+\[
+\sum_{n=1}^{\infty}{b_ne^{-inx}}=\sum_{m=-1}^{-\infty}{b_{-m}e^{imx}}=\sum_{m=-1}^{-\infty}{b_me^{imx}}
+\]
+于是可以将两项和并得到：
+\begin{align*}
+&\sum_{n=1}^{\infty}{b_n\left( e^{inx}+e^{-inx} \right)}=\sum_{n=1}^{+\infty}{b_ne^{inx}}+\sum_{n=-1}^{-\infty}{b_ne^{inx}}=\sum_{n=-\infty}^{+\infty}{b_ne^{inx}} \\
+&b_n=\frac{1}{2\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot \cos nx \right] \cdot dx}
+\end{align*}
+
+再考察：
+\[
+\sum_{n=1}^{\infty}{c_ni\left( e^{inx}-e^{-inx} \right)}=\sum_{n=1}^{\infty}{c_nie^{inx}}+\sum_{n=1}^{\infty}{-c_nie^{-inx}}
+\]
+同样
+\[
+c_{-n}=-\frac{1}{2\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot \sin \left( -n \right) x \right] \cdot dx}=\frac{1}{2\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot \sin nx \right] \cdot dx}=-c_n
+\]
+对于$\sum_{n=1}^{\infty}{-c_nie^{-inx}}$，我们令$m=-n$后得到：
+\[
+\sum_{n=1}^{\infty}{-c_nie^{-inx}}=\sum_{m=-1}^{-\infty}{c_mie^{imx}}
+\]
+于是可以将两项和并得到：
+\begin{align*}
+&\sum_{n=1}^{\infty}{c_ni\left( e^{inx}-e^{-inx} \right)}=\sum_{n=+1}^{+\infty}{c_nie^{inx}}+\sum_{n=-1}^{-\infty}{c_nie^{inx}}=\sum_{n=-\infty}^{+\infty}{c_nie^{inx}} \\
+&c_n=-\frac{1}{2\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot \sin nx \right] \cdot dx}
+\end{align*}
+
+此时傅里叶级数展开式为：
+\begin{align*}
+&f\left( x \right) =a_0+\sum_{n=-\infty}^{+\infty}{b_ne^{inx}}+\sum_{n=-\infty}^{+\infty}{c_nie^{inx}} \\
+&a_0=\frac{1}{2\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot 1 \right] \cdot dx} \\
+&b_n=\frac{1}{2\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot \cos nx \right] \cdot dx} \\
+&c_n=-\frac{1}{2\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot \sin nx \right] \cdot dx}
+\end{align*}
+
+%============================================================
+\subsection{进一步化简}
+
+考察展开式后两项，是可以合并的，如下：
+\begin{align*}
+&\sum_{n=-\infty}^{+\infty}{b_ne^{inx}}+\sum_{n=-\infty}^{+\infty}{c_nie^{inx}}=\sum_{n=-\infty}^{+\infty}{\left( b_n+ic_n \right) e^{inx}} \\
+&b_n+ic_n=\frac{1}{2\pi}\int_{-\pi}^{\pi}{f\left( x \right) \cdot \left[ \cos nx-i\sin nx \right] \cdot dx}=\frac{1}{2\pi}\int_{-\pi}^{\pi}{f\left( x \right) \cdot e^{-inx}\cdot dx}
+\end{align*}
+于是令$c_n=b_n+ic_n$得到：
+\begin{align*}
+&f\left( x \right) =a_0+\sum_{n=-\infty}^{+\infty}{c_ne^{inx}} \\
+&a_0=\frac{1}{2\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot 1 \right] \cdot dx} \\
+&c_n=\frac{1}{2\pi}\int_{-\pi}^{\pi}{f\left( x \right) \cdot e^{-inx}\cdot dx}
+\end{align*}
+至此，还剩$a_0$。
+由于$n=0$时，$e^{-inx}=1$，于是$a_0$也可以统一进来：
+\[
+c_0=a_0=\frac{1}{2\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot e^{-inx} \right] \cdot dx}
+\]
+
+得到最终傅里叶级数的复指数展开式：
+\begin{align*}
+&f\left( x \right) =\sum_{n=-\infty}^{+\infty}{c_ne^{inx}} \\
+&c_n=\frac{1}{2\pi}\int_{-\pi}^{\pi}{f\left( x \right) \cdot e^{-inx}\cdot dx}
+\end{align*}
+
+
+
+

@@ -1,0 +1,57 @@
+\section{绝对值级数}
+
+本节介绍绝对值级数。
+
+本节要点：
+\begin{itemize}
+    \item 了解绝对值级数的概念；
+    \item 掌握绝对值级数敛散性的判断；
+    \item 了解绝对值级数的性质。
+\end{itemize}
+
+%============================================================
+\subsection{绝对值级数的概念}
+
+\begin{definition}[绝对值级数]
+设$u_n$是任意实数，称级数$\sum_{n=1}^{\infty}{u_n}$为{\bf 任意项级数}，对应地，称级数$\sum_{n=1}^{\infty}{\left| u_n \right|}$为其对应的{\bf 绝对值级数}。
+\end{definition}
+
+\begin{definition}[绝对收敛]
+设任意项级数$\sum_{n=1}^{\infty}{u_n}$，若对应的绝对值级数$\sum_{n=1}^{\infty}{\left| u_n \right|}$收敛，则称{\bf 级数$\sum_{n=1}^{\infty}{u_n}$绝对收敛}，若级数$\sum_{n=1}^{\infty}{u_n}$收敛，但绝对值级数$\sum_{n=1}^{\infty}{\left| u_n \right|}$却发散，则称{\bf 级数$\sum_{n=1}^{\infty}{u_n}$条件收敛}。
+\end{definition}
+
+\begin{theorem}
+$\sum_{n=1}^{\infty}{\left| u_n \right|} \text{收敛} \Rightarrow \sum_{n=1}^{\infty}{u_n} \text{收敛}$。
+\end{theorem}
+
+“绝对收敛”这个概念的核心在“取绝对值”。
+绝对收敛是一个要求非常高的收敛条件，应用非常广泛。
+
+%============================================================
+\subsection{绝对值级数的性质}
+
+\begin{theorem}[可交换性]
+绝对收敛级数不因改变项的位置而改变它的和。
+\end{theorem}
+
+\begin{theorem}[柯西乘积定理]
+设两个级数$\sum_{n=1}^{\infty}{u_n},\sum_{n=1}^{\infty}{v_n}$均收敛，和分别为$S,T$，则它们的{\bf 柯西乘积}
+\begin{align*}
+\left( \sum_{n=1}^{\infty}{u_n} \right) \cdot \left( \sum_{n=1}^{\infty}{v_n} \right) &=\sum_{n=1}^{\infty}{\left( \sum_{m=1}^{\infty}{u_mv_{n-m+1}} \right)} \\
+&=\sum_{n=1}^{\infty}{\left( u_1v_n+u_2v_{n-1}+\cdots \right)}
+\end{align*}
+绝对收敛，其和为$ST$。
+\end{theorem}
+
+有限项和，其值不随项的位置的变化而变化，通俗来讲就是符合加法交换律。
+但如果是无限项和，即级数，如果是绝对收敛的级数，这个结论是对的，满足交换律。
+但如果是条件收敛的级数，如果适当改变各项的位置，可能发散，也可能收敛到事先指定的任何值，即不满足交换律。
+问题出在级数是无限项的和。
+
+\begin{tcolorbox}
+由于绝对收敛满足交换律，或者说与项所在的位置无关，所以在概率论中广泛使用绝对收敛这个条件。
+\end{tcolorbox}
+
+
+
+

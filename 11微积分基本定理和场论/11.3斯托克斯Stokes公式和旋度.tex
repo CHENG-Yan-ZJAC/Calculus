@@ -1,0 +1,161 @@
+\section{斯托克斯Stokes公式和旋度}
+
+本节介绍Stokes公式。
+
+本节要点：
+\begin{itemize}
+    \item 掌握Stokes公式的概念；
+    \item 理解Stokes公式的物理意义；
+    \item 掌握旋度的概念；
+    \item 理解旋度的物理意义。
+\end{itemize}
+
+%============================================================
+\subsection{Stokes公式的概念}
+
+\begin{definition}[Stokes公式]
+假设三维空间中有分片光滑曲面$S$，其边界$L$分段光滑，两者方向符合右手定则，即右手四指表示曲线$L$方向，大拇指的指向和曲面$S$的方向一致，$\boldsymbol{f}\left( \boldsymbol{p} \right) =\left( P\,\,Q\,\,R \right) ^T$是定义在三维空间上的向量值函数，且$P,Q,R$在$S$上有一阶连续偏导数，则有：
+\begin{align*}
+&\oint\limits_L{\boldsymbol{f}^T\boldsymbol{dl}}=\oint\limits_L{Pdx+Qdy+Rdz}= \\
+&\iint\limits_S{\left( \frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z} \right) dydz+\left( \frac{\partial P}{\partial z}-\frac{\partial R}{\partial x} \right) dzdx+\left( \frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y} \right) dxdy}
+\end{align*}
+称为{\bf Stokes公式}。
+\end{definition}
+
+Green公式可视为Stokes的二维特例，之后一般情况下将不作讨论。
+
+%============================================================
+\subsection{Stokes公式的物理意义}
+
+Stokes公式左边代表一个矢量场沿一个闭合曲线一周产生的环流量：
+\begin{itemize}
+    \item $\boldsymbol{f}^T\boldsymbol{dl}$：环流微量，表示沿封闭曲线方向产生的微作用力；
+    \item $\oint_L$：环曲线一周的累积效果；
+    \item $\oint_L{\boldsymbol{f}^T\boldsymbol{dl}}=0$：表示绕该闭合曲线一周不产生效果；
+    \item $\oint_L{\boldsymbol{f}^T\boldsymbol{dl}}>0$：表示绕该闭合曲线一周会产生某种“正”效果，可以理解为“加速”效果；
+    \item $\oint_L{\boldsymbol{f}^T\boldsymbol{dl}}<0$：表示绕该闭合曲线一周会产生某种“负”效果，可以理解为“减速”效果。
+\end{itemize}
+
+\begin{tcolorbox}
+Stokes公式右边的物理意义暂不考虑。到这里，只需要理解“环流量”，更深入的物理意义在给出旋度这个概念后再分析。
+\end{tcolorbox}
+
+%============================================================
+\subsection{旋度的概念}
+
+如果将环无限缩小，就是在该点的自旋一周产生的环流效果。
+
+\begin{definition}[旋度]
+若三维空间中有矢量值函数$\boldsymbol{f}\left( \boldsymbol{p} \right) $在有向闭合曲线$L$内的积分$\oint_L{\boldsymbol{f}^T\boldsymbol{dl}}$，设$\lambda =\max \left\{ \left\| \boldsymbol{p}_0-\boldsymbol{p} \right\| \right\} $表示该曲线围成的曲面上最远点到目标点$\boldsymbol{p}_0$的距离，设$S$为包围的曲面的面积，若当$\lambda \rightarrow 0$时，极限$\underset{\lambda \rightarrow 0}{\lim}\frac{\oint_L{\boldsymbol{f}\left( \boldsymbol{p}_0 \right) ^T\boldsymbol{dl}}}{S}$存在，则称该极限为{\bf $\boldsymbol{f}\left( \boldsymbol{p} \right) $在$\boldsymbol{p}_0$点的旋度}，记为$\mathbf{rot}\boldsymbol{f}$，即：
+\[
+\mathbf{rot}\boldsymbol{f}=\underset{\lambda \rightarrow 0}{\lim}\frac{\oint\limits_L{\boldsymbol{f}\left( \boldsymbol{p}_0 \right) ^T\boldsymbol{dl}}}{S}
+\]
+\end{definition}
+
+根据Stokes公式得到旋度计算公式：
+\begin{align*}
+\mathbf{rot}\boldsymbol{f}&=\underset{L\rightarrow M}{\lim}\frac{\iint\limits_S{\left( \frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z} \right) dydz+\left( \frac{\partial P}{\partial z}-\frac{\partial R}{\partial x} \right) dzdx+\left( \frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y} \right) dxdy}}{S} \\
+&=\underset{L\rightarrow M}{\lim}\frac{1}{S}\iint\limits_S{\left( \begin{array}{c}
+	\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\\
+	\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\\
+	\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\\
+\end{array} \right) ^T\left( \begin{array}{c}
+	dydz\\
+	dzdx\\
+	dxdy\\
+\end{array} \right)} \\
+&=\underset{L\rightarrow M}{\lim}\frac{1}{S}\iint\limits_S{\left( \begin{array}{c}
+	\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\\
+	\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\\
+	\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\\
+\end{array} \right) ^T\boldsymbol{ds}} \\
+&=\left( \begin{array}{c}
+	\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\\
+	\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\\
+	\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\\
+\end{array} \right) =\left| \begin{matrix}
+	\mathbf{i}&		\mathbf{j}&		\mathbf{k}\\
+	\frac{\partial}{\partial x}&		\frac{\partial}{\partial y}&		\frac{\partial}{\partial z}\\
+	P&		Q&		R\\
+\end{matrix} \right|
+\end{align*}
+运用旋度公式，Stokes公式可以表示为：
+\[
+\oint\limits_L{\boldsymbol{f}^T\boldsymbol{dl}}=\iint\limits_S{\left( \mathbf{rot}\boldsymbol{f} \right) ^T\boldsymbol{ds}}
+\]
+
+注意：
+\begin{itemize}
+    \item 旋度只能针对矢量场，数量场没有旋度这个概念；
+    \item 旋度描述了一矢量场在某点的旋转程度（可以理解为角速度）；
+    \item 该旋转程度可以分解对应到各个坐标轴的旋转程度，所以旋度的结果是一个矢量场；
+    \item 一个矢量场的旋度可以处处为0，表示该场没有任何旋转，即该矢量场是个{\bf 无旋场}，如点电荷产生的电场。
+\end{itemize}
+
+\begin{tcolorbox}
+矢量场可以没有旋度，如静止的点电荷产生的电场，电力线“直直地”发散出去，空间任意一点“左右两侧”的场强方向和大小一致，不会使得该点处的电荷发生转动。
+再如，一个均匀的、直的河流，水流“笔直地”向前流，没有旋转，但如果河道弯曲，流水沿河道方向有拐弯，产生了涡流，在该涡流处的叶子会发生“转动”。
+所以，旋度的“旋”，表示该点处“左右”两侧流速“相反”，会使该点“旋转”。
+\end{tcolorbox}
+
+%============================================================
+\subsection{旋度的量纲和物理意义}
+
+结合物理单位，假设流速场$\boldsymbol{v}$：
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+    \toprule
+    表达式 & 量纲\\
+    \midrule
+    $\boldsymbol{v}$ & $\mathrm{m}\cdot \mathrm{s}^{-1}$\\
+    $\oint_L{\boldsymbol{v}^T\boldsymbol{dl}}$ & $\mathrm{m}^2\cdot \mathrm{s}^{-1}$\\
+    $\mathbf{rot}\boldsymbol{v}=\underset{\lambda \rightarrow 0}{\lim}\frac{\oint_L{\boldsymbol{v}^T\boldsymbol{dl}}}{S}$ & $\mathrm{s}^{-1}$\\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+旋度表示空间里一点的自转角速度。
+如果一个曲面上每点自转角速度累加起来不为零，则整个曲面也会转起来，整个曲面的自旋可以通过环流量度量。
+
+\begin{tcolorbox}
+Stokes公式的物理意义在于，其描述的是一个矢量场，确切地讲是描述一个矢量场在一个曲面上造成的自旋程度。
+公式右边表示曲面上各个点自旋程度的累积，左边则是这种自旋在边界造成的环流量。
+\end{tcolorbox}
+
+%============================================================
+\subsection{旋度和微分算子}
+
+根据旋度公式和微分算子$\nabla =\left( \frac{\partial}{\partial x}\,\,\frac{\partial}{\partial y}\,\,\frac{\partial}{\partial z} \right) ^T$，可以做纯数学上的抽象：
+\begin{align*}
+&\because \begin{cases}
+	\mathbf{rot}\boldsymbol{f}=\left| \begin{matrix}
+	\mathbf{i}&		\mathbf{j}&		\mathbf{k}\\
+	\frac{\partial}{\partial x}&		\frac{\partial}{\partial y}&		\frac{\partial}{\partial z}\\
+	P&		Q&		R\\
+\end{matrix} \right|\\
+	\nabla \times \boldsymbol{f}=\left( \begin{array}{c}
+	\frac{\partial}{\partial x}\\
+	\frac{\partial}{\partial y}\\
+	\frac{\partial}{\partial z}\\
+\end{array} \right) \times \left( \begin{array}{c}
+	P\\
+	Q\\
+	R\\
+\end{array} \right) =\left| \begin{matrix}
+	\mathbf{i}&		\mathbf{j}&		\mathbf{k}\\
+	\frac{\partial}{\partial x}&		\frac{\partial}{\partial y}&		\frac{\partial}{\partial z}\\
+	P&		Q&		R\\
+\end{matrix} \right|\\
+\end{cases} \\
+&\therefore \mathbf{rot}\boldsymbol{f}=\nabla \times \boldsymbol{f}
+\end{align*}
+即旋度可以记为微分算子和矢量场的外积，于是Stokes公式可以写为：
+\[
+\oint\limits_L{\boldsymbol{f}^T\boldsymbol{dl}}=\iint\limits_S{\left( \nabla \times \boldsymbol{f} \right) ^T\boldsymbol{ds}}
+\]
+
+
+
+

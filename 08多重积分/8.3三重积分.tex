@@ -1,0 +1,75 @@
+\section{三重积分}
+
+本节讨论三重积分的定义、意义和计算方法。
+
+本节要点：
+\begin{itemize}
+    \item 掌握三重积分的定义；
+    \item 了解三重积分的数学意义和物理意义；
+    \item 掌握三重积分在直角坐标下的计算方法。
+\end{itemize}
+
+%============================================================
+\subsection{三重积分的概念}
+
+\begin{definition}[三重积分]
+若$f\left( \boldsymbol{p} \right) $是定义在空间区域$V$上的三元数量值函数，则将{\bf $f\left( \boldsymbol{p} \right) $在$V$上的积分为三重积分}写成：
+\begin{align*}
+&\iiint\limits_V{f\left( \boldsymbol{p} \right) dv} \\
+&V=\left\{ \left( x,y,z \right) \middle| x\in \left[ x_1,x_2 \right] ,y\in \left[ y_1\left( x \right) ,y_2\left( x \right) \right] ,z\in \left[ z_1\left( x,y \right) ,z_2\left( x,y \right) \right] \right\}
+\end{align*}
+其中：
+\begin{itemize}
+    \item $f\left( \boldsymbol{p} \right) $：{\bf 被积函数}；
+    \item $d\sigma$：{\bf 积分微元}；
+    \item $V$：{\bf 积分区域}。
+\end{itemize}
+\end{definition}
+
+%============================================================
+\subsection{三重积分的几何意义和物理意义}
+
+对比一元积分和二重积分，三重积分在几何上是对一个指定三维空间的“加权和”。
+\begin{align*}
+&\int_a^b{f\left( x \right) dx} \quad x\in \left[ a,b \right] \\
+&\iint\limits_D{f\left( \boldsymbol{p} \right) d\sigma} \quad D=\left\{ \left( x,y \right) \middle| x\in \left[ x_1,x_2 \right] ,y\in \left[ y_1,y_2 \right] \right\} \\
+&\iiint\limits_V{f\left( \boldsymbol{p} \right) dv} \quad V=\left\{ \left( x,y,z \right) \middle| x\in \left[ x_1,x_2 \right] ,y\in \left[ y_1,y_2 \right] ,z\in \left[ z_1,z_2 \right] \right\}
+\end{align*}
+
+物理上，如果这个“权”是密度，则三重积分表示这个指定三维物体的总质量。
+如果这个“权”是电荷密度，则三重积分表示这个指定三维物体的总电荷量。
+
+%============================================================
+\subsection{三重积分的直角坐标计算}
+
+三重积分的计算思路和二重一样，将微元和被积函数都一元化。
+被积函数一元化的方式依然采用“切片”方法。
+在直角坐标下，体积微元可以表示为$dv=dxdydz$，于是：
+\begin{align*}
+&\iiint\limits_V{f\left( \boldsymbol{p} \right) dv}=\iiint\limits_V{f\left( x,y,z \right) dxdydz} \\
+&V=\left\{ \left( x,y,z \right) \middle| x\in \left[ x_1,x_2 \right] ,y\in \left[ y_1\left( x \right) ,y_2\left( x \right) \right] ,z\in \left[ z_1\left( x,y \right) ,z_2\left( x,y \right) \right] \right\}
+\end{align*}
+三重积分的求解和二重积分类似，只是多了一个“切片”。
+
+计算步骤：
+\begin{enumerate}
+    \item 先将$x_0,y_0$看成常数，对$z$求从$z_1\left( x_0,y_0 \right) $到$z_2\left( x_0,y_0 \right) $的定积分
+    \[
+    S\left( x_0,y_0 \right) =\int_{z_1\left( x_0,y_0 \right)}^{z_2\left( x_0,y_0 \right)}{f\left( x_0,y_0,z \right) dz}
+    \]
+    \item 再将该函数在$D$作二重积分
+    \[
+    \iint\limits_D{S\left( x,y \right) d\sigma}=\iint\limits_D{\left[ \int_{z_1\left( x,y \right)}^{z_2\left( x,y \right)}{f\left( x,y,z \right) dz} \right] d\sigma}
+    \]
+    或常写作：
+    \[
+    \iiint\limits_V{f\left( x,y,z \right) dv}=\iint\limits_D{dxdy\int_{z_1\left( x,y \right)}^{z_2\left( x,y \right)}{f\left( x,y,z \right) dz}}
+    \]
+\end{enumerate}
+
+通过以上方法，化为了二重积分，后续过程略。
+同样，三重积分可以在柱坐标和球坐标下计算。
+
+
+
+

@@ -1,0 +1,281 @@
+\section{傅里叶级数的三角形式}
+
+本节讨论傅里叶级数的三角级数形式。
+
+本节要点：
+\begin{itemize}
+    \item 理解三角函数系的正交性；
+    \item 掌握傅里叶三角级数的概念；
+    \item 掌握傅里叶三角级数的展开；
+    \item 深刻理解三角级数的向量空间意义。
+\end{itemize}
+
+%============================================================
+\subsection{三角函数系的正交性}
+
+\begin{theorem}[三角函数系正交性定理]
+设所有在区间$\left[ -\pi ,\pi \right] $上连续的函数构成一个向量空间，记作$C\left[ -\pi ,\pi \right] $，则下列三角函数系：
+\[
+1,\sin x,\cos x,\sin 2x,\cos 2x,\cdots ,\sin nx,\cos nx,\cdots \qquad n=1,2,\cdots
+\]
+构成$C\left[ -\pi ,\pi \right] $上的一个正交基。
+\end{theorem}
+
+完整证明过程略，这里验证它们的正交性：
+\begin{align*}
+\left< 1,\sin nx \right> &=\int_{-\pi}^{\pi}{\left( 1\cdot \sin nx \right) \cdot dx}=\left. \frac{-1}{n}\cos nx \right|_{-\pi}^{\pi}=0 \\
+\left< 1,\cos nx \right> &=\int_{-\pi}^{\pi}{\left( 1\cdot \cos nx \right) \cdot dx}=\left. \frac{1}{n}\sin nx \right|_{-\pi}^{\pi}=0 \\
+\left< \sin mx,\cos nx \right> &=\int_{-\pi}^{\pi}{\left( \sin mx\cdot \cos nx \right) \cdot dx} \\
+&=\frac{1}{2}\int_{-\pi}^{\pi}{\left[ \sin \left( m+n \right) x+\sin \left( m-n \right) x \right] \cdot dx}=0 \\
+\left< \sin mx,\sin nx \right> &=\int_{-\pi}^{\pi}{\left( \sin mx\cdot \sin nx \right) \cdot dx} \\
+&=\frac{1}{2}\int_{-\pi}^{\pi}{\left[ -\cos \left( m+n \right) x+\cos \left( m-n \right) x \right] \cdot dx}=0 \\
+\left< \cos mx,\cos nx \right> &=\int_{-\pi}^{\pi}{\left( \cos mx\cdot \cos nx \right) \cdot dx} \\
+&=\frac{1}{2}\int_{-\pi}^{\pi}{\left[ \cos \left( m+n \right) x+\cos \left( m-n \right) x \right] \cdot dx}=0
+\end{align*}
+值得注意的是，它们本身并不规范，基并也不等长，但不影响讨论：
+\begin{align*}
+\left\| 1 \right\| ^2&=\left< 1,1 \right> =\int_{-\pi}^{\pi}{\left( 1\cdot 1 \right) \cdot dx}=\left. \frac{1}{2}x \right|_{-\pi}^{\pi}=2\pi \\
+\left\| \sin nx \right\| ^2&=\left< \sin nx,\sin nx \right> =\int_{-\pi}^{\pi}{\left( \sin nx\cdot \sin nx \right) \cdot dx} \\
+&=\frac{1}{2}\int_{-\pi}^{\pi}{\left( -\cos 2nx+1 \right) \cdot dx}=\pi \\
+\left\| \cos nx \right\| ^2&=\left< \cos nx,\cos nx \right> =\int_{-\pi}^{\pi}{\left( \cos nx\cdot \cos nx \right) \cdot dx} \\
+&=\frac{1}{2}\int_{-\pi}^{\pi}{\left( \cos 2nx+1 \right) \cdot dx}=\pi
+\end{align*}
+
+%============================================================
+\subsection{狄利克雷充分条件}
+
+\begin{definition}[狄利克雷充分条件]
+对于周期函数$f\left( x \right) ,T=2\pi $，下述两个条件：
+\begin{itemize}
+    \item 满足在$\left[ -\pi ,\pi \right] $上连续；
+    \item 只有有限个一类间断点，而且只有有限个极值点，
+\end{itemize}
+称为{\bf 狄利克雷充分条件}，又称{\bf 狄利克雷收敛条件}。
+\end{definition}
+
+%============================================================
+\subsection{傅里叶三角级数的概念}
+
+\begin{definition}[傅里叶三角级数]
+若周期函数$f\left( x \right) $满足狄利克雷收敛条件，则函数在$\left[ -\pi ,\pi \right] $上可以展开为三角级数，且该级数收敛于$f\left( x \right) $，即：
+\begin{align*}
+&f\left( x \right) =a_0+\sum_{n=1}^{\infty}{a_n\cos nx}+\sum_{n=1}^{\infty}{b_n\sin nx} \qquad x\in \left[ -\pi ,\pi \right]\\
+&\begin{cases}
+	a_0=\frac{1}{2\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot 1 \right] \cdot dx}\\
+	a_n=\frac{1}{\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot \cos nx \right] \cdot dx}\\
+	b_n=\frac{1}{\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot \sin nx \right] \cdot dx}\\
+\end{cases} \qquad n=1,2,\cdots
+\end{align*}
+该展开式称为{\bf $f\left( x \right) $的傅里叶三角级数}，$a_0,a_n,b_n$称为{\bf 傅里叶三角系数}，且该级数的和函数有：
+\begin{itemize}
+    \item 当$f\left( x \right) $在$x_0$处连续时，$S\left( x_0 \right) =f\left( x_0 \right) $；
+    \item 当$f\left( x \right) $在$x_0$处不连续时，$S\left( x_0 \right) =\frac{1}{2}\left[ f\left( {x_0}^+ \right) +f\left( {x_0}^- \right) \right] $。
+\end{itemize}
+\end{definition}
+
+需要特别注意，狄利克雷收敛条件只要求$f\left( x \right) $在$\left[ -\pi ,\pi \right] $有定义，至于出了这个范围有没有定义没有要求。
+从线性代数角度看，由于三角函数系构成了$\left[ -\pi ,\pi \right] $上的一组正交基，所以$f\left( x \right) $能在$C\left[ -\pi ,\pi \right] $进行级数展开的前提条件就是$f\left( x \right) \in C\left[ -\pi ,\pi \right] $。
+
+\begin{tcolorbox}
+为区分之后的傅里叶级数的复数形式，本笔记特称为“傅里叶三角级数”。
+一般教材中称为“傅里叶级数”。
+\end{tcolorbox}
+
+简单证明，为求$a_0$，等式两边乘以$1$后作积分，由于三角函数的正交性，易得：
+\begin{align*}
+&\begin{aligned}
+	\because \int_{-\pi}^{\pi}{1\cdot f\left( x \right) dx}&=\int_{-\pi}^{\pi}{\left[ \left( a_0+\sum_{n=1}^{\infty}{a_n\cos nx}+\sum_{n=1}^{\infty}{b_n\sin nx} \right) \cdot 1 \right] dx}\\
+	&=\int_{-\pi}^{\pi}{a_0dx}=2\pi a_0\\
+\end{aligned} \\
+&\therefore a_0=\frac{1}{2\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot 1 \right] \cdot dx}
+\end{align*}
+同理，等式两边乘以$\cos nx$后作积分，由于正交性易得：
+\begin{align*}
+&\begin{aligned}
+	\because &\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot \cos nx \right] \cdot dx} \\
+    &=\int_{-\pi}^{\pi}{\left[ \left( a_0+\sum_{n=1}^{\infty}{a_n\cos nx}+\sum_{n=1}^{\infty}{b_n\sin nx} \right) \cdot \cos nx \right] \cdot dx}\\
+	&=\int_{-\pi}^{\pi}{\left[ a_n\cos nx\cdot \cos nx \right] \cdot dx}=\pi a_n\\
+\end{aligned} \\
+&\therefore a_n=\frac{1}{\pi}\int_{-\pi}^{\pi}{f\left( x \right) \cos nxdx}
+\end{align*}
+同理可得$b_n$，略。
+
+注意，由于我们选取的基$1$和$\sin nx,\cos nx$并不的长，所以$a_0$和$a_n,b_n$差了一个$1/2$。
+
+%============================================================
+\subsection{傅里叶三角级数的向量空间意义}
+
+从线性代数的角度看，傅里叶级数的本质是空间变换，将原本在以{\it x}轴为基的空间的函数映射到以三角函数为基的空间。
+变换过程在微积分看来是用积分求解傅里叶系数，但在线性代数看来就是坐标系变换。
+
+关于狄利克雷充分条件，$f\left( x \right) $能在$\left[ -\pi ,\pi \right] $进行级数展开的前提条件就是$f\left( x \right) $为属于该向量空间的向量，也即$f\left( x \right) \in C\left[ -\pi ,\pi \right] $。
+但我们在讨论时可以放宽一些，$f\left( x \right) $可以有有限个不连续点，但这类间断点必须都是一类，也即在整体效果上$f\left( x \right) $必须可积。
+
+关于正交基，我们也可以把负的三角函数包括进来：
+\begin{align*}
+&\cdots ,\sin \left( -nx \right) ,\cdots ,\sin \left( -2x \right) ,\sin \left( -x \right) ,1,\sin x,\sin 2x,\cdots ,\sin nx,\cdots \\
+&\cdots ,\cos \left( -nx \right) ,\cdots ,\cos \left( -2x \right) ,\cos \left( -x \right) ,1,\cos x,\cos 2x,\cdots ,\cos nx,\cdots
+\end{align*}
+同样也是正交的，证明略。
+但是多出来的共轭部分构成了非“基”的向量，也就是这组函数系虽然是正交集但不是正交基，除了把坐标系复杂化，没有任何其他意义。
+
+%============================================================
+\subsection{《信号与系统》中的傅里叶三角级数}
+
+《信号与系统》介绍傅里叶三角级数通常以这样的方程开始：
+\[
+f\left( t \right) =A_0+\sum_{n=1}^{\infty}{A_n\sin \left( n\omega _0t+\varphi _n \right)}
+\]
+也即选择正弦函数作为正交基。
+我们不重新开始推导，而是从已有傅里叶三角级数开始，令$c_n=\sqrt{{a_n}^2+{b_n}^2},\tan \varphi _n=\frac{a_n}{b_n}$，则有$\sin \varphi _n=\frac{a_n}{c_n},\cos \varphi _n=\frac{b_n}{c_n}$，于是傅里叶三角级数为：
+\begin{align*}
+&\begin{aligned}
+	f\left( x \right) &=a_0+\sum_{n=1}^{\infty}{\left( a_n\cos nx+b_n\sin nx \right)}\\
+	&=a_0+\sum_{n=1}^{\infty}{c_n\left( \sin \varphi _n\cdot \cos nx+\cos \varphi _n\cdot \sin nx \right)}\\
+	&=a_0+\sum_{n=1}^{\infty}{c_n\sin \left( nx+\varphi _n \right)}\\
+\end{aligned} \\
+&\begin{cases}
+	a_0=\frac{1}{2\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot 1 \right] \cdot dx}\\
+	c_n=\sqrt{\left( \frac{1}{\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot \cos nx \right] \cdot dx} \right) ^2+\left( \frac{1}{\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot \sin nx \right] \cdot dx} \right) ^2}\\
+	\varphi _n=\mathrm{arc}\tan \frac{\frac{1}{\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot \cos nx \right] \cdot dx}}{\frac{1}{\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot \sin nx \right] \cdot dx}}\\
+\end{cases}
+\end{align*}
+令$x=\omega _0t,dx=\omega _0dt$，整理后：
+\begin{align*}
+&f\left( \omega _0t \right) =\frac{\omega _0}{\pi}a_0+\frac{\omega _0}{\pi}\sum_{n=1}^{\infty}{c_n\sin \left( n\omega _0t+\varphi _n \right)} \\
+&\begin{cases}
+	a_0=\frac{1}{2}\int_{-\pi}^{\pi}{\left[ f\left( \omega _0t \right) \cdot 1 \right] \cdot dt}\\
+	c_n=\sqrt{\left( \int_{-\pi}^{\pi}{\left[ f\left( \omega _0t \right) \cdot \cos n\omega _0t \right] \cdot dt} \right) ^2+\left( \int_{-\pi}^{\pi}{\left[ f\left( \omega _0t \right) \cdot \sin n\omega _0t \right] \cdot dt} \right) ^2}\\
+	\varphi _n=\mathrm{arc}\tan \frac{\int_{-\pi}^{\pi}{\left[ f\left( \omega _0t \right) \cdot \cos n\omega _0t \right] \cdot dt}}{\int_{-\pi}^{\pi}{\left[ f\left( \omega _0t \right) \cdot \sin n\omega _0t \right] \cdot dt}}\\
+\end{cases}
+\end{align*}
+通常在微积分里，我们忽略相位$\varphi _n$，专心讨论空间变换。
+在信号与系统中，我们会一直保留$f\left( t \right) =A_0+\sum_{n=1}^{\infty}{A_n\sin \left( n\omega _0t+\varphi _n \right)}$这个形式直到傅里叶级数的复数形式。
+
+%============================================================
+\subsection{正弦级数和余弦级数}
+
+\begin{definition}
+设周期函数$f\left( x \right) ,T=2\pi $，当其展开成傅里叶级数时，有：
+\begin{itemize}
+    \item 若$f\left( x \right) $是奇函数，此时的展开称为{\bf 正弦级数}，傅里叶系数为：
+    \[
+    \begin{cases}
+        a_0=0\\
+        a_n=0\\
+        b_n=\frac{1}{\pi}\int_{-\pi}^{\pi}{f\left( x \right) \sin nxdx}\\
+    \end{cases} \quad n=1,2,\cdots
+    \]
+    \item 若$f\left( x \right) $是偶函数，此时的展开称为{\bf 余弦级数}，傅里叶系数为：
+    \[
+    \begin{cases}
+        a_0=\frac{2}{\pi}\int_0^{\pi}{f\left( x \right) dx}\\
+        a_n=\frac{2}{\pi}\int_0^{\pi}{f\left( x \right) \cos nxdx}\\
+        b_n=0\\
+    \end{cases} \quad n=1,2,\cdots
+    \]
+\end{itemize}
+\end{definition}
+
+%============================================================
+\subsection{任意周期的傅里叶三角级数}
+
+\begin{theorem}
+设周期函数$f\left( x \right) $，当在$\left[ -T/2,T/2 \right] $上满足狄利克雷充分条件时，有傅里叶级数：
+\begin{align*}
+&f\left( x \right) =a_0+\sum_{n=1}^{\infty}{\left( a_n\cos \frac{2n\pi}{T}x+b_n\sin \frac{2n\pi}{T}x \right)} \quad x\in \left[ -\frac{T}{2},\frac{T}{2} \right] \\
+&\begin{cases}
+	a_0=\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}{\left[ f\left( x \right) \cdot 1 \right] \cdot dx}\\
+	a_n=\frac{2}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}{\left[ f\left( x \right) \cdot \cos \frac{2n\pi}{T}x \right] \cdot dx}\\
+	b_n=\frac{2}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}{\left[ f\left( x \right) \cdot \sin \frac{2n\pi}{T}x \right] \cdot dx}\\
+\end{cases} \quad n=1,2,\cdots
+\end{align*}
+\end{theorem}
+
+该定理将傅里叶级数从一个三角函数周期扩展到任意周期。
+
+%============================================================
+\subsection{例}
+
+\begin{example}
+设周期函数$f\left( x \right) =x,x\in \left[ -\pi ,\pi \right) $的周期为$2\pi $，求其傅里叶级数。
+\end{example}
+
+解：
+
+求解傅里叶系数：
+\begin{align*}
+&a_0=\frac{1}{2\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot 1 \right] \cdot dx}=\frac{1}{2\pi}\int_{-\pi}^{\pi}{xdx}=0 \\
+&a_n=\frac{1}{\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot \cos nx \right] \cdot dx}=\frac{1}{\pi}\int_{-\pi}^{\pi}{x\cos nxdx}=0 \\
+&b_n=\frac{1}{\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot \sin nx \right] \cdot dx}=\frac{1}{\pi}\int_{-\pi}^{\pi}{x\sin nxdx}=\left( -1 \right) ^{n-1}\frac{2}{n}
+\end{align*}
+最终得$f\left( x \right) =x,x\in \left[ -\pi ,\pi \right) $的傅里叶级数：
+\[
+f\left( x \right) \backsim \sum_{n=1}^{\infty}{\left( -1 \right) ^{n-1}\frac{2}{n}\sin nx}
+\]
+
+~
+
+\begin{example}
+设函数
+\[
+f\left( x \right) =\begin{cases}
+	0 & -\pi \leqslant x<0\\
+	x & 0\leqslant x<\pi\\
+\end{cases}
+\]
+求其$\left( -\pi ,\pi \right) $上的傅里叶级数。
+\end{example}
+
+解：
+\begin{align*}
+&a_0=\frac{1}{2\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot 1 \right] \cdot dx}=\frac{1}{2\pi}\int_0^{\pi}{xdx}=\frac{\pi}{4} \\
+&a_n=\frac{1}{\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot \cos nx \right] \cdot dx}=\frac{1}{\pi}\int_0^{\pi}{x\cos nxdx}=\frac{1}{n^2\pi}\left[ \left( -1 \right) ^n-1 \right] \\
+&b_n=\frac{1}{\pi}\int_{-\pi}^{\pi}{\left[ f\left( x \right) \cdot \sin nx \right] \cdot dx}=\frac{1}{\pi}\int_0^{\pi}{x\sin nxdx}=\left( -1 \right) ^{n-1}\frac{1}{n} \\
+&f\left( x \right) \backsim \frac{\pi}{4}+\sum_{n=1}^{\infty}{\left[ \frac{\left( -1 \right) ^n-1}{n^2\pi}\cos nx+\frac{\left( -1 \right) ^{n-1}}{n}\sin nx \right]}
+\end{align*}
+
+~
+
+\begin{example}
+设周期函数$f\left( x \right) ,T=2\pi $在区间$\left[ -\pi ,\pi \right) $内的表达式为
+\[
+f\left( x \right) =\begin{cases}
+	x^2 & -\pi \leqslant x<0\\
+	0 & \leqslant x<\pi\\
+\end{cases}
+\]
+求其在$\left[ -\pi ,2\pi \right] $上的傅里叶级数的和函数。
+\end{example}
+
+解：
+
+可以直接用狄利克雷充分条件获得其傅里叶级数的和函数，但是需要分区间讨论。
+对于题目要求$\left[ -\pi ,2\pi \right] $，由于$f\left( x \right) $周期性，先求$\left[ -\pi ,\pi \right) $内的和函数，再进行对$\left[ -\pi ,2\pi \right] $上的扩展即可。
+在$\left[ -\pi ,\pi \right) $上求解和函数时，需要注意一个间断点$-\pi $，和函数有：
+\[
+S\left( x \right) =\begin{cases}
+	\frac{1}{2}\pi ^2 & x=-\pi\\
+	f\left( x \right) & x\in \left( -\pi ,\pi \right)\\
+\end{cases}
+\]
+在$\left[ -\pi ,2\pi \right] $上求解和函数时，同样需要注意间断点$-\pi $，和函数有：
+\[
+S\left( x \right) =\begin{cases}
+	\frac{1}{2}\pi ^2 & x=\pi\\
+	f\left( x-2\pi \right) & x\in \left( \pi ,2\pi \right]\\
+\end{cases}
+\]
+综上所述，$f\left( x \right) $在$\left[ -\pi ,2\pi \right] $上的傅里叶级数的和函数为：
+\[
+S\left( x \right) =\begin{cases}
+	\frac{1}{2}\pi ^2 & x=\pm \pi\\
+	x^2 & x\in \left( -\pi ,0 \right)\\
+	0 & x\in \left[ 0,\pi \right)\\
+	\left( x-2\pi \right) ^2 & x\in \left( \pi ,2\pi \right]\\
+\end{cases}
+\]
+
+
+
+

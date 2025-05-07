@@ -1,0 +1,184 @@
+\section{习题}
+
+\begin{exercise}
+计算下列曲线积分，并指出是第一类曲线积分还是第二类曲线积分：
+\begin{enumerate}
+    \item $\int_L{xydx}$，其中$L:x^2+y^2=2x$，$\left( 0,0 \right) \rightarrow \left( 2,0 \right) $上半周。
+    \item $\int_L{ydx+zdy+xdz}$，其中$
+    L:\begin{cases}
+        x^2+y^2=1\\
+        x+z=1\\
+    \end{cases}
+    $，{\it x}轴从正向负看，逆时针一周。
+    \item $\int_L{ydl}$，其中$L:\frac{x^2}{25}+\frac{y^2}{9}=1$，{\it x}轴上方部分。
+\end{enumerate}
+\end{exercise}
+
+解：
+
+1. 只对$dx$积分，即只对{\it x}轴进行积分，所以是第二类曲线积分，曲线$L$可以化为$\left( x-1 \right) ^2+y^2=1$，表示圆心为$\left( 1,0 \right) $、半径为1的圆，曲线化为参数方程求解：
+\begin{align*}
+&L:\begin{cases}
+	x=1+\cos t\\
+	y=\sin t\\
+\end{cases} \quad t\in \left[ \pi ,0 \right] \\
+&\int\limits_L{xydx}=\int_{\pi}^0{\left( 1+\cos t \right) \sin t\cdot d\left( 1+\cos t \right)}=\frac{\pi}{2}
+\end{align*}
+
+2. 分别对三个轴积分，所以是第二类曲线积分，曲线化为参数方程求解：
+\begin{align*}
+&L:\begin{cases}
+	x=\cos t\\
+	y=\sin t\\
+	z=1-\cos t\\
+\end{cases} \quad t\in \left[ 0,2\pi \right] \\
+&\int\limits_L{ydx+zdy+xdz} \\
+&=\int_0^{2\pi}{\sin t\left( -\sin t \right) dt+\left( 1-\cos t \right) \cos tdt+\cos t\sin tdt}=-2\pi
+\end{align*}
+
+3. 显然是第一类曲线积分，曲线化为参数方程求解：
+\begin{align*}
+&L:\begin{cases}
+	x=5\cos t\\
+	y=3\sin t\\
+\end{cases} \quad t\in \left[ 0,\pi \right] \\
+&\int\limits_L{ydl}=\int_0^{\pi}{\left[ 3\sin t\cdot \sqrt{\left( -5\sin t \right) ^2+\left( 3\cos t \right) ^2} \right] dt}=9+\frac{75}{4}\mathrm{arc}\sin \frac{4}{5}
+\end{align*}
+
+\begin{tcolorbox}
+总体思路是将曲线换成参数方程，规划出参数的积分区间。
+\end{tcolorbox}
+
+~
+
+\begin{exercise}
+求螺旋线
+\[
+L:\begin{cases}
+	x=R\cos t\\
+	y=R\sin t\\
+	z=kt\\
+\end{cases}
+\]
+在区域$t\in \left[ 0,2\pi \right] $内的长度。
+\end{exercise}
+
+解：
+
+这是典型的对弧长的积分，属于第一类曲线积分，可以认为$f\left( \boldsymbol{p} \right) \equiv 1$，于是：
+\begin{align*}
+\int\limits_L{f\left( \boldsymbol{p} \right) \cdot dl}&=\int_0^{2\pi}{\sqrt{\left( x' \right) ^2+\left( y' \right) ^2+\left( z' \right) ^2}dt} \\
+&=\int_0^{2\pi}{\sqrt{\left( -R\sin t \right) ^2+\left( R\cos t \right) ^2+k^2}dt} \\
+&=\int_0^{2\pi}{\sqrt{R^2+k^2}dt}=2\pi \sqrt{R^2+k^2}
+\end{align*}
+
+~
+
+\begin{exercise}
+平面上一半径为R的圆形细线，其中任一点处的线密度为该点到圆周某一固定直径距离的平方，求细线质量。
+\end{exercise}
+
+解：
+
+根据题目得到线密度函数$\rho \left( \boldsymbol{p} \right) =y^2$，细线质量为线密度对弧长的积分，也即$\rho \left( \boldsymbol{p} \right) =y^2$在一整圈上的第一类曲线积分，我们只需要计算第一象限积分即可：
+\begin{align*}
+&M=4\int\limits_L{\rho \left( \boldsymbol{p} \right) \cdot dl}=4\int\limits_L{y^2\cdot dl}=4\int\limits_L{y^2\cdot \sqrt{\left( x' \right) ^2+\left( y' \right) ^2}\cdot dt} \\
+&L=\left\{ \left( x,y \right) \middle| 0\leqslant x\leqslant 1,0\leqslant y\leqslant 1,x^2+y^2=1 \right\}
+\end{align*}
+将曲线转成参数方程求解：
+\begin{align*}
+&L:\begin{cases}
+	x=R\cos t\\
+	y=R\sin t\\
+\end{cases} \quad t\in \left[ 0,\frac{\pi}{2} \right] \\
+&\begin{aligned}
+	M&=4\int\limits_L{y^2\cdot \sqrt{\left( x' \right) ^2+\left( y' \right) ^2}\cdot dt} \\
+    &=4\int_0^{\frac{\pi}{2}}{R^2\sin ^2t\sqrt{\left( -R\sin t \right) ^2+\left( R\cos t \right) ^2}dt}\\
+	&=4R^3\int_0^{\frac{\pi}{2}}{\sin ^2tdt}=2R^3\int_0^{\frac{\pi}{2}}{\left( 1-\cos 2t \right) dt}=\pi R^3\\
+\end{aligned}
+\end{align*}
+
+~
+
+\begin{exercise}
+若向量值函数$\boldsymbol{f}\left( \boldsymbol{p} \right) =\left( y^2\,\,2xy \right) ^T$，计算沿抛物线$y=x^2$从$\left( 0,0 \right) $到$\left( 1,1 \right) $一段弧的曲线积分，若抛物线$y=\sqrt{x},\left( 0,0 \right) \rightarrow \left( 1,1 \right) $，重新计算曲线积分。
+\end{exercise}
+
+解：
+
+很显然是第二类曲线积分：
+\begin{align*}
+&\int\limits_L{\boldsymbol{f}^T\boldsymbol{dl}}=\int_0^1{y^2dx+2xydy}=\int_0^1{\left[ x^4+2x\cdot x^2\cdot 2x \right] dx}=1 \\
+&\int\limits_L{\boldsymbol{f}^T\boldsymbol{dl}}=\int_0^1{y^2dx+2xydy}=\int_0^1{\left[ x+2x\cdot \sqrt{x}\cdot \frac{1}{2\sqrt{x}} \right] dx}=1
+\end{align*}
+
+~
+
+\begin{exercise}
+设二维平面上有力场$\boldsymbol{F}$，方向指向原点，大小与该点到原点的距离成正比，若有质点沿椭圆$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$逆时针从$\left( a,0 \right) $运动到$\left( 0,b \right) $，求力场对质点作的功。
+\end{exercise}
+
+解：
+
+很典型的第二类曲线积分，根据题意，可得力场和曲线：
+\begin{align*}
+&L:\begin{cases}
+	x=a\cos t\\
+	y=b\sin t\\
+\end{cases} \quad t\in \left[ 0,\frac{\pi}{2} \right] \\
+&\boldsymbol{F}\left( \boldsymbol{p} \right) =k\sqrt{x^2+y^2}\left( \begin{array}{c}
+	-\frac{x}{\sqrt{x^2+y^2}}\\
+	-\frac{y}{\sqrt{x^2+y^2}}\\
+\end{array} \right) =\left( \begin{array}{c}
+	-kx\\
+	-ky\\
+\end{array} \right)
+\end{align*}
+力场作功：
+\begin{align*}
+W&=\int\limits_L{\boldsymbol{f}\left( \boldsymbol{p} \right) ^T\boldsymbol{dl}}=\int\limits_L{Pdx+Qdy+Rdz}=\int\limits_L{\left( -kx \right) dx+\left( -ky \right) dy} \\
+&=\int_0^{\frac{\pi}{2}}{\left[ \left( -ka\cos t \right) \left( -a\sin t \right) +\left( -kb\sin t \right) \left( b\cos t \right) \right] dt} \\
+&=k\left( a^2-b^2 \right) \int_0^{\frac{\pi}{2}}{\sin t\cos tdt}=\frac{k}{2}\left( a^2-b^2 \right)
+\end{align*}
+质点从$\left( a,0 \right) $运动到$\left( 0,b \right) $过程中：
+\begin{itemize}
+    \item 当$a>b$时，质点在靠近圆心，力场做正功，$W>0$；
+    \item 当$a<b$时，质点在远离圆心，力场做负功，$W<0$。
+\end{itemize}
+
+~
+
+\begin{exercise}
+设曲线
+\[
+L:\begin{cases}
+	x=t\\
+	y=t^2\\
+	z=t^3\\
+\end{cases} \quad t\in \left[ 0,1 \right]
+\]
+把第二类曲线积分$\int_L{Pdx+Qdy+Rdz}$化为第一类曲线积分。
+\end{exercise}
+
+解：
+
+首先观察弧微分：
+\begin{align*}
+&\because \begin{cases}
+	dx=dt\\
+	dy=2tdt\\
+	dz=3t^2dt\\
+\end{cases} \\
+&\therefore dl=\sqrt{\left( dx \right) ^2+\left( dy \right) ^2+\left( dz \right) ^2}=\sqrt{1+4t^2+9t^4}\cdot dt
+\end{align*}
+再看积分：
+\begin{align*}
+\int\limits_L{Pdx+Qdy+Rdz}&=\int\limits_L{Pdt+Q2tdt+R3t^2dt} \\
+&=\int\limits_L{\left( P+Q2t+R3t^2 \right) \cdot dt} \\
+&=\int\limits_L{\left( P+Q2t+R3t^2 \right) \cdot \frac{dl}{\sqrt{1+4t^2+9t^4}}} \\
+&=\int\limits_L{\frac{P+2xQ+3yR}{\sqrt{1+4y+9y^2}}\cdot dl}
+\end{align*}
+
+
+
+

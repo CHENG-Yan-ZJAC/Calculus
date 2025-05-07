@@ -1,0 +1,75 @@
+\section{函数项级数}
+
+本节介绍函数项级数。
+
+本节要点：
+\begin{itemize}
+    \item 了解函数项级数的概念；
+    \item 了解收敛域的概念。
+\end{itemize}
+
+%============================================================
+\subsection{函数项级数的概念}
+
+\begin{definition}[函数项级数]
+若在给定的一个区间$I$上有函数列：
+\[
+u_1\left( x \right) ,u_2\left( x \right) ,\cdots ,u_n\left( x \right) ,\cdots
+\]
+则称：
+\[
+\sum_{n=1}^{\infty}{u_n\left( x \right)}:=u_1\left( x \right) +u_2\left( x \right) +\cdots +u_n\left( x \right) +\cdots
+\]
+为{\bf 定义在区间$I$上的函数项级数}。
+\end{definition}
+
+函数项级数对应的是常数项级数。
+区别在于，常数项级数的一般项是一个固定的数，一般项具有一定的规律，函数项级数的一般项是函数，这些函数符合一定的规律。
+
+\begin{definition}
+设函数项级数$\sum_{n=1}^{\infty}{u_n\left( x \right)}$，对于点$x_0\in I$：
+\begin{itemize}
+    \item 若$\sum_{n=1}^{\infty}{u_n\left( x_0 \right)}$收敛，则称$x_0$为{\bf 该函数项级数的收敛点}，全体收敛点的集合称为{\bf 函数项级数的收敛域}；
+    \item 若$\sum_{n=1}^{\infty}{u_n\left( x_0 \right)}$发散，则称$x_0$为{\bf 函数项级数的发散点}。
+\end{itemize}
+并称
+\[
+S\left( x \right) :=\sum_{n=1}^{\infty}{u_n\left( x \right)} \qquad x\in D
+\]
+为{\bf 函数项级数$\sum_{n=1}^{\infty}{u_n\left( x \right)}$的和函数}，其中$D$为函数项级数的收敛域。
+同时称
+\[
+R_n\left( x \right) :=S\left( x \right) -S_n\left( x \right) =\sum_{i=n+1}^{\infty}{u_i\left( x \right)} \qquad x\in D
+\]
+为{\bf 函数项级数的余项}。
+\end{definition}
+
+和函数及余项都是一个关于$x$的函数。
+
+~
+
+\begin{example}
+求级数$\sum_{n=1}^{\infty}{x^{n-1}}$的和函数。
+\end{example}
+
+解：
+
+这是首项1，公比$x$的等比数列的级数。
+根据之前讨论，只有当$\left| x \right|<1$时，级数收敛。
+所以其和函数为：
+\[
+S\left( x \right) =\underset{n\rightarrow \infty}{\lim}S_n\left( x \right) =\underset{n\rightarrow \infty}{\lim}\sum_{i=1}^n{x^{i-1}}=\frac{1}{1-x} \qquad x\in \left( -1,1 \right)
+\]
+这说明，对于函数$f\left( x \right) =\frac{1}{1-x},x\in \left( -1,1 \right) $，我们可以用数列$1+x+x^2+x^3+\cdots $去近似，而且累加的项越多，近似度越高。
+
+%============================================================
+\subsection{函数项级数的意义}
+
+函数项级数理论的本身意义在于数学，通过级数的一致收敛性，可以判断隐函数的存在、微分方程解的存在性和唯一性等。
+本笔记不做展开。
+
+其工程意义更多地在于具象出来的两个：幂级数和三角级数。
+
+
+
+

@@ -1,0 +1,128 @@
+\section{常数项无穷级数}
+
+本节介绍无穷级数的基本概念和性质。
+
+本节要点：
+\begin{itemize}
+    \item 掌握级数、部分和、级数和、余项的概念；
+    \item 掌握级数的性质；
+    \item 了解三个重要级数（等比级数、调和级数、无穷级数）的敛散性。
+\end{itemize}
+
+%============================================================
+\subsection{常数项级数的概念}
+
+\begin{definition}[常数项级数]
+对于一个给定的数列$u_1,u_2,\cdots ,u_n,\cdots $，将它们的和称为{\bf 常数项无穷级数}，简称为{\bf 常数项级数}，记为$\sum_{n=1}^{\infty}{u_n}$，即：
+\[
+\sum_{n=1}^{\infty}{u_n}:=u_1+u_2+\cdots +u_n+\cdots
+\]
+其中，$u_n$称为常数项级数的{\bf 一般项}。
+\end{definition}
+
+对于级数，我们主要研究两个问题：1）级数是否收敛，发散的级数是没有使用价值的；2）收敛值是多少，即能不能代替目标常数。
+
+\begin{definition}
+我们称数列$u_1,u_2,\cdots ,u_n,\cdots $前$n$项之和为{\bf 级数$\sum_{n=1}^{\infty}{u_n}$的部分和}，记为$S_n$，即：
+\[
+S_n:=\sum_{i=1}^n{u_i}
+\]
+如果级数$\sum_{n=1}^{\infty}{u_n}$的部分和$S_n$存在极限，则称该级数{\bf 收敛}，并称该极限为级数$\sum_{n=1}^{\infty}{u_n}$的{\bf 级数和}，记为$S$，即：
+\[
+S:=\underset{n\rightarrow \infty}{\lim}S_n
+\]
+反之，如果部分和没有极限，称该级数{\bf 发散}。
+当级数$\sum_{n=1}^{\infty}{u_n}$收敛时，级数和与部分和之间的差称为{\bf 级数的余项}，记为$R_n$，即：
+\[
+R_n:=S-S_n=\sum_{i=n+1}^{\infty}{u_i}
+\]
+\end{definition}
+
+注意这些概念的关系。
+级数$\sum_{n=1}^{\infty}{u_n}$是一个无穷数列的和，对收敛性没有强制要求。
+部分和$S_n$是数列前$n$项的和。
+级数和$S$是$S_n$的极限。
+所以，只有收敛的级数才有级数和，部分和是用来引出或计算级数和的中间概念，实际使用中可以通过计算部分和的极限判断级数的敛散性。
+余项则可以用来判断级数的敛散性。
+
+%============================================================
+\subsection{常数项级数的性质和定理}
+
+常数项级数的性质：
+\begin{itemize}
+    \item 若级数$\sum_{n=1}^{\infty}{u_n}$收敛于$S$，则级数$\sum_{n=1}^{\infty}{ku_n}$收敛于$kS$，即一般项等比的两个级数的敛散性一致；
+    \item 若两个级数均收敛，则对应项之和构成的级数也收敛，即
+    \[
+    \left. \begin{array}{r}
+        \sum_{n=1}^{\infty}{u_n}=S\\
+        \sum_{n=1}^{\infty}{v_n}=T\\
+    \end{array} \right\} \Rightarrow \sum_{n=1}^{\infty}{\left( u_n\pm v_n \right)}=S\pm T
+    \]
+    \item 级数增减前有限项，其敛散性不变，但增减项后的新级数的和一般会变，即级数的余项决定其敛散性；
+    \item 收敛级数按一定规律加括号后形成的新级数仍收敛，且收敛于相同值，但注意，去掉括号则不一定仍收敛；
+    \item 如果加括号形成的新级数发散，则原级数也发散。
+\end{itemize}
+
+\begin{theorem} \label{th_12_1_1}
+$\sum_{n=1}^{\infty}{u_n} \text{收敛} \Rightarrow \underset{n\rightarrow \infty}{\lim}u_n=0$，即收敛级数的一般项必趋于0。
+\end{theorem}
+
+注意，反之不成立！一般项的收敛必须达到一定速度才能使级数收敛。
+
+不难总结级数收敛的判断方法：
+\begin{itemize}
+    \item 从定义出发，即考察$\underset{n\rightarrow \infty}{\lim}S_n$是否存在；
+    \item 在已知某些级数的敛散性的基础上，将目标级数拆分，运用性质判断；
+    \item 定理\ref{th_12_1_1}可用于判断级数是否发散。
+\end{itemize}
+
+%============================================================
+\subsection{三个基础的级数的敛散性}
+
+{\bf 等比级数$\sum_{n=1}^{\infty}{aq^n},a\ne 0$}
+
+当$q=1$时，显然级数发散。
+当$q=-1$时，虽然级数有界，但是在0和$a$之间震荡，级数依然发散。
+当$\left| q \right|\ne 1$时，数列和有公式$S_n=a\frac{1-q^n}{1-q}$，当$\left| q \right|>1$时级数发散，当$\left| q \right|<1$时级数收敛。
+\[
+\sum_{n=1}^{\infty}{aq^n}=\begin{cases}
+	\frac{a}{1-q} & \left| q \right|<1\\
+	NA & \left| q \right|\geqslant 1\\
+\end{cases}
+\]
+
+{\bf 调和级数$\sum_{n=1}^{\infty}{\frac{1}{n}}$}
+
+使用零点麦克劳林展开，有：
+\begin{align*}
+&\because e^x=1+x+\frac{x^2}{2!}+...>1+x \\
+&\therefore x>\ln \left( 1+x \right) \\
+&\therefore \frac{1}{n}>\ln \left( 1+\frac{1}{n} \right) \\
+&\therefore S_n>\sum_{i=1}^n{\ln \left( 1+\frac{1}{i} \right)}
+\end{align*}
+通过对数运算，将加法变成乘法：
+\begin{align*}
+&\because \sum_{i=1}^n{\ln \left( 1+\frac{1}{i} \right)}=\ln \left( 2\cdot \frac{3}{2}\cdot \frac{4}{3}\cdot ...\cdot \frac{n+1}{n} \right) =\ln \left( n+1 \right) \\
+&\therefore \underset{n\rightarrow \infty}{\lim}S_n>\underset{n\rightarrow \infty}{\lim}\ln \left( n+1 \right) =+\infty
+\end{align*}
+可见，调和级数发散。
+
+{\bf 无穷级数$\frac{1}{1\cdot 2}+\frac{1}{2\cdot 3}+\cdots +\frac{1}{n\left( n+1 \right)}+\cdots $}
+\begin{align*}
+&\because S_n=\sum_{i=1}^n{\frac{1}{i\left( i+1 \right)}}=\sum_{i=1}^n{\left( \frac{1}{i}-\frac{1}{i+1} \right)}=1-\frac{1}{n+1}=\frac{n}{n+1} \\
+&\therefore \underset{n\rightarrow \infty}{\lim}S_n=1
+\end{align*}
+级数收敛于1。
+
+~
+
+综合来讲：
+\begin{itemize}
+    \item 等比级数$\sum_{n=1}^{\infty}{aq^n},a\ne 0$的敛散性看$\left| q \right|$；
+    \item 调和级数$\sum_{n=1}^{\infty}{\frac{1}{n}}$发散；
+    \item 无穷级数$\sum_{n=1}^{\infty}{\frac{1}{n\cdot \left( n+1 \right)}}$收敛于1。
+\end{itemize}
+
+
+
+

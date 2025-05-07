@@ -1,0 +1,45 @@
+\section{曲线积分的路径无关性和保守场}
+
+\begin{theorem}
+设$D$为平面上的单连通区域，$\boldsymbol{f}\left( \boldsymbol{p} \right) =\left( P\,\,Q \right) ^T$是定义在二维平面上的向量值函数，且$P,Q$在$D$上有一阶连续偏导数，则下面4个命题等价：
+\begin{enumerate}[label=\Roman*.]
+    \item $D$内封闭曲线$L$上有$\oint_L{\boldsymbol{f}^T\boldsymbol{dl}}=0$；
+    \item $\oint_L{\boldsymbol{f}^T\boldsymbol{dl}}=0$在$D$内与路径无关；
+    \item $D$中必有数量值函数$g\left( \boldsymbol{p} \right) $，满足$\frac{\partial g}{\partial x}=P,\frac{\partial g}{\partial y}=Q$，即有全微分$dg=Pdx+Qdy$；
+    \item $D$内每一点满足$\frac{\partial Q}{\partial x}=\frac{\partial P}{\partial y}$。
+\end{enumerate}
+\end{theorem}
+
+以上：
+\begin{itemize}
+    \item 命题I和IV的等价性由Green公式体现；
+    \item 命题III和IV综合即为二阶混偏相等定理。
+\end{itemize}
+
+\begin{theorem}
+假设三维空间中有一单连通区域，$\boldsymbol{f}\left( \boldsymbol{p} \right) =\left( P\,\,Q\,\,R \right) ^T$是定义在该区域上的向量值函数，且$P,Q,R$在该区域上有一阶连续偏导数，则下面4个命题等价：
+\begin{enumerate}[label=\Roman*.]
+    \item 区域内任意封闭曲线$L$上有$\oint_L{\boldsymbol{f}^T\boldsymbol{dl}}=0$；
+    \item $\oint_L{\boldsymbol{f}^T\boldsymbol{dl}}=0$在区域内与路径无关；
+    \item 区域内必有数量值函数$g\left( \boldsymbol{p} \right) $有全微分，且满足$dg=Pdx+Qdy+Rdz$；
+    \item 区域内每点满足$\frac{\partial R}{\partial y}=\frac{\partial Q}{\partial z},\frac{\partial P}{\partial z}=\frac{\partial R}{\partial x},\frac{\partial Q}{\partial x}=\frac{\partial P}{\partial y}$，即
+    \[
+    \left| \begin{matrix}
+    	\mathbf{i}&		\mathbf{j}&		\mathbf{k}\\
+    	\frac{\partial}{\partial x}&		\frac{\partial}{\partial y}&		\frac{\partial}{\partial z}\\
+    	P&		Q&		R\\
+    \end{matrix} \right|=0
+    \]
+\end{enumerate}
+\end{theorem}
+
+\begin{definition}
+如果一个矢量场中，在任何区域内沿任何曲线的第二类曲线积分与路径无关，只与曲线的起点和终点有关，称该矢量场为{\bf 保守场}。
+如果一个矢量场是保守场，则该场的旋度为0，$\nabla \times \boldsymbol{f}=0$，同时该场必然是一个标量场的梯度，即$\nabla g=\boldsymbol{f}$，$g$称为$\boldsymbol{f}$的{\bf 势函数}，$\boldsymbol{f}$也称为{\bf 有势场}。
+\end{definition}
+
+也即这4个概念等价：保守场$\Leftrightarrow $无旋场$\Leftrightarrow $梯度场$\Leftrightarrow $有势场。
+
+
+
+

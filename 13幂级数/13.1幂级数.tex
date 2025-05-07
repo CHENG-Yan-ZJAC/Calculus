@@ -1,0 +1,86 @@
+\section{幂级数}
+
+本节介绍幂级数的概念和性质。
+本节是后续小节的概念性基础，所以只需要简单了解即可。
+
+本节要点：
+\begin{itemize}
+    \item 了解幂级数的概念；
+    \item 了解幂级数的性质。
+\end{itemize}
+
+%============================================================
+\subsection{幂级数的概念}
+
+\begin{definition}[幂级数]
+我们称
+\[
+\sum_{n=0}^{\infty}{a_nx^n}:=a_0+a_1x+a_2x^2+a_3x^3+\cdots
+\]
+这样的函数项级数为{\bf 幂级数}，其中常数$a_n$称为{\bf 幂级数的系数}，更一般地，称：
+\[
+\sum_{n=0}^{\infty}{a_n\left( x-x_0 \right) ^n}:=a_0+a_1\left( x-x_0 \right) +a_2\left( x-x_0 \right) ^2+a_3\left( x-x_0 \right) ^3+\cdots
+\]
+为在{\bf 点$x_0$处的幂级数}。
+\end{definition}
+
+%============================================================
+\subsection{幂级数的性质}
+
+\begin{theorem}[阿贝尔（Abel）定理]
+设有幂级数$\sum_{n=0}^{\infty}{a_nx^n}$，则：
+\begin{itemize}
+    \item 若幂级数在点$x_0$处收敛，则区间$\left( -\left| x_0 \right|,\left| x_0 \right| \right) $内幂级数绝对收敛；
+    \item 若幂级数在点$x_0$处发散，则区间$\left( -\left| x_0 \right|,\left| x_0 \right| \right) $外幂级数发散。
+\end{itemize}
+\end{theorem}
+
+\begin{corollary}
+若幂级数$\sum_{n=0}^{\infty}{a_nx^n}$不是仅在0点这一点处收敛，但也不是在整个实数上收敛，则必有一个确定的正数$R$，使得：
+\begin{itemize}
+    \item 区间$\left( -R,R \right) $内，幂级数绝对收敛；
+    \item 区间$\left[ -R,R \right] $外，幂级数发散；
+    \item $\pm R$两点上，幂级数敛散性不定；
+\end{itemize}
+此时，我们称$R$为幂级数的{\bf 收敛半径}，幂级数的收敛区间必然为$\left( -R,R \right) $、$\left( -R,R \right] $、$\left[ -R,R \right) $、$\left[ -R,R \right] $，四种情况之一。
+\end{corollary}
+
+\begin{theorem}[收敛半径定理]
+设有幂级数$\sum_{n=0}^{\infty}{a_nx^n}$，若：
+\[
+\underset{n\rightarrow \infty}{\lim}\left| \frac{a_{n+1}}{a_n} \right|=\rho \quad \text{或} \quad \underset{n\rightarrow \infty}{\lim}\sqrt[n]{\left| a_n \right|}=\rho
+\]
+则有：
+\begin{itemize}
+    \item $\rho \ne 0$时，$R=\frac{1}{\rho}$；
+    \item $\rho =0$时，$R=\pm \infty $；
+    \item $\rho =+\infty $时，$R=0$。
+\end{itemize}
+\end{theorem}
+
+%============================================================
+\subsection{幂级数的运算}
+若有两个幂级数，则它们的和差积商结果在公共收敛区间收敛。
+商除外，其收敛区间可能会小很多。
+
+%============================================================
+\subsection{和函数的基本性质}
+
+设幂级数$\sum_{n=0}^{\infty}{a_nx^n}$的和函数是$S\left( x \right) $，则具有性质：
+\begin{itemize}
+    \item 在收敛区间内连续；
+    \item 在收敛区间$\left( -R,R \right) $内可导，且有：
+    \[
+    S'\left( x \right) =\sum_{n=0}^{\infty}{\left( a_nx^n \right) '}=\sum_{n=0}^{\infty}{na_nx^{n-1}}
+    \]
+    称为{\bf 逐项求导公式}，公式的右端级数和原幂级数有相同收敛半径，但端点的敛散性可能改变；
+    \item 在收敛区间$\left( -R,R \right) $内可积，且有：
+    \[
+    \int_0^x{S\left( \lambda \right) d\lambda}=\sum_{n=0}^{\infty}{\left( \int_0^x{a_n\lambda ^nd\lambda} \right)}=\sum_{n=0}^{\infty}{\frac{a_n}{n+1}x^{n+1}}
+    \]
+    称为{\bf 逐项积分公式}，公式的右端级数和原幂级数有相同收敛半径，但端点的敛散性可能改变。
+\end{itemize}
+
+
+
+

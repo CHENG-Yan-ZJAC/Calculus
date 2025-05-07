@@ -1,0 +1,24 @@
+\section{三角形式和复数形式的对比}
+
+本节将两种形式的傅里叶级数并在一起，以便对比。
+设周期为$2\pi $的函数$f\left( x \right) ,x\in \left[ -\pi ,\pi \right] $。
+
+傅里叶级数的三角形式：
+\begin{align*}
+&f\left( x \right) =\frac{a_0}{2}+\sum_{n=1}^{\infty}{\left( a_n\cos nx+b_n\sin nx \right)} \\
+&\begin{cases}
+	a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}{f\left( x \right) dx}\\
+	a_n=\frac{1}{\pi}\int_{-\pi}^{\pi}{f\left( x \right) \cos nxdx}\\
+	b_n=\frac{1}{\pi}\int_{-\pi}^{\pi}{f\left( x \right) \sin nxdx}\\
+\end{cases} \quad n=1,2,\cdots
+\end{align*}
+
+傅里叶级数的复数形式：
+\begin{align*}
+&f\left( x \right) =\sum_{n=-\infty}^{+\infty}{c_ne^{inx}} \\
+&c_n=\frac{1}{2\pi}\int_{-\pi}^{\pi}{f\left( x \right) e^{-inx}dx} \quad n=0,\pm 1,\pm 2,\cdots
+\end{align*}
+
+
+
+

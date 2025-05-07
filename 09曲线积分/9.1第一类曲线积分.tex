@@ -1,0 +1,72 @@
+\section{第一类曲线积分}
+
+本节讨论第一类曲线积分。
+所谓“第一类曲线积分”是数量值函数对曲线的积分。
+
+本节要点：
+\begin{itemize}
+    \item 掌握第一类曲线积分的概念；
+    \item 掌握第一类曲线积分的计算，重点掌握弧微分的计算。
+\end{itemize}
+
+%============================================================
+\subsection{第一类曲线积分的概念}
+
+\begin{definition}[第一类曲线积分]
+若三维空间中有曲线$L$，$f\left( \boldsymbol{p} \right) ,\boldsymbol{p}\in \mathbb{R} ^3$为定义在该空间上的三元数量值函数，若下式极限存在，则称极限值为{\bf $f\left( \boldsymbol{p} \right) $在$L$上积分称为第一类曲线积分}，记为$\int_L{f\left( \boldsymbol{p} \right) dl}$，即：
+\[
+\int\limits_L{f\left( \boldsymbol{p} \right) dl}:=\underset{\lambda \rightarrow 0}{\lim}\sum_{i=1}^n{\left[ f\left( \xi _i,\eta _i,\zeta _i \right) \cdot \Delta l_i \right]}
+\]
+其中：
+\begin{itemize}
+    \item $f\left( \boldsymbol{p} \right) $：{\bf 被积函数}；
+    \item $dl$：{\bf 弧微分}；
+    \item $L$：{\bf 积分曲线}。
+\end{itemize}
+\end{definition}
+
+\begin{tcolorbox}
+实际定义参考“教材\cite{book1}”，这里是一个简写，总体来讲就是将曲线分段，每段上取一个值和这一小段弧长乘积$f\left( \xi _i,\eta _i,\zeta _i \right) \cdot \Delta l_i$，如果和式有极限，则称为$f\left( \boldsymbol{p} \right) $在$L$上有第一类曲线积分。
+大致思路和一元函数积分一样。
+\end{tcolorbox}
+
+第一类曲线积分的性质：
+\begin{itemize}
+    \item 线性性：
+    \[
+    \int\limits_L{\left( af+bg \right) dl}=a\int\limits_L{fdl}+b\int\limits_L{gdl}
+    \]
+    \item 区域可加性：
+    \[
+    \int\limits_L{fdl}=\int\limits_{L_1}{fdl}+\int\limits_{L_2}{fdl}
+    \]
+\end{itemize}
+
+同样，可定义$n$维空间上的数量值函数$f\left( \boldsymbol{p} \right) ,\boldsymbol{p}\in \mathbb{R} ^n$对空间内曲线$L$上积分为$f\left( \boldsymbol{p} \right) $在$n$维空间曲线$L$上的第一类曲线积分，记为$\int_L{f\left( \boldsymbol{p} \right) dl}$。
+
+%============================================================
+\subsection{第一类曲线积分的计算}
+
+\begin{theorem}[第一类曲线积分的计算公式]
+设三维空间上有曲线$L$，则曲线可以写为：
+\[
+L:\begin{cases}
+	x=x\left( t \right)\\
+	y=y\left( t \right)\\
+	z=z\left( t \right)\\
+\end{cases}
+\]
+弧微分的表达式：
+\begin{align*}
+dl&=\sqrt{\left( dx \right) ^2+\left( dy \right) ^2+\left( dz \right) ^2}=\sqrt{\left( x'dt \right) ^2+\left( y'dt \right) ^2+\left( z'dt \right) ^2} \\
+&=\sqrt{\left( x' \right) ^2+\left( y' \right) ^2+\left( z' \right) ^2}\cdot dt
+\end{align*}
+若$f\left( \boldsymbol{p} \right) $在曲线$L$的$\left[ t_1,t_2 \right] $上连续，其中$x\left( t \right) ,y\left( t \right) ,z\left( t \right) $在$\left[ t_1,t_2 \right] $上具有一阶连续导数，则第一类曲线积分可计算为：
+\[
+\int\limits_L{f\left( \boldsymbol{p} \right) \cdot dl}=\int\limits_L{f\left( x,y,z \right) \cdot \sqrt{\left( x' \right) ^2+\left( y' \right) ^2+\left( z' \right) ^2}\cdot dt}
+\]
+\end{theorem}
+
+
+
+

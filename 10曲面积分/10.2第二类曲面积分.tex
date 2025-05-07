@@ -1,0 +1,93 @@
+\section{第二类曲面积分}
+
+本节讨论第二类曲面积分。
+所谓“第二类曲面积分”是向量值函数对曲面的积分。
+
+本节要点：
+\begin{itemize}
+    \item 掌握第二类曲面积分的概念；
+    \item 掌握第二类曲面积分的计算，重点掌握积分表达式的内积计算。
+\end{itemize}
+
+%============================================================
+\subsection{第二类曲面积分的概念}
+
+\begin{definition}[第二类曲面积分]
+若三维空间中有曲线$S$，$\mathbf{n}\left( \boldsymbol{p} \right) $为曲面上任一点处的单位法向量，$\boldsymbol{f}\left( \boldsymbol{p} \right) $为定义在该空间上的三元向量值函数，若内积$\boldsymbol{f}\left( \boldsymbol{p} \right) ^T\mathbf{n}\left( \boldsymbol{p} \right) $在$S$上的第一类曲面积分存在，则称此积分值为{\bf $\boldsymbol{f}\left( \boldsymbol{p} \right) $在$S$上的第二类曲面积分}，记为$\iint_S{\left[ \boldsymbol{f}\left( \boldsymbol{p} \right) ^T\mathbf{n}\left( \boldsymbol{p} \right) \right] \cdot ds}$，由于$\mathbf{n}\left( \boldsymbol{p} \right) ds=\boldsymbol{ds}$为曲面微元在三个坐标平面的投影，所以更普遍地记作$\iint_S{\boldsymbol{f}\left( \boldsymbol{p} \right) ^T\boldsymbol{ds}}$，即：
+\begin{align*}
+&\iint\limits_S{\left[ \boldsymbol{f}\left( \boldsymbol{p} \right) ^T\mathbf{n}\left( \boldsymbol{p} \right) \right] \cdot ds}=\iint\limits_S{\boldsymbol{f}\left( \boldsymbol{p} \right) ^T\boldsymbol{ds}} \\
+&:=\underset{\lambda \rightarrow 0}{\lim}\sum_{i=1}^n{\left[ \boldsymbol{f}\left( \xi _i,\eta _i,\zeta _i \right) ^T\mathbf{n}\left( \xi _i,\eta _i,\zeta _i \right) \cdot \Delta s_i \right]}
+\end{align*}
+其中：
+\begin{itemize}
+    \item $\boldsymbol{f}\left( \boldsymbol{p} \right) $：{\bf 被积函数}；
+    \item $\mathbf{n}\left( \boldsymbol{p} \right) $：曲面$S$的{\bf 单位法向量}；
+    \item $\boldsymbol{ds}=\mathbf{n}\left( \boldsymbol{p} \right) ds$：{\bf 有向曲面微元}；
+    \item $S$：{\bf 积分曲面}。
+\end{itemize}
+特别地，当$S$为封闭曲面时，记为$\oiint_S{\boldsymbol{f}\left( \boldsymbol{p} \right) ^T\boldsymbol{ds}}$。
+\end{definition}
+
+这里要注意，第二类曲面积分是有方向性的，默认方向是曲面的法方向，如果取反方向，则写为：
+\[
+\iint\limits_{S^-}{\boldsymbol{f}\left( \boldsymbol{p} \right) ^T\boldsymbol{ds}}
+\]
+
+%============================================================
+\subsection{第二类曲面积分的计算}
+
+\begin{theorem}[第二类曲面积分的计算公式]
+我们知道有向曲面微元有：
+\begin{align*}
+\boldsymbol{ds}&=\mathbf{n}\left( \boldsymbol{p} \right) ds=\frac{\left( -z_x\,\,-z_y\,\,1 \right) ^T}{\sqrt{\left( z_x \right) ^2+\left( z_y \right) ^2+1}} \left[ \sqrt{\left( z_x \right) ^2+\left( z_y \right) ^2+1}\cdot dxdy \right] \\
+&=\left( \begin{array}{c}
+	-z_x\\
+	-z_y\\
+	1\\
+\end{array} \right) dxdy
+\end{align*}
+所以向量值函数$\boldsymbol{f}\left( \boldsymbol{p} \right) =\left( P\,\,Q\,\,R \right) ^T$的第二类曲面积分的计算有：
+\begin{align*}
+\iint\limits_S{\boldsymbol{f}\left( \boldsymbol{p} \right) ^T\boldsymbol{ds}}&=\iint\limits_S{\left( \begin{array}{c}
+	P\\
+	Q\\
+	R\\
+\end{array} \right) ^T\left( \begin{array}{c}
+	-z_x\\
+	-z_y\\
+	1\\
+\end{array} \right) dxdy} \\
+&=\iint\limits_S{\left( -Pz_x-Qz_y+R \right) dxdy}
+\end{align*}
+\end{theorem}
+
+这里，第二类曲面积分的计算是将有向曲面微元投影到{\it xOy}平面，也可以投影到其他平面，看曲面以什么形式给出。
+和第二类曲线积分一样，重点理解被积表达式中的内积。
+
+曲面$S$的单位法向量可写成方向余弦形式$\mathbf{n}=\left( \cos \alpha \,\,\cos \beta \,\,\cos \gamma \right) ^T$，于是积分：
+\[
+\iint\limits_S{\boldsymbol{f}\left( \boldsymbol{p} \right) ^T\boldsymbol{ds}}=\iint\limits_S{\left( \begin{array}{c}
+	P\\
+	Q\\
+	R\\
+\end{array} \right) ^T\left( \begin{array}{c}
+	\cos \alpha\\
+	\cos \beta\\
+	\cos \gamma\\
+\end{array} \right) ds}
+\]
+而又有投影关系：
+\begin{align*}
+&\cos \alpha \cdot ds=dydz \\
+&\cos \beta \cdot ds=dzdx \\
+&\cos \gamma \cdot ds=dxdy
+\end{align*}
+所以第二类曲面积分还可以写为：
+\[
+\iint\limits_S{\boldsymbol{f}\left( \boldsymbol{p} \right) ^T\boldsymbol{ds}}=\iint\limits_S{Pdydz+Qdzdx+Rdxdy}
+\]
+这表明$\boldsymbol{f}\left( \boldsymbol{p} \right) $在$S$上的积分可以分解为其三个坐标分量（$P,Q,R$）分别对坐标平面（{\it yOz}、{\it zOx}和{\it xOy}）积分的代数和。
+
+
+
+
