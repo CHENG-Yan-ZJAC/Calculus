@@ -1,0 +1,234 @@
+\section{矢量}
+
+本节介绍矢量及其运算法则。
+矢量是量化空间的基础，更是多元函数微积分的基础。
+
+本节要点：
+\begin{itemize}
+    \item 掌握矢量的定义；
+    \item 掌握矢量的运算；
+    \item 理解矢量内积和外积的几何意义；
+    \item 理解矢量之间的关系——平行和垂直。
+\end{itemize}
+
+%============================================================
+\subsection{矢量和方向余弦}
+
+\begin{definition}[矢量]
+我们称既有大小又有方向的量为{\bf 矢量}，三维空间中我们采用列向量的表示方式：
+\[
+\boldsymbol{a}:=\left( \begin{array}{c}
+	x\\
+	y\\
+	z\\
+\end{array} \right)
+\]
+为排版方便，也可记为行向量的转置：
+\[
+\boldsymbol{a}:=\left( x\,\,y\,\,z \right) ^T
+\]
+\end{definition}
+
+矢量是空间几何的代数化基础。
+空间的点可以通过矢量描述，空间的面和线可以通过矢量方程描述，它们之间的关系可以通过矢量运算判断。
+
+\begin{definition}
+我们采用标量积的形式定义{\bf 矢量的模}，记作$\left\| \boldsymbol{a} \right\| $，即：
+\[
+\left\| \boldsymbol{a} \right\| :=\sqrt{\boldsymbol{a}^T\boldsymbol{a}}=\sqrt{x^2+y^2+z^2}
+\]
+也称{\bf 长度}。特别地，当$\left\| \boldsymbol{a} \right\| =1$时称为{\bf 单位矢量}。
+
+称矢量：
+\[
+\left( \begin{array}{c}
+	\cos \alpha\\
+	\cos \beta\\
+	\cos \gamma\\
+\end{array} \right) =\left( \begin{array}{c}
+	\frac{x}{\left\| \boldsymbol{a} \right\|}\\
+	\frac{y}{\left\| \boldsymbol{a} \right\|}\\
+	\frac{z}{\left\| \boldsymbol{a} \right\|}\\
+\end{array} \right) \qquad \alpha ,\beta ,\gamma \in \left[ 0,\pi \right]
+\]
+为{\bf 矢量$\boldsymbol{a}$的方向余弦}，方向余弦中的三个角是矢量$\boldsymbol{a}$分别和{\it xyz}三个轴所成的角度，方向余弦本身为单位矢量。
+\end{definition}
+
+我们规定：
+\begin{itemize}
+    \item 零矢量：$\mathbf{0}=\left( 0\,\,0\,\,0 \right) ^T$
+    \item 单位矢量：$\mathbf{a}=\frac{\boldsymbol{a}}{\left\| \boldsymbol{a} \right\|}$
+    \item 数乘：$\lambda \boldsymbol{a}=\lambda \left( x\,\,y\,\,z \right) ^T=\left( \lambda x\,\,\lambda y\,\,\lambda z \right) ^T$
+    \item 基矢量：$\mathbf{i}=\left( 1\,\,0\,\,0 \right) ^T \quad \mathbf{j}=\left( 0\,\,1\,\,0 \right) ^T \quad \mathbf{k}=\left( 0\,\,0\,\,1 \right) ^T$
+\end{itemize}
+于是任何矢量均可以用基矢量写成：
+\[
+\boldsymbol{a}=x\mathbf{i}+y\mathbf{j}+z\mathbf{k}
+\]
+
+\begin{tcolorbox}
+注意，我们使用粗体表示单位矢量，而不是一般教材用的下标0。
+因为我们将$\boldsymbol{p},\boldsymbol{p}_0$用于之后概念的定义，如$x,x_0$用于一元函数微积分中一样。
+\end{tcolorbox}
+
+%============================================================
+\subsection{矢量的加法}
+
+\begin{definition}[加法]
+我们将矢量的{\bf 加法}定义为矢量中所有对应元素相加，记作$\boldsymbol{a}+\boldsymbol{b}$，即：
+\begin{align*}
+\boldsymbol{a}+\boldsymbol{b}:&=\left( x_{\boldsymbol{a}}\,\,y_{\boldsymbol{a}}\,\,z_{\boldsymbol{a}} \right) ^T+\left( x_{\boldsymbol{b}}\,\,y_{\boldsymbol{b}}\,\,z_{\boldsymbol{b}} \right) ^T \\
+&=\left( x_{\boldsymbol{a}}+x_{\boldsymbol{b}} \quad y_{\boldsymbol{a}}+y_{\boldsymbol{b}} \quad z_{\boldsymbol{a}}+z_{\boldsymbol{b}} \right) ^T
+\end{align*}
+\end{definition}
+
+注意：
+\begin{itemize}
+    \item 矢量相加仍为矢量；
+    \item 几何上的结果是两个矢量构成的平行四边形的对角线。
+\end{itemize}
+
+运算法则：
+\begin{align*}
+&\boldsymbol{a}+\boldsymbol{b}=\boldsymbol{b}+\boldsymbol{a} \\
+&\boldsymbol{a}+\left( \boldsymbol{b}+\boldsymbol{c} \right) =\left( \boldsymbol{a}+\boldsymbol{b} \right) +\boldsymbol{c} \\
+&\lambda \left( \boldsymbol{a}+\boldsymbol{b} \right) =\lambda \boldsymbol{a}+\lambda \boldsymbol{b} \\
+&\lambda \left( \mu \boldsymbol{a} \right) =\left( \lambda \mu \right) \boldsymbol{a} \\
+&\left\| \boldsymbol{a}+\boldsymbol{b} \right\| \leqslant \left\| \boldsymbol{a} \right\| +\left\| \boldsymbol{b} \right\|
+\end{align*}
+
+%============================================================
+\subsection{矢量的内积}
+
+\begin{definition}[内积]
+我们采用标量积定义矢量的{\bf 内积}，记作$\boldsymbol{a}^T\boldsymbol{b}$，即：
+\[
+\boldsymbol{a}^T\boldsymbol{b}:=\left( x_{\boldsymbol{a}}\,\,y_{\boldsymbol{a}}\,\,z_{\boldsymbol{a}} \right) \left( x_{\boldsymbol{b}}\,\,y_{\boldsymbol{b}}\,\,z_{\boldsymbol{b}} \right) ^T=x_{\boldsymbol{a}}x_{\boldsymbol{b}}+y_{\boldsymbol{a}}y_{\boldsymbol{b}}+z_{\boldsymbol{a}}z_{\boldsymbol{b}}
+\]
+也称{\bf 数量积}，也可记为$\boldsymbol{a}\cdot \boldsymbol{b}$，于是又称{\bf 点积}。
+\end{definition}
+
+\begin{tcolorbox}
+有些教材使用$\boldsymbol{a}\cdot \boldsymbol{b}$表示内积，但我们用$\boldsymbol{a}^T\boldsymbol{b}$，好处是$\boldsymbol{a}^T\boldsymbol{b}\cdot dl$这样的被积式清晰无歧义。
+\end{tcolorbox}
+
+\begin{theorem}
+矢量内积等于矢量的模的积再乘以它们夹角的余弦，即：
+\[
+\boldsymbol{a}^T\boldsymbol{b}=\left\| \boldsymbol{a} \right\| \left\| \boldsymbol{b} \right\| \cos \theta \qquad \theta \in \left[ 0,\pi \right]
+\]
+\end{theorem}
+
+矢量内积常用于判断两个矢量的空间关系，相互垂直还是平行。
+
+注意：
+\begin{itemize}
+    \item 矢量内积的结果为标量；
+    \item 几何上，内积可以看成$\boldsymbol{a}$在$\boldsymbol{b}$的方向上的投影值$\left\| \boldsymbol{a} \right\| \cos \theta $和$\left\| \boldsymbol{b} \right\| $的乘积；
+    \item 空间上，
+    \begin{itemize}
+        \item 两个矢量垂直$\Leftrightarrow \theta =\pi /2\Leftrightarrow \boldsymbol{a}^T\boldsymbol{b}=0$，记为$\boldsymbol{a}\bot \boldsymbol{b}$，称为两个矢量{\bf 正交}，
+        \item 两个矢量平行$\Leftrightarrow \theta =0\mathrm{or}\pi \Leftrightarrow \boldsymbol{a}=\lambda \boldsymbol{b}$，记为$\boldsymbol{a}\parallel \boldsymbol{b}$，称为两个矢量{\bf 平行}（或{\bf 共线}）。
+    \end{itemize}
+    \item 根据内积公式可以得到，
+    \begin{itemize}
+        \item 若$\boldsymbol{a}^T\boldsymbol{b}>0$，则两个矢量方向基本相同，夹角0°～90°，
+        \item 若$\boldsymbol{a}^T\boldsymbol{b}=0$，则两个矢量相互垂直，夹角为90°，
+        \item 若$\boldsymbol{a}^T\boldsymbol{b}<0$，则两个矢量方向基本相反，夹角90°～180°。
+    \end{itemize}
+\end{itemize}
+
+对于单位矢量特别有：
+\begin{align*}
+&\mathbf{i}^T\mathbf{i}=\mathbf{j}^T\mathbf{j}=\mathbf{k}^T\mathbf{k}=1 \\
+&\mathbf{i}^T\mathbf{j}=\mathbf{j}^T\mathbf{k}=\mathbf{k}^T\mathbf{i}=0
+\end{align*}
+
+运算法则：
+\begin{align*}
+&\boldsymbol{a}^T\boldsymbol{b}=\boldsymbol{b}^T\boldsymbol{a} \\
+&\boldsymbol{a}^T\left( \boldsymbol{b}+\boldsymbol{c} \right) =\boldsymbol{a}^T\boldsymbol{b}+\boldsymbol{a}^T\boldsymbol{c} \\
+&\left( \lambda \boldsymbol{a} \right) ^T\left( \mu \boldsymbol{b} \right) =\left( \lambda \mu \right) \boldsymbol{a}^T\boldsymbol{b} \\
+&\boldsymbol{a}^T\boldsymbol{a}=\left\| \boldsymbol{a} \right\| ^2
+\end{align*}
+
+\begin{tcolorbox}
+矢量内积这个概念源于考察矢量场对边界的扩张或收缩的效果。
+\end{tcolorbox}
+
+%============================================================
+\subsection{矢量的外积}
+
+\begin{definition}[外积]
+我们采用行列式定义{\bf 外积}，记作$\boldsymbol{a}\times \boldsymbol{b}$，即：
+\begin{align*}
+\boldsymbol{a}\times \boldsymbol{b}:&=\left( x_{\boldsymbol{a}}\,\,y_{\boldsymbol{a}}\,\,z_{\boldsymbol{a}} \right) \times \left( x_{\boldsymbol{b}}\,\,y_{\boldsymbol{b}}\,\,z_{\boldsymbol{b}} \right) ^T\\
+&=\left| \begin{matrix}
+	\mathbf{i}&		\mathbf{j}&		\mathbf{k}\\
+	x_{\boldsymbol{a}}&		y_{\boldsymbol{a}}&		z_{\boldsymbol{a}}\\
+	x_{\boldsymbol{b}}&		y_{\boldsymbol{b}}&		z_{\boldsymbol{b}}\\
+\end{matrix} \right|=\left( \begin{array}{c}
+	y_{\boldsymbol{a}}z_{\boldsymbol{b}}-z_{\boldsymbol{a}}y_{\boldsymbol{b}}\\
+	z_{\boldsymbol{a}}x_{\boldsymbol{b}}-x_{\boldsymbol{a}}z_{\boldsymbol{b}}\\
+	x_{\boldsymbol{a}}y_{\boldsymbol{b}}-y_{\boldsymbol{a}}x_{\boldsymbol{b}}\\
+\end{array} \right)
+\end{align*}
+又称{\bf 叉积}、{\bf 矢量积}、{\bf 向量积}。
+\end{definition}
+
+\begin{theorem}
+矢量外积的模等于矢量的模的积再乘以它们夹角的正弦，即：
+\[
+\left\| \boldsymbol{a}\times \boldsymbol{b} \right\| =\left\| \boldsymbol{a} \right\| \left\| \boldsymbol{b} \right\| \sin \theta \qquad \theta \in \left[ 0,\pi \right]
+\]
+\end{theorem}
+
+注意：
+\begin{itemize}
+    \item 矢量外积的结果还是为矢量；
+    \item 外积的方向垂直于$\boldsymbol{a},\boldsymbol{b}$构成的平面，符合“右手法则”，右手握拳由$\boldsymbol{a}$转向$\boldsymbol{b}$，拇指方向为外积方向，故也称为{\bf 法向量}；
+    \item 外积的大小为$\boldsymbol{a},\boldsymbol{b}$构成的平行四边形面积，当$\left\| \boldsymbol{a}\times \boldsymbol{b} \right\| =0$时，表示$\boldsymbol{a},\boldsymbol{b}$平行；
+    \item 矢量外积常用于构建一个平面的法向矢量，当然也可以判断两个矢量是否平行，但不常用。
+\end{itemize}
+
+\begin{tcolorbox}
+矢量外积的方向的“右手法则”是直角坐标系的“右手法则”的必然结果。
+\end{tcolorbox}
+
+对于单位矢量特别有：
+\begin{align*}
+&\mathbf{i}\times \mathbf{i}=\mathbf{j}\times \mathbf{j}=\mathbf{k}\times \mathbf{k}=0 \\
+&\mathbf{i}\times \mathbf{j}=\mathbf{k} \\
+&\mathbf{j}\times \mathbf{k}=\mathbf{i} \\
+&\mathbf{k}\times \mathbf{i}=\mathbf{j}
+\end{align*}
+
+运算法则：
+\begin{align*}
+&\boldsymbol{a}\times \boldsymbol{b}=-\boldsymbol{b}\times \boldsymbol{a} \\
+&\boldsymbol{a}\times \left( \boldsymbol{b}+\boldsymbol{c} \right) =\boldsymbol{a}\times \boldsymbol{b}+\boldsymbol{a}\times \boldsymbol{c} \\
+&\boldsymbol{a}\times \boldsymbol{a}=\mathbf{0}
+\end{align*}
+
+\begin{tcolorbox}
+矢量外积这个概念源于考察矢量场对区域自旋的效果。
+\end{tcolorbox}
+
+%============================================================
+\subsection{内积和外积的比较}
+
+考察内积和外积，内积和外积的大小的平方和是以$\boldsymbol{a},\boldsymbol{b}$长度构成的长方形的面积的平方。
+\begin{align*}
+&\because \begin{cases}
+	\boldsymbol{a}^T\boldsymbol{b}=\left\| \boldsymbol{a} \right\| \left\| \boldsymbol{b} \right\| \cos \theta\\
+	\left\| \boldsymbol{a}\times \boldsymbol{b} \right\| =\left\| \boldsymbol{a} \right\| \left\| \boldsymbol{b} \right\| \sin \theta\\
+\end{cases} \\
+&\therefore \left( \boldsymbol{a}^T\boldsymbol{b} \right) ^2+\left\| \boldsymbol{a}\times \boldsymbol{b} \right\| ^2=\left\| \boldsymbol{a} \right\| ^2\left\| \boldsymbol{b} \right\| ^2
+\end{align*}
+该关系式说明，内积和外积是一对关系，是一个本源分裂出来的两个概念。
+物理意义上，是矢量场对区域的两个作用（收扩作用和自旋作用）的反映。
+矢量场对一个区域的膨胀或收缩的效应，会用到内积运算，对该区域的自旋效应，会用到外积运算。
+
+
+
+

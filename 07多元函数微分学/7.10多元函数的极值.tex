@@ -1,0 +1,79 @@
+\section{多元函数的极值}
+
+之前在一元函数中我们用导数讨论了极值问题，这里我们扩展到二元函数，用梯度和黑塞矩阵讨论二元函数的极值问题。
+
+本节要点：
+\begin{itemize}
+    \item 掌握二元函数的极值的概念；
+    \item 深刻理解二元函数极值的判断方法；
+    \item 了解条件极值和拉格朗日乘数法。
+\end{itemize}
+
+%============================================================
+\subsection{极值的概念}
+
+\begin{definition}[极值]
+若函数$f\left( \boldsymbol{p} \right) $在点$\boldsymbol{p}_0$的某去心邻域$N\left( \boldsymbol{\hat{p}}_0,\delta \right) $内任意一点$\boldsymbol{p}$有
+\[
+f\left( \boldsymbol{p} \right) >f\left( \boldsymbol{p}_0 \right) \quad \text{或} \quad f\left( \boldsymbol{p} \right) <f\left( \boldsymbol{p}_0 \right)
+\]
+则称$f\left( \boldsymbol{p}_0 \right) $为{\bf 函数$f\left( \boldsymbol{p} \right) $的极小值}（或{\bf 极大值}），点$\boldsymbol{p}_0$为{\bf 函数的极小值点}（或{\bf 极大值点}）。
+我们统称极小值和极大值为{\bf 极值}，极小值点和极大值点为{\bf 极值点}。
+\end{definition}
+
+在讨论函数$f\left( \boldsymbol{p} \right) $的极值问题时，我们将$f\left( \boldsymbol{p} \right) $称为{\bf 目标函数}，这类问题称为无条件极值问题。
+如果加了一些限定条件如$g\left( \boldsymbol{p} \right) =0$（也可以是不等式），则称为{\bf 条件极值}。
+
+%============================================================
+\subsection{极值的判断}
+
+类似于一元函数，二元函数的极值判断也有充分条件和必要条件。
+
+\begin{theorem}[极值的充分条件]
+若函数$f\left( \boldsymbol{p} \right) $在$\boldsymbol{p}_0$处有偏导，在$\boldsymbol{p}_0$取得极值，则：
+\[
+f_x\left( \boldsymbol{p}_0 \right) =f_y\left( \boldsymbol{p}_0 \right) =0
+\]
+用矢量写为：
+\[
+\nabla f\left( \boldsymbol{p}_0 \right) =\mathbf{0}
+\]
+符合上式的$\boldsymbol{p}_0$称为{\bf 函数的驻点}。
+\end{theorem}
+
+\begin{theorem}[极值的必要条件]
+若函数$f\left( \boldsymbol{p} \right) $在$\boldsymbol{p}_0$的某邻域内有二阶连续偏导，且$f_x\left( \boldsymbol{p}_0 \right) =f_y\left( \boldsymbol{p}_0 \right) =0$，记函数$f\left( \boldsymbol{p} \right) $在$\boldsymbol{p}_0$的黑塞矩阵
+\[
+H_f\left( \boldsymbol{p}_0 \right) =\left. \left[ \begin{matrix}
+	f_{xx}&		f_{xy}\\
+	f_{yx}&		f_{yy}\\
+\end{matrix} \right] \right|_{\boldsymbol{p}_0}\triangleq \left[ \begin{matrix}
+	A&		B\\
+	B&		C\\
+\end{matrix} \right]
+\]
+\begin{itemize}
+    \item 当$H_f\left( \boldsymbol{p}_0 \right) $为正定矩阵，即$AC>B^2,A>0$，则$f\left( \boldsymbol{p}_0 \right) $为极小值；
+    \item 当$H_f\left( \boldsymbol{p}_0 \right) $为负定矩阵，即$AC>B^2,A<0$，则$f\left( \boldsymbol{p}_0 \right) $为极大值；
+    \item 当$H_f\left( \boldsymbol{p}_0 \right) $为不定矩阵，即$AC<B^2$，则$f\left( \boldsymbol{p}_0 \right) $不是极值。
+\end{itemize}
+\end{theorem}
+
+在二元函数中，我们用梯度判断驻点，用黑塞矩阵判断极值点。
+如果要判断全部极值点，还需要判断边界点和不可导点。
+和一元函数对比学习！
+
+%============================================================
+\subsection{条件极值和拉格朗日乘数法}
+
+所谓条件极值，就是$\boldsymbol{p}$中的标量元素间有相互制约关系，这点在一元函数中是不存在的。
+如计算球面上点$\boldsymbol{p}\in S$和球面外的点$\boldsymbol{q}$最近的点。
+这里，$S$就是约束条件，$f\left( \boldsymbol{p} \right) =\left\| \boldsymbol{p}-\boldsymbol{q} \right\| $就是目标函数。
+我们要求解的就是$f\left( \boldsymbol{p} \right) =\left\| \boldsymbol{p}-\boldsymbol{q} \right\| $的最小值。
+
+通常带约束条件的极值判断较为复杂，拉格朗日乘数法是一个通常的解决方法，具体参见“教材\cite{book1}”。
+总体思路是将约束条件带入目标函数，构造拉格朗日函数$F$，用$\nabla F=\mathbf{0}$求出驻点，最后结合边界、不可导点和问题本身的物理意义判断极值。
+
+
+
+

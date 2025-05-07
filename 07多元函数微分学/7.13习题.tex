@@ -1,0 +1,115 @@
+\section{习题}
+
+\begin{exercise}
+求下列函数的偏导数：
+\begin{enumerate}
+    \item $z=e^{xy}\cos \left( x+2y \right) $
+    \item $z=\mathrm{arc}\tan \sqrt{x^y}$
+    \item $u=\left( \frac{x}{y} \right) ^z$
+\end{enumerate}
+\end{exercise}
+
+解：
+
+1.
+\begin{align*}
+&\frac{\partial z}{\partial x}=ye^{xy}\cos \left( x+2y \right) -e^{xy}\sin \left( x+2y \right) \\
+&\frac{\partial z}{\partial y}=xe^{xy}\cos \left( x+2y \right) -2e^{xy}\sin \left( x+2y \right)
+\end{align*}
+
+2.
+\begin{align*}
+&\frac{\partial z}{\partial x}=\frac{1}{1+x^y}\cdot \frac{1}{2\sqrt{x^y}}\cdot yx^{y-1} \\
+&\frac{\partial z}{\partial y}=\frac{1}{1+x^y}\cdot \frac{1}{2\sqrt{x^y}}\cdot x^y\ln x
+\end{align*}
+
+3.
+\begin{align*}
+&\frac{\partial u}{\partial x}=z\left( \frac{x}{y} \right) ^{z-1}\cdot \frac{1}{y} \\
+&\frac{\partial u}{\partial y}=z\left( \frac{x}{y} \right) ^{z-1}\cdot \left( -\frac{x}{y^2} \right) \\
+&\frac{\partial u}{\partial z}=\left( \frac{x}{y} \right) ^z\cdot \ln \left( \frac{x}{y} \right)
+\end{align*}
+
+~
+
+\begin{exercise}
+若函数$z=\frac{\ln \left( xy \right)}{y}$，求全微分。
+\end{exercise}
+
+解：
+\begin{align*}
+dz&=\frac{\partial z}{\partial x}dx+\frac{\partial z}{\partial y}dy=\frac{1}{y}\frac{1}{xy}y\cdot dx+\frac{\frac{1}{xy}xy-\ln \left( xy \right)}{y^2}\cdot dy \\
+&=\frac{1}{xy}\cdot dx+\frac{1-\ln \left( xy \right)}{y^2}\cdot dy
+\end{align*}
+
+~
+
+\begin{exercise}
+计算下列各式的近似值：
+\begin{enumerate}
+    \item $\sqrt{1.02^3+1.97^3}$
+    \item $0.97^{1.05}$
+\end{enumerate}
+\end{exercise}
+
+解：
+
+1.
+构造$z=f\left( \boldsymbol{p} \right) =\sqrt{x^3+y^3},\boldsymbol{p}_0=\left( 1,2 \right) ,dx=0.02,dy=-0.03$，于是：
+\begin{align*}
+\sqrt{1.02^3+1.97^3}&\approx z\left( 1,2 \right) +\frac{\partial z}{\partial x}dx+\frac{\partial z}{\partial y}dy \\
+&=3+\frac{3x^2}{2\sqrt{x^3+y^3}}dx+\frac{3y^2}{2\sqrt{x^3+y^3}}dy=2.95 \\
+\sqrt{1.02^3+1.97^3}&=2.95069
+\end{align*}
+
+2.
+构造$z=f\left( \boldsymbol{p} \right) =x^y,\boldsymbol{p}_0=\left( 1,1 \right) ,dx=-0.03,dy=0.05$，于是：
+\begin{align*}
+0.97^{1.05}&\approx z\left( 1,1 \right) +\frac{\partial z}{\partial x}dx+\frac{\partial z}{\partial y}dy \\
+&=1+yx^{y-1}\cdot dx+x^y\ln x\cdot dy=0.97 \\
+0.97^{1.05}&=0.968524
+\end{align*}
+
+~
+
+\begin{exercise}
+有一半径5cm，高20cm的金属圆柱体100个，现要在其表面镀一层厚度为0.05cm的镍，估计需要多少镍，已知镍的比重8.8g/cm3。
+\end{exercise}
+
+解：
+
+总体思路是估算100个圆柱体的体积增量。
+对圆柱体体积计算公式进行全微分：
+\begin{align*}
+&V\left( r,h \right) =\pi r^2h \\
+&dV\left( r,h \right) =2\pi rh\cdot dr+\pi r^2\cdot dh
+\end{align*}
+于是，镍需要：
+\begin{align*}
+m&=100\cdot dV\cdot \rho =100\cdot \left( 2\pi rh\cdot dr+\pi r^2\cdot dh \right) \cdot \rho \\
+&=100\cdot \left( 2\pi \cdot 5\cdot 20\cdot 0.05+\pi \cdot 5^2\cdot 0.10 \right) \cdot 8.8=34557.5\mathrm{g}
+\end{align*}
+
+~
+
+\begin{exercise}
+设有一无盖圆柱形容器，壁和底的厚度均为0.1cm，内高20cm，半径4cm，求外壳体积的近似值。
+\end{exercise}
+
+解：
+
+总体思路依然是估算圆柱体体积的增量。
+\begin{align*}
+&V\left( r,h \right) =\pi r^2h \\
+&dV\left( r,h \right) =2\pi rh\cdot dr+\pi r^2\cdot dh
+\end{align*}
+
+于是：
+\begin{align*}
+dV&=2\pi rh\cdot dr+\pi r^2\cdot dh \\
+&=2\pi \cdot 4\cdot 20\cdot 0.1+\pi \cdot 4^2\cdot 0.1=55.292\mathrm{cm}^3
+\end{align*}
+
+
+
+

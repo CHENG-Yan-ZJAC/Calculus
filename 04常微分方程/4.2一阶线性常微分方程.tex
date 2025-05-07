@@ -1,0 +1,156 @@
+\section{一阶线性常微分方程}
+
+全称“一阶线性常微分方程”：
+\begin{itemize}
+    \item 一阶：未知函数的最高阶导数为一阶导数；
+    \item 线性：微分方程是未知函数及其导数的一次有理整式；
+    \item 常：未知函数是一元函数。
+\end{itemize}
+由于本章所述均为一元函数，所以省去“常微分”，简称“一阶线性方程”。
+
+一阶线性方程解法的总体思路是分离变量，通过把$dx$和$dy$分离到方程的两边，再求解积分化掉微分项$dx$和$dy$。
+一阶线性方程的通解可以描述为：
+\[
+\text{一阶线性方程的通解} = \text{齐次方程的通解} + \text{非齐次方程的一个特解}
+\]
+为了得到这个方法，本节先从分离变量开始，讲到齐次方程，最后推导出一阶线性方程的求解公式。
+
+本节要点：
+\begin{itemize}
+    \item 熟悉一阶线性方程的形式；
+    \item 推导一阶线性方程的通解；
+    \item 体会一阶线性方程的物理意义。
+\end{itemize}
+
+%============================================================
+\subsection{一阶齐次线性方程}
+
+\begin{definition}[一阶齐次线性方程]
+形如
+\[
+\frac{dy}{dx}+P\left( x \right) y=0
+\]
+的微分方程称为{\bf 一阶齐次线性方程}，其中$y=f\left( x \right) $。
+\end{definition}
+
+\begin{tcolorbox}
+“齐次”指的是没有和$y$无关的项。
+\end{tcolorbox}
+
+求解过程如下：
+\begin{enumerate}
+    \item 分离变量：
+    \[
+    \frac{1}{y}dy=-P\left( x \right) dx
+    \]
+    \item 两边分别求不定积分：
+    \[
+    \ln \left| y \right|=-\int{P\left( x \right) dx}+C
+    \]
+    \item 两边取$e$的指数，得到通解：
+    \[
+    y=Ce^{-\int{P\left( x \right) dx}}
+    \]
+\end{enumerate}
+
+特别地，当$P\left( x \right) \equiv P\ne 0$时，方程中无自变量$x$，方程变成：
+\[
+\frac{dy}{dx}+Py=0
+\]
+它是一阶齐次线性方程的特殊形式——{\bf 一阶常系数齐次线性方程}，即$y$的系数不是一个关于$x$的函数，而是一个固定值，用通解公式易得通解：
+\[
+y=Ce^{-Px}
+\]
+是一个很典型的指数函数，讨论$x\in \left( 0,+\infty \right) $的时候：
+\begin{itemize}
+    \item 当$P>0$，$y$单调递减并从$C$趋向0，相当于引入一个负反馈；
+    \item 当$P<0$，$y$单调递增并从$C$趋向$+\infty $，相当于引入一个正反馈；
+    \item 当$P=0$，方程变成$\frac{dy}{dx}=0$，解为$y=C$。
+\end{itemize}
+
+\begin{tcolorbox}
+在物理角度看方程$\frac{dy}{dx}+Py=0$的解，如果一个系统没有输入，仅靠存量作用产生输出（《信号与系统》理论中称为零输入响应），往往会以指数形式衰减，比如放射性物质衰变公式。
+\end{tcolorbox}
+
+%============================================================
+\subsection{一阶非齐次线性方程}
+
+\begin{definition}[一阶非齐次线性方程]
+形如
+\[
+\frac{dy}{dx}+P\left( x \right) y=Q\left( x \right)
+\]
+的微分方程称为{\bf 一阶非齐次线性方程}，其中$y=f\left( x \right) $。
+\end{definition}
+
+\begin{tcolorbox}
+“非齐次”指的是有了一个和$y$无关的项$Q\left( x \right) $。
+\end{tcolorbox}
+
+求解过程如下：
+\begin{enumerate}
+    \item 求得对应的齐次方程的通解：
+    \[
+    y=Ce^{-\int{P\left( x \right) dx}}
+    \]
+    \item 将常数$C$变为待定函数$C=\left( x \right) $，代入上式：
+    \[
+    y=C\left( x \right) e^{-\int{P\left( x \right) dx}}
+    \]
+    \item 将该函数代入微分方程求得：
+    \[
+    C\left( x \right) =\int{Q\left( x \right) e^{\int{P\left( x \right) dx}}dx}+C
+    \]
+    \item 得到通解：
+    \[
+    y=e^{-\int{P\left( x \right) dx}}\cdot \left[ \int{Q\left( x \right) e^{\int{P\left( x \right) dx}}dx}+C \right]
+    \]
+\end{enumerate}
+
+特别地，当$P\left( x \right) \equiv P,Q\left( x \right) \equiv Q$时，方程中无自变量$x$，方程变成：
+\[
+\frac{dy}{dx}+Py=Q
+\]
+它是一阶非齐次线性方程的特殊形式——{\bf 一阶常系数非齐次线性方程}，即$y$的系数和无关项是一个固定值，用通解公式易得通解：
+\[
+y=Ce^{-Px}+\frac{Q}{P}
+\]
+在典型的指数函数的基础上上抬了$Q/P$，讨论$x\in \left( 0,+\infty \right) $的时候：
+\begin{itemize}
+    \item 当$P>0$，$y$单调递减并从$C+Q/P$趋向$Q/P$，相当于引入一个负反馈；
+    \item 当$P<0$，$y$单调递增并从$C+Q/P$趋向$+\infty $，相当于引入一个正反馈。
+\end{itemize}
+和一阶常系数齐次线性方程对比看，整个系统有一个“固定能量”。
+
+一阶线性常微分方程由于只包含一阶导数，函数的变化率单一，所以不会像二阶一样发生振荡。
+
+%============================================================
+\subsection{一阶线性方程及通解形式}
+
+一阶齐次线性方程：
+\begin{align*}
+&\text{方程：} \quad \frac{dy}{dx}+P\left( x \right) y=0 \\
+&\text{通解：} \quad y=Ce^{-\int{P\left( x \right) dx}}
+\end{align*}
+
+一阶常系数齐次线性方程：
+\begin{align*}
+&\text{方程：} \quad \frac{dy}{dx}+Py=0 \\
+&\text{通解：} \quad y=Ce^{-Px}
+\end{align*}
+
+一阶非齐次线性方程：
+\begin{align*}
+&\text{方程：} \quad \frac{dy}{dx}+P\left( x \right) y=Q\left( x \right) \\
+&\text{通解：} \quad y=e^{-\int{P\left( x \right) dx}}\cdot \left[ \int{Q\left( x \right) e^{\int{P\left( x \right) dx}}dx}+C \right]
+\end{align*}
+
+一阶常系数非齐次线性方程：
+\begin{align*}
+&\text{方程：} \quad \frac{dy}{dx}+Py=Q \\
+&\text{通解：} \quad y=Ce^{-Px}+\frac{Q}{P}
+\end{align*}
+
+
+
+

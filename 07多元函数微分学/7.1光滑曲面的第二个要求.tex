@@ -1,0 +1,35 @@
+\section{光滑曲面的第二个要求}
+
+光滑曲面的第二个要求是不折。
+
+这里要捋清几个对应关系。
+一元函数对应二维平面，对应{\it xy}直角坐标系，在二维平面中，光滑曲线的要求——不断不折，体现为连续和可导，由于可导和可微的等价性，也可以表现为连续和可微。
+二元函数对应三维空间，对应{\it xyz}直角坐标系，在三维空间中，同样对光滑曲面有不折不断的要求，体现为连续和可微，这里的连续和可微都要求各个方向。
+
+定义二元函数的导数是一件麻烦的事情。
+首先，二元函数有两个变量，所以变化率会有沿着两个方向。
+其次，如果我们考虑一个“总的变化率”，它的大小将随着方向的变化而变化，即总变化率是一个有方向的量，我们用矢量描述它将会比较合适。
+综合下来，二元函数中没有“导数”这个概念，与一元函数导数对等的是一个叫“梯度”的概念。
+梯度和可微是等价概念。更准确地讲，是一维空间中“导数”这个概念对应着多维空间中的“梯度”和“散度”两个概念。
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+    \toprule
+    概念 & 一元函数中的定义 & 二元函数中的定义\\
+    \midrule
+    极限        & $\underset{x\rightarrow x_0}{\lim}f\left( x \right) =A$ & $\underset{\boldsymbol{p}\rightarrow \boldsymbol{p}_0}{\lim}f\left( \boldsymbol{p} \right) =A$\\
+    连续        & $\underset{x\rightarrow x_0}{\lim}f\left( x \right) =f\left( x_0 \right) $ & $\underset{\boldsymbol{p}\rightarrow \boldsymbol{p}_0}{\lim}f\left( \boldsymbol{p} \right) =f\left( \boldsymbol{p}_0 \right) $\\
+    导数/梯度   & $\frac{dy}{dx}$ & $\nabla z=\left( \frac{\partial z}{\partial x}\,\,\frac{\partial z}{\partial y} \right) ^T$\\
+    微分/全微分 & $dy=y'dx$ & $dz=\frac{\partial z}{\partial x}dx+\frac{\partial z}{\partial y}dy$\\
+    偏导数      &  & $\frac{\partial z}{\partial x},\frac{\partial z}{\partial y}$\\
+    方向导数    &  & $\frac{\partial z}{\partial n}=\frac{\partial z}{\partial x}\cos \alpha +\frac{\partial z}{\partial y}\cos \beta $\\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+二元函数中，梯度和全微分都是建立在偏导数的基础上，所以本章先从偏导入手，再介绍全微分和梯度。
+
+
+
+

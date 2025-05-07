@@ -1,0 +1,151 @@
+\section{隐函数的求导}
+
+对于隐函数，本节给出隐函数的求偏导的方法，该方法去除了链式求导步骤，大大简化计算过程。
+隐函数求导法在曲线积分和曲面积分中有重要使用，需要熟练掌握。
+
+本节要点：
+\begin{itemize}
+    \item 掌握一元隐函数和二元隐函数的求导法则。
+\end{itemize}
+
+%============================================================
+\subsection{一元隐函数的求导}
+
+\begin{theorem}[一元隐函数求导定理]
+将方程$F\left( x,y \right) =0$的左边看成二元函数$z=F\left( \boldsymbol{p} \right) $，若满足：
+\begin{itemize}
+    \item 在点$\boldsymbol{p}_0$的某一邻域内有连续的偏导数，且$\left. \frac{\partial z}{\partial y} \right|_{\boldsymbol{p}_0}\ne 0$，
+    \item 点$\boldsymbol{p}_0$满足方程$F\left( \boldsymbol{p}_0 \right) =0$，
+\end{itemize}
+则点$\boldsymbol{p}_0$的某一邻域内，方程$F\left( x,y \right) =0$将唯一确定单值连续函数$y=y\left( x \right) $，使得$F\left( x,y\left( x \right) \right) =0$，且$y_0=y\left( x_0 \right) $，并有：
+\[
+\frac{dy}{dx}=-\frac{\frac{\partial z}{\partial x}}{\frac{\partial z}{\partial y}}=-\frac{F_x}{F_y}
+\]
+\end{theorem}
+
+%============================================================
+\subsection{二元隐函数的求导}
+
+\begin{theorem}[二元隐函数求导定理]
+将方程$F\left( x,y,z \right) =0$的左边看成三元函数$u=F\left( \boldsymbol{p} \right) ,\boldsymbol{p}=\left( x\,\,y\,\,z \right) ^T$，若满足：
+\begin{itemize}
+    \item 在点$\boldsymbol{p}_0$的某一邻域内有连续的偏导数，且$\left. \frac{\partial u}{\partial z} \right|_{\boldsymbol{p}_0}\ne 0$，
+    \item 点$\boldsymbol{p}_0$满足方程$F\left( \boldsymbol{p}_0 \right) =0$，
+\end{itemize}
+则点$\boldsymbol{p}_0$的某一邻域内，方程$F\left( x,y,z \right) =0$将唯一确定单值连续函数$z=z\left( x,y \right) $，使得$F\left( x,y,z\left( x,y \right) \right) =0$，且$z_0=z\left( x_0,y_0 \right) $，并有：
+\begin{align*}
+&\frac{\partial z}{\partial x}=-\frac{\frac{\partial u}{\partial x}}{\frac{\partial u}{\partial z}}=-\frac{F_x}{F_z} \\
+&\frac{\partial z}{\partial y}=-\frac{\frac{\partial u}{\partial y}}{\frac{\partial u}{\partial z}}=-\frac{F_y}{F_z}
+\end{align*}
+\end{theorem}
+
+使用隐函数的求导方法时，首先创建一个函数$u=F\left( \boldsymbol{p} \right) $，此时，$z$再不是应变量，而是自变量。
+
+~
+
+\begin{example}
+设$x^2+y^2+z^2=1$，求$\frac{\partial ^2z}{\partial x^2}$。
+\end{example}
+
+解：
+
+令$u=F\left( x,y,z \right) =x^2+y^2+z^2-1$，可得：
+\[
+\frac{\partial z}{\partial x}=-\frac{F_x}{F_z}=-\frac{x}{z}
+\]
+继续求偏导：
+\[
+\frac{\partial ^2z}{\partial x^2}=\frac{\partial}{\partial x}\left( -\frac{x}{z} \right) =-\frac{z-x\frac{\partial z}{\partial x}}{z^2}=-\frac{z+x\frac{x}{z}}{z^2}
+\]
+
+~
+
+\begin{example}
+    设$x^2+y^2+z^2=yf\left( \frac{z}{y} \right) $，其中$f\left( u \right) $对$u$可微，求$\frac{\partial z}{\partial y}$。
+\end{example}
+
+解：
+
+令$u=F\left( x,y,z \right) =x^2+y^2+z^2-yf\left( \frac{z}{y} \right) $，可得：
+\[
+\frac{\partial z}{\partial y}=-\frac{F_y}{F_z}=-\frac{2y-f\left( \frac{z}{y} \right) -yf'\left( \frac{z}{y} \right) \left( -\frac{z}{y^2} \right)}{2z-yf'\left( \frac{z}{y} \right) \frac{1}{y}}=-\frac{2y-f+\frac{z}{y}f'}{2z-f'}
+\]
+
+%============================================================
+\subsection{方程组的求导}
+
+上面提到的是一个三元方程$F\left( x,y,z \right) =0$确定的一个二元函数。
+如果是两个四元方程组成的方程组，如下：
+\[
+\left\{ \begin{array}{c}
+	F\left( x,y,u,v \right) =0\\
+	G\left( x,y,u,v \right) =0\\
+\end{array} \right.
+\]
+也可以确定两个二元函数$u=u\left( x,y \right) ,v=v\left( x,y \right) $。
+以求$\frac{\partial u}{\partial x},\frac{\partial v}{\partial x}$为例，将两个方程两边分别对$x$求偏导：
+\[
+\begin{cases}
+	\frac{\partial F}{\partial x}+\frac{\partial F}{\partial u}\cdot \frac{\partial u}{\partial x}+\frac{\partial F}{\partial v}\cdot \frac{\partial v}{\partial x}=0\\
+	\frac{\partial G}{\partial x}+\frac{\partial G}{\partial u}\cdot \frac{\partial u}{\partial x}+\frac{\partial G}{\partial v}\cdot \frac{\partial v}{\partial x}=0\\
+\end{cases}
+\]
+其实就是解一个二元一次方程组，化为矩阵形式：
+\[
+\left[ \begin{matrix}
+	\frac{\partial F}{\partial u}&		\frac{\partial F}{\partial v}\\
+	\frac{\partial G}{\partial u}&		\frac{\partial G}{\partial v}\\
+\end{matrix} \right] \cdot \left( \begin{array}{c}
+	\frac{\partial u}{\partial x}\\
+	\frac{\partial u}{\partial y}\\
+\end{array} \right) =-\left( \begin{array}{c}
+	\frac{\partial F}{\partial x}\\
+	\frac{\partial G}{\partial y}\\
+\end{array} \right)
+\]
+解用雅可比行列式可以写成：
+\[
+\begin{cases}
+	\frac{\partial u}{\partial x}=-\frac{\partial \left( F,G \right)}{\partial \left( x,v \right)}/\frac{\partial \left( F,G \right)}{\partial \left( u,v \right)}\\
+	\frac{\partial v}{\partial x}=-\frac{\partial \left( F,G \right)}{\partial \left( u,x \right)}/\frac{\partial \left( F,G \right)}{\partial \left( u,v \right)}\\
+\end{cases}
+\]
+
+~
+
+\begin{example}
+若方程组
+\[
+\begin{cases}
+	u^3+xv-y=0\\
+	v^3+yu-x=0\\
+\end{cases}
+\]
+可确定的函数$u=u\left( x,y \right) ,v=v\left( x,y \right) $，求偏导数$\frac{\partial u}{\partial x},\frac{\partial v}{\partial x}$。
+\end{example}
+
+解：
+
+用上面的方法，直接写出解的公式：
+\begin{align*}
+&\frac{\partial \left( F,G \right)}{\partial \left( x,v \right)}=\left| \begin{matrix}
+	\frac{\partial F}{\partial x}&		\frac{\partial F}{\partial v}\\
+	\frac{\partial G}{\partial x}&		\frac{\partial G}{\partial v}\\
+\end{matrix} \right|=v\cdot 3v^2-x\cdot \left( -1 \right) =x+3v^3 \\
+&\frac{\partial \left( F,G \right)}{\partial \left( u,x \right)}=\left| \begin{matrix}
+	\frac{\partial F}{\partial u}&		\frac{\partial F}{\partial x}\\
+	\frac{\partial G}{\partial u}&		\frac{\partial G}{\partial x}\\
+\end{matrix} \right|=3u^2\cdot \left( -1 \right) -v\cdot y=-vy-3u^2 \\
+&\frac{\partial \left( F,G \right)}{\partial \left( u,v \right)}=\left| \begin{matrix}
+	\frac{\partial F}{\partial u}&		\frac{\partial F}{\partial v}\\
+	\frac{\partial G}{\partial u}&		\frac{\partial G}{\partial v}\\
+\end{matrix} \right|=3u^2\cdot 3v^2-x\cdot y=9u^2v^2-xy
+\end{align*}
+解得：
+\[
+\begin{cases}
+	\frac{\partial u}{\partial x}=-\frac{\partial \left( F,G \right)}{\partial \left( x,v \right)}/\frac{\partial \left( F,G \right)}{\partial \left( u,v \right)}=-\frac{x+3v^3}{9u^2v^2-xy}\\
+	\frac{\partial v}{\partial x}=-\frac{\partial \left( F,G \right)}{\partial \left( u,x \right)}/\frac{\partial \left( F,G \right)}{\partial \left( u,v \right)}=-\frac{-vy-3u^2}{9u^2v^2-xy}\\
+\end{cases}
+\]
+

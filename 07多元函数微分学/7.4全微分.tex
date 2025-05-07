@@ -1,0 +1,219 @@
+\section{全微分}
+
+本节讨论全微分。
+全微分是多元函数微分学的核心概念，是后续概念和定理的基础，同时在工程上也是一个用于估算微增量的非常有用的概念。
+
+本节要点：
+\begin{itemize}
+    \item 掌握全微分定义；
+    \item 深入理解全微分定理；
+    \item 掌握全微分的应用。
+\end{itemize}
+
+%============================================================
+\subsection{全微分的概念}
+
+\begin{definition}[全微分]
+如果区域$D$内有函数$z=f\left( \boldsymbol{p} \right) $，若在$\boldsymbol{p}_0\in D$处全增量满足：
+\[
+\Delta z=A\left( \boldsymbol{p}_0 \right) \Delta x+B\left( \boldsymbol{p}_0 \right) \Delta y+o\left( \left\| \Delta \boldsymbol{p} \right\| \right)
+\]
+其中：
+\begin{itemize}
+    \item $A\left( \boldsymbol{p}_0 \right) ,B\left( \boldsymbol{p}_0 \right) $：只与$\boldsymbol{p}_0$有关、与$\Delta \boldsymbol{p}$无关的常数；
+    \item $\left\| \Delta \boldsymbol{p} \right\| $：自变量全增量$\Delta \boldsymbol{p}$的长度；
+    \item $o\left( \left\| \Delta \boldsymbol{p} \right\| \right) $：当$\left\| \Delta \boldsymbol{p} \right\| \rightarrow 0$时，关于$\left\| \Delta \boldsymbol{p} \right\| $的高阶无穷小量，
+\end{itemize}
+则称{\bf 函数$z=f\left( \boldsymbol{p} \right) $在$\boldsymbol{p}_0$处可微}，其中，$A\left( \boldsymbol{p}_0 \right) \Delta x+B\left( \boldsymbol{p}_0 \right) \Delta y$称为{\bf 全微分}（也称$\Delta z$的{\bf 线性主部}），记作$dz$，即：
+\[
+dz:=A\left( \boldsymbol{p}_0 \right) \Delta x+B\left( \boldsymbol{p}_0 \right) \Delta y
+\]
+如果函数在区域$D$内每点处都可微，则称{\bf 函数$z=f\left( \boldsymbol{p} \right) $在区域$D$内可微}，由于$\Delta x=dx,\Delta y=dy$，上式也可写成：
+\[
+dz=A\left( \boldsymbol{p} \right) dx+B\left( \boldsymbol{p} \right) dy
+\]
+\end{definition}
+
+%============================================================
+\subsection{全微分的代数意义}
+
+全微分表达的意思是，如果全增量$\Delta z$可以分成：
+\begin{itemize}
+    \item $A\Delta x+B\Delta y$：关于自变量偏增量的一个线性组合；
+    \item $o\left( \left\| \Delta \boldsymbol{p} \right\| \right) $：可以忽略的无穷小量，
+\end{itemize}
+则认为$A\Delta x+B\Delta y$可以代替全增量$\Delta z$，即：
+\[
+\Delta z=A\Delta x+B\Delta y
+\]
+
+\begin{tcolorbox}
+“线性化、以直代曲”是微分的目的，无论是多元函数全微分还是一元函数的微分。
+\end{tcolorbox}
+
+%============================================================
+\subsection{全微分定理}
+
+\begin{theorem}[全微分定理]
+函数$z=f\left( \boldsymbol{p} \right) $可微$\Leftrightarrow $函数$z=f\left( \boldsymbol{p} \right) $连续且两个偏导数存在，且$A\left( \boldsymbol{p} \right) =\frac{\partial z}{\partial x},B\left( \boldsymbol{p} \right) =\frac{\partial z}{\partial y}$，即：
+\[
+dz=\frac{\partial z}{\partial x}dx+\frac{\partial z}{\partial y}dy
+\]
+\end{theorem}
+
+\begin{proof}
+该定理的关键点在于计算偏导$\frac{\partial z}{\partial x}$。
+从可微和偏导各自的定义出发：
+\begin{align*}
+&\Delta z=A\left( \boldsymbol{p}_0 \right) \Delta x+B\left( \boldsymbol{p}_0 \right) \Delta y+o\left( \left\| \Delta \boldsymbol{p} \right\| \right) \\
+&\left. \frac{\partial z}{\partial x} \right|_{\boldsymbol{p}_0}=\underset{\Delta x\rightarrow 0}{\lim}\frac{\Delta _xz}{\Delta x}=\underset{\Delta x\rightarrow 0}{\lim}\frac{f\left( \boldsymbol{p}_0+\Delta _x\boldsymbol{p} \right) -f\left( \boldsymbol{p}_0 \right)}{\Delta x}
+\end{align*}
+计算$\frac{\partial z}{\partial x}$如下：
+\begin{align*}
+&\left. \frac{\partial z}{\partial x} \right|_{\boldsymbol{p}_0}=\underset{\Delta x\rightarrow 0}{\lim}\frac{\Delta _xz}{\Delta x}=\underset{\Delta x\rightarrow 0}{\lim}\frac{f\left( \boldsymbol{p}_0+\Delta _x\boldsymbol{p} \right) -f\left( \boldsymbol{p}_0 \right)}{\Delta x} \\
+&=\underset{\Delta x\rightarrow 0}{\lim}\frac{f\left( \boldsymbol{p}_0+\Delta _x\boldsymbol{p} \right) -f\left( \boldsymbol{p}_0 \right) +f\left( \boldsymbol{p}_0+\Delta \boldsymbol{p} \right) -f\left( \boldsymbol{p}_0+\Delta \boldsymbol{p} \right)}{\Delta x} \\
+&=\underset{\Delta x\rightarrow 0}{\lim}\frac{\Delta z+f\left( \boldsymbol{p}_0+\Delta _x\boldsymbol{p} \right) -f\left( \boldsymbol{p}_0+\Delta \boldsymbol{p} \right)}{\Delta x} \\
+&=\underset{\Delta x\rightarrow 0}{\lim}\frac{A\left( \boldsymbol{p}_0 \right) \Delta x+B\left( \boldsymbol{p}_0 \right) \Delta y+o\left( \left\| \Delta \boldsymbol{p} \right\| \right) +f\left( \boldsymbol{p}_0+\Delta _x\boldsymbol{p} \right) -f\left( \boldsymbol{p}_0+\Delta \boldsymbol{p} \right)}{\Delta x} \\
+&=A\left( \boldsymbol{p}_0 \right) +\underset{\Delta x\rightarrow 0}{\lim}\frac{B\left( \boldsymbol{p}_0 \right) \Delta y-\left[ f\left( \boldsymbol{p}_0+\Delta \boldsymbol{p} \right) -f\left( \boldsymbol{p}_0+\Delta _x\boldsymbol{p} \right) \right] +o\left( \left\| \Delta \boldsymbol{p} \right\| \right)}{\Delta x}
+\end{align*}
+其中：
+\begin{itemize}
+    \item $B\left( \boldsymbol{p}_0 \right) \Delta y$：自变量的偏增量$\Delta y$引起的$z$从$\boldsymbol{p}_0$开始的线性部分增量；
+    \item $f\left( \boldsymbol{p}_0+\Delta \boldsymbol{p} \right) -f\left( \boldsymbol{p}_0+\Delta _x\boldsymbol{p} \right) $：自变量的偏增量$\Delta y$引起的$z$从$\boldsymbol{p}_0+\Delta _x\boldsymbol{p}$开始的线性部分增量；
+    \item $o\left( \left\| \Delta \boldsymbol{p} \right\| \right) $：当$\Delta x\rightarrow 0$时可以忽略的无穷小量。
+\end{itemize}
+当我们考察$\frac{\partial z}{\partial x}$时，有$\Delta y=0$，所以上述部分中前两部分的值为0，于是上式变为：
+\[
+\left. \frac{\partial z}{\partial x} \right|_{\boldsymbol{p}_0}=A\left( \boldsymbol{p}_0 \right) +\underset{\Delta x\rightarrow 0}{\lim}\frac{o\left( \left\| \Delta \boldsymbol{p} \right\| \right)}{\Delta x}=A\left( \boldsymbol{p}_0 \right)
+\]
+\end{proof}
+
+一般函数偏导会存在，但函数本身不一定连续。
+连续的前提条件是极限存在。
+所以讨论多元函数在某点是否可微，首先得看该函数在该点的是否有极限，再看极限值是否为该函数值，即证明连续。
+\begin{align*}
+&\text{多元函数：可微} \Leftrightarrow \text{偏导} + \text{连续} \\
+&\text{一元函数：可微} \Leftrightarrow \text{偏导} \Rightarrow \text{连续}
+\end{align*}
+
+%============================================================
+\subsection{函数可微性的讨论}
+
+函数在某点的可微性可从两个思路出发：
+
+一、从微分的定义入手：
+\begin{enumerate}
+    \item 首先证明函数在该点的偏导数存在；
+    \item 再证明余项$o\left( \left\| \Delta \boldsymbol{p} \right\| \right) $为$\left\| \Delta \boldsymbol{p} \right\| $的高阶无穷小量。
+\end{enumerate}
+
+二、从全微分定理入手：
+\begin{enumerate}
+    \item 同上，首先证明函数在该点的偏导数存在；
+    \item 再证明函数在该点连续，即证明等式$\underset{\boldsymbol{p}\rightarrow \boldsymbol{p}_0}{\lim}f\left( \boldsymbol{p} \right) =f\left( \boldsymbol{p}_0 \right) $。
+\end{enumerate}
+
+~
+
+\begin{example}
+设函数$f\left( \boldsymbol{p} \right) =\left| x-y \right|g\left( \boldsymbol{p} \right) $，其中$g\left( \boldsymbol{p} \right) $在原点的某邻域内连续，问为$g\left( \mathbf{0} \right) $何值时$f\left( \boldsymbol{p} \right) $在原点处可微。
+\end{example}
+
+解一，从全微分定理入手。
+
+首先考察偏导$f_x\left( \mathbf{0} \right) $对$g\left( \mathbf{0} \right) $的要求。
+根据定义：
+\[
+\left. \frac{\partial f}{\partial x} \right|_{\mathbf{0}}=\underset{x\rightarrow 0}{\lim}\frac{\left| x \right|g\left( x,0 \right) -0\cdot g\left( x,0 \right)}{x-0}=\underset{x\rightarrow 0}{\lim}\frac{\left| x \right|g\left( x,0 \right)}{x}
+\]
+要使偏导存在，必须该极限存在，即左右极限存在且相等：
+\[
+\underset{x\rightarrow 0^+}{\lim}\frac{xg\left( x,0 \right)}{x}=\underset{x\rightarrow 0^-}{\lim}\frac{-xg\left( x,0 \right)}{x}
+\]
+由于$g\left( \boldsymbol{p} \right) $在原点的某邻域内连续，得到$g\left( \mathbf{0} \right) =0$，且有$\left. \frac{\partial f}{\partial x} \right|_{\mathbf{0}}=0$。对$f_y\left( \mathbf{0} \right) $分析，可得到同样结论。
+考虑第二个条件——连续，根据定义，需要下式成立：
+\[
+\underset{x,y\rightarrow 0}{\lim}\left| x-y \right|g\left( x,y \right) =0
+\]
+由于刚才分析要求$g\left( \mathbf{0} \right) =0$，所以上式必然成立。
+综合得到，当$g\left( \mathbf{0} \right) =0$时， 在原点处可微。
+
+解二，从微分的定义出发证明无穷小量，即证明：
+\begin{align*}
+&\underset{\left\| \Delta \boldsymbol{p} \right\| \rightarrow 0}{\lim}\frac{o\left( \left\| \Delta \boldsymbol{p} \right\| \right)}{\left\| \Delta \boldsymbol{p} \right\|} \\
+&=\underset{\left\| \Delta \boldsymbol{p} \right\| \rightarrow 0}{\lim}\frac{\left| \Delta x-\Delta y \right|g\left( \Delta x,\Delta y \right) -0\cdot g\left( 0,0 \right) -\frac{\partial f}{\partial x}\Delta x-\frac{\partial f}{\partial y}\Delta y}{\left\| \Delta \boldsymbol{p} \right\|}
+\\
+&=\underset{\Delta x,\Delta y\rightarrow 0}{\lim}\frac{\left| \Delta x-\Delta y \right|g\left( \Delta x,\Delta y \right)}{\sqrt{\Delta x^2+\Delta y^2}} \\
+&\leqslant \underset{\Delta x,\Delta y\rightarrow 0}{\lim}\frac{\left| \Delta x \right|+\left| \Delta y \right|}{\sqrt{\Delta x^2+\Delta y^2}}g\left( \Delta x,\Delta y \right) \\
+&\leqslant \sqrt{2}\cdot \underset{\Delta x,\Delta y\rightarrow 0}{\lim}g\left( \Delta x,\Delta y \right) \\
+&=\sqrt{2}\cdot g\left( 0,0 \right) =0
+\end{align*}
+其中：
+\begin{align*}
+&\because \frac{\left| \Delta x \right|^2+\left| \Delta y \right|^2+2\left| \Delta x \right|\left| \Delta y \right|}{\left| \Delta x \right|^2+\left| \Delta y \right|^2}\leqslant \frac{\left| \Delta x \right|^2+\left| \Delta y \right|^2+\left| \Delta x \right|^2+\left| \Delta y \right|^2}{\left| \Delta x \right|^2+\left| \Delta y \right|^2}=2 \\
+&\therefore \frac{\left| \Delta x \right|+\left| \Delta y \right|}{\sqrt{\left| \Delta x \right|^2+\left| \Delta y \right|^2}}\leqslant \sqrt{2}
+\end{align*}
+
+%============================================================
+\subsection{全微分的应用——估值及误差}
+
+同一元函数一样，用全微分我们可以近似计算一些工程值，不仅如此，我们还可以知道什么时候能做近似计算，以及误差是多少。
+在做估算时，我们用$dz$代替$\Delta z$。
+所以估算的关键是：
+\begin{itemize}
+    \item 构造合适的$f\left( \boldsymbol{p} \right) $，使得偏微分易于计算。
+    \item 选定合适的$f\left( \boldsymbol{p}_0 \right) $，使得$\boldsymbol{p}_0$易于计算且对应的$\Delta x,\Delta y$非常小。
+\end{itemize}
+
+对于误差分析，我们定义如下概念：
+\begin{itemize}
+    \item {\bf 真值}：$f\left( \boldsymbol{p}_0+\Delta \boldsymbol{p} \right) $
+    \item {\bf 绝对误差}：$\delta _z=\left| f_x\left( \boldsymbol{p}_0 \right) \right|\cdot dx+\left| f_y\left( \boldsymbol{p}_0 \right) \right|\cdot dy$
+    \item {\bf 相对误差}：$\frac{\delta _z}{\left| z \right|}=\frac{\left| f_x\left( \boldsymbol{p}_0 \right) \right|\cdot dx+\left| f_y\left( \boldsymbol{p}_0 \right) \right|\cdot dy}{\left| z \right|}$
+\end{itemize}
+
+~
+
+\begin{example}
+求$1.04^{2.02}$近似值。
+\end{example}
+
+解：
+
+首先构造一个合适的函数$z=f\left( \boldsymbol{p} \right) =x^y$，再选定起点$\boldsymbol{p}_0=\left( 1\,\,2 \right) ^T$，得：
+\begin{align*}
+1.04^{2.02}&\approx f\left( \boldsymbol{p}_0 \right) +dz \\
+&=f\left( \boldsymbol{p}_0 \right) +f_x\left( \boldsymbol{p}_0 \right) \cdot dx+f_y\left( \boldsymbol{p}_0 \right) \cdot dy \\
+&=1^2+\left. yx^{y-1} \right|_{\boldsymbol{p}_0}\cdot 0.04+\left. x^y\ln x \right|_{\boldsymbol{p}_0}\cdot 0.02 \\
+&=1+0.08=1.08
+\end{align*}
+实际值是1.0824...，还是非常准的。
+
+
+~
+
+\begin{example}
+如果我们通过电压电流测量计算电阻，已知电压表相对误差1\%，电流表相对误差0.5\%，如果测得电阻两端电压和电流分别为32V和8A，分析电阻的误差。
+\end{example}
+
+解：
+
+电阻的绝对误差和相对误差：
+\begin{align*}
+&\delta _R=\left| f_V\left( V,I \right) \right|\cdot dV+\left| f_I\left( V,I \right) \right|\cdot dI=\left| \frac{1}{V} \right|dV+\left| -\frac{V}{I^2} \right|dI \\
+&\frac{\delta _R}{\left| R \right|}=\frac{\delta _R}{\left| \frac{V}{I} \right|}
+\end{align*}
+电压电流的相对误差已知为1\%和0.5\%，可以计算它们的绝对误差：
+\begin{align*}
+&dV=32\cdot 1\% \\
+&dI=8\cdot 0.5\%
+\end{align*}
+于是：
+\begin{align*}
+&\delta _R=\left| \frac{1}{V} \right|dV+\left| -\frac{V}{I^2} \right|dI=\frac{1}{8}\cdot \left( 32\cdot 1\% \right) +\frac{32}{8\cdot 8}\cdot \left( 8\cdot 0.5\% \right) =0.06\Omega \\
+&\frac{\delta _R}{\left| R \right|}=\frac{\delta _R}{\left| \frac{V}{I} \right|}=\frac{0.06}{\left| \frac{32}{8} \right|}=15\%
+\end{align*}
+
+
+
+

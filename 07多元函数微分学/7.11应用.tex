@@ -1,0 +1,77 @@
+\section{应用}
+
+本节讨论多元函数微分学的两个实例。
+
+%============================================================
+\subsection{电场和电势}
+
+设空间原点处有一电荷$q$，讨论电场和电势的关系。
+三维空间某点的电势和电场表达式：
+\begin{align*}
+&U\left( \boldsymbol{p} \right) =\frac{q}{4\pi \varepsilon \left\| \boldsymbol{p} \right\|} \\
+&\boldsymbol{E}\left( \boldsymbol{p} \right) =\frac{q}{4\pi \varepsilon \left\| \boldsymbol{p} \right\| ^2}\cdot \frac{\boldsymbol{p}}{\left\| \boldsymbol{p} \right\|}
+\end{align*}
+其中，$\boldsymbol{p}=\left( x\,\,y\,\,z \right) ^T$三维空间某点的坐标。
+
+对电势求梯度，得：
+\begin{align*}
+&\begin{aligned}
+	\because \nabla U\left( \boldsymbol{p} \right) &=\left( \begin{array}{c}
+	\frac{\partial}{\partial x}\\
+	\frac{\partial}{\partial y}\\
+	\frac{\partial}{\partial z}\\
+\end{array} \right) \frac{q}{4\pi \varepsilon \left\| \boldsymbol{p} \right\|}=\frac{q}{4\pi \varepsilon}\left( \begin{array}{c}
+	\frac{\partial}{\partial x}\frac{1}{\sqrt{x^2+y^2+z^2}}\\
+	\frac{\partial}{\partial y}\frac{1}{\sqrt{x^2+y^2+z^2}}\\
+	\frac{\partial}{\partial z}\frac{1}{\sqrt{x^2+y^2+z^2}}\\
+\end{array} \right)\\
+	&=-\frac{q}{4\pi \varepsilon \left\| \boldsymbol{p} \right\| ^3}\left( \begin{array}{c}
+	x\\
+	y\\
+	z\\
+\end{array} \right) =-\frac{q}{4\pi \varepsilon \left\| \boldsymbol{p} \right\| ^3}\cdot \boldsymbol{p}\\
+\end{aligned} \\
+&\therefore \nabla U\left( \boldsymbol{p} \right) =-\boldsymbol{E}\left( \boldsymbol{p} \right)
+\end{align*}
+电荷在空间任意一点的电场为该点电势的负梯度。
+即电场表示电势的变化率，且是反向的变化率。
+
+可以想象，电势描述的是静电荷产生的静电势能，是一个数量场，就像一座山产生了重力势能。
+而其变化率，或理解为这个势的“坡”，是有方向有大小的，即是一个矢量场，该矢量场就是电场。
+梯度的方向是电势升高的方向为正，而电场方向是正电荷发出的方向，所以两者差了一个负号。
+
+%============================================================
+\subsection{一维波动方程}
+
+物理上的波，指的是空间上一点的振动引起相隔的点的振动，而且这种振动以自有的速度向其他方向传播的现象。
+一维空间上，假设原点有振动$y=f\left( t \right) $，该振动以速度$v$向{\it x}轴正向转播，则在$t_0$时刻，$x_0$处的质点有：
+\[
+y=f\left( t_0-\frac{x_0}{v} \right)
+\]
+可得{\it x}轴上任意一点在任意时刻的振动满足：
+\[
+y\left( x,t \right) =f\left( t-\frac{x}{v} \right)
+\]
+该振动就是{\bf 波}，并会以速度$v$沿{\it x}轴方向传播。
+符合该特征的函数称为{\bf 波函数}。
+
+对波函数求偏导：
+\begin{align*}
+&\begin{cases}
+	\frac{\partial y}{\partial x}=\frac{df}{du}\cdot \frac{\partial}{\partial x}\left( t-\frac{x}{v} \right) =-\frac{1}{v}\frac{df}{du}\\
+	\frac{\partial ^2y}{\partial x^2}=-\frac{1}{v}\cdot \frac{\partial}{\partial x}\left( \frac{df}{du} \right) =-\frac{1}{v}\cdot \frac{d^2f}{du^2}\cdot \frac{\partial}{\partial x}\left( t-\frac{x}{v} \right) =\frac{1}{v^2}\frac{d^2f}{du^2}\\
+\end{cases} \\
+&\begin{cases}
+	\frac{\partial y}{\partial t}=\frac{df}{du}\cdot \frac{\partial}{\partial t}\left( t-\frac{x}{v} \right) =\frac{df}{du}\\
+	\frac{\partial ^2y}{\partial t^2}=\frac{\partial}{\partial t}\left( \frac{df}{du} \right) =\frac{d^2f}{du^2}\cdot \frac{\partial}{\partial t}\left( t-\frac{x}{v} \right) =\frac{d^2f}{du^2}\\
+\end{cases}
+\end{align*}
+可见波函数满足如下偏微分方程：
+\[
+\frac{\partial ^2y}{\partial t^2}=v^2\cdot \frac{\partial ^2y}{\partial x^2}
+\]
+该偏微分方程称为{\bf 波动方程}，同时，我们称该方程的解为{\bf 波函数}。
+
+
+
+

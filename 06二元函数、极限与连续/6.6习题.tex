@@ -1,0 +1,126 @@
+\section{习题}
+
+\begin{exercise}
+计算下列极限：
+\begin{enumerate}
+    \item $\underset{x\rightarrow a,y\rightarrow 0}{\lim}\frac{\sin xy}{y}$
+    \item $\underset{x,y\rightarrow 0}{\lim}\frac{x^2-y^2}{\sqrt{x-y+9}-3}$
+    \item $\underset{x,y\rightarrow 0}{\lim}\frac{\ln \left[ 1+x\left( x^2+y^2 \right) \right]}{x^2+y^2}$
+    \item $\underset{x,y\rightarrow 1/2}{\lim}\frac{\sin \left( x^2+2xy+y^2-1 \right)}{x+y-1}$
+    \item $\underset{x\rightarrow 0,y\rightarrow 2}{\lim}\left( 1+xy \right) ^{\frac{1}{x}}$
+    \item $\underset{x,y\rightarrow 0}{\lim}\left( x^2+y^2 \right) \sin \frac{1}{xy}$
+    \item $\underset{x,y\rightarrow +\infty }{\lim}\left( x^2+y^2 \right) e^{-\left( x+y \right)}$
+\end{enumerate}
+\end{exercise}
+
+解：
+
+1.
+\[
+\underset{x\rightarrow a,y\rightarrow 0}{\lim}\frac{\sin xy}{y}=\underset{x\rightarrow a,y\rightarrow 0}{\lim}\frac{x\sin xy}{xy}=\underset{x\rightarrow a}{\lim}x=a
+\]
+
+2.
+\begin{align*}
+\underset{x,y\rightarrow 0}{\lim}\frac{x^2-y^2}{\sqrt{x-y+9}-3}&=\underset{x,y\rightarrow 0}{\lim}\frac{\left( x^2-y^2 \right) \cdot \left( \sqrt{x-y+9}+3 \right)}{x-y} \\
+&=\underset{x,y\rightarrow 0}{\lim}\left( x+y \right) \cdot \left( \sqrt{x-y+9}+3 \right) =0
+\end{align*}
+
+3.
+\begin{align*}
+\underset{x,y\rightarrow 0}{\lim}\frac{\ln \left[ 1+x\left( x^2+y^2 \right) \right]}{x^2+y^2}&=\underset{x,y\rightarrow 0}{\lim}\ln \left[ 1+x\left( x^2+y^2 \right) \right] ^{\frac{1}{x^2+y^2}} \\
+&=\underset{x,y\rightarrow 0}{\lim}\ln \left[ 1+x\left( x^2+y^2 \right) \right] ^{\frac{x}{x\left( x^2+y^2 \right)}} \\
+&=\underset{x,y\rightarrow 0}{\lim}\ln e^x=\ln e^0=0
+\end{align*}
+
+4.
+\begin{align*}
+\underset{x,y\rightarrow 1/2}{\lim}\frac{\sin \left( x^2+2xy+y^2-1 \right)}{x+y-1}&=\underset{x,y\rightarrow 1/2}{\lim}\frac{\sin \left[ \left( x+y \right) ^2-1 \right]}{x+y-1} \\
+&=\underset{u\rightarrow 1}{\lim}\frac{\sin \left( u^2-1 \right)}{u-1} \\
+&=\underset{u\rightarrow 1}{\lim}\frac{\left( u+1 \right) \sin \left( u^2-1 \right)}{u^2-1}=2
+\end{align*}
+
+5.
+\[
+\underset{x\rightarrow 0,y\rightarrow 2}{\lim}\left( 1+xy \right) ^{\frac{1}{x}}=\underset{x\rightarrow 0,y\rightarrow 2}{\lim}\left( 1+xy \right) ^{\frac{y}{xy}}=\underset{y\rightarrow 2}{\lim}e^y=e^2
+\]
+
+6. 夹逼定理：
+\begin{align*}
+&\because -\left( x^2+y^2 \right) \leqslant \left( x^2+y^2 \right) \sin \frac{1}{xy}\leqslant x^2+y^2 \\
+&\because \underset{x,y\rightarrow 0}{\lim}-\left( x^2+y^2 \right) =\underset{x,y\rightarrow 0}{\lim}\left( x^2+y^2 \right) =0 \\
+&\therefore \underset{x,y\rightarrow 0}{\lim}\left( x^2+y^2 \right) \sin \frac{1}{xy}=0
+\end{align*}
+
+7. 夹逼定理：
+\begin{align*}
+&\because \left( x+y \right) e^{-\left( x+y \right)}<\left( x^2+y^2 \right) e^{-\left( x+y \right)}\leqslant \left( x+y \right) ^2e^{-\left( x+y \right)} \\
+&\because \underset{x,y\rightarrow +\infty }{\lim}\left( x+y \right) e^{-\left( x+y \right)}=\underset{x,y\rightarrow +\infty }{\lim}\left( x+y \right) ^2e^{-\left( x+y \right)}=0 \\
+&\therefore \underset{x,y\rightarrow +\infty }{\lim}\left( x^2+y^2 \right) e^{-\left( x+y \right)}=0
+\end{align*}
+
+\begin{tcolorbox}
+本题总体思路是找到$x,y$的关系。
+\end{tcolorbox}
+
+~
+
+\begin{exercise}
+讨论下列函数在原点处的连续性：
+\begin{enumerate}
+    \item 
+    $
+    f\left( x,y \right) =\begin{cases}
+        x\sin \frac{1}{x^2+y^2} & \left( x,y \right) \ne \left( 0,0 \right)\\
+        0                       & \left( x,y \right) =\left( 0,0 \right)\\
+    \end{cases}
+    $
+    \item 
+    $
+    f\left( x,y \right) =\begin{cases}
+        \left( 1+x \right) ^{\frac{y}{x}} & x\ne 0\\
+        e^y                               & x=0\\
+    \end{cases}
+    $
+    \item 
+    $
+    f\left( x,y \right) =\begin{cases}
+        \frac{x^2y}{x^4+y^2} & x^4+y^2\ne 0\\
+        0                    & x^4+y^2=0\\
+    \end{cases}
+    $
+\end{enumerate}
+\end{exercise}
+
+解：
+
+1. 夹逼定理：
+\begin{align*}
+&\because -x<x\sin \frac{1}{x^2+y^2}\leqslant x \\
+&\because \underset{x,y\rightarrow 0}{\lim}\left( -x \right) =\underset{x,y\rightarrow 0}{\lim}x=0 \\
+&\therefore \underset{x,y\rightarrow 0}{\lim}x\sin \frac{1}{x^2+y^2}=0
+\end{align*}
+
+函数在原点处连续。
+
+2.
+\[
+\underset{x,y\rightarrow 0}{\lim}\left( 1+x \right) ^{\frac{y}{x}}=\underset{y\rightarrow 0}{\lim}e^y
+\]
+
+函数在原点处连续。
+
+3.
+\[
+\underset{x,y\rightarrow 0}{\lim}\frac{x^2y}{x^4+y^2}\overset{y=kx^2}{=}\underset{x\rightarrow 0}{\lim}\frac{kx^4}{x^4\left( 1+k \right)}
+\]
+
+极限不存在，所以函数在原点处不连续。
+
+\begin{tcolorbox}
+本题总体思路是计算原点处的极限。
+\end{tcolorbox}
+
+
+
+

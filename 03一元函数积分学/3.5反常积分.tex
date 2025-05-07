@@ -1,0 +1,94 @@
+\section{反常积分}
+
+定积分的要求是积分区间是有限区间，被积函数是有界函数。
+如果这两条中任何一条不满足，定积分的概念就不适用。
+
+本节要点：
+\begin{itemize}
+    \item 了解反常积分；
+    \item 了解伽马函数和贝塔函数。
+\end{itemize}
+
+%============================================================
+\subsection{无穷区间上的反常积分}
+
+\begin{definition}[无穷型反常积分]
+设$f\left( x \right) $在无穷区间$\left[ a,+\infty \right] $上连续，则称极限$\underset{b\rightarrow +\infty}{\lim}\int_a^b{f\left( x \right) dx},b>a$为{\bf $f\left( x \right) $在无穷区间$\left[ a,+\infty \right] $上的反常积分}，记为$\int_a^{+\infty}{f\left( x \right) dx}$，即：
+\[
+\int_a^{+\infty}{f\left( x \right) dx}:=\underset{b\rightarrow +\infty}{\lim}\int_a^b{f\left( x \right) dx} \qquad b>a
+\]
+如果该极限存在，称该{\bf 反常积分收敛}，反之称该{\bf 反常积分发散}。
+
+同理，设$f\left( x \right) $在无穷区间$\left[ -\infty ,b \right] $上连续，则称$\underset{a\rightarrow -\infty}{\lim}\int_a^b{f\left( x \right) dx},b>a$为{\bf $f\left( x \right) $在无穷区间$\left[ -\infty ,b \right] $上的反常积分}，记为$\int_{-\infty}^b{f\left( x \right) dx}$，即：
+\[
+\int_{-\infty}^b{f\left( x \right) dx}:=\underset{a\rightarrow -\infty}{\lim}\int_a^b{f\left( x \right) dx} \qquad b>a
+\]
+
+综合以上，设$f\left( x \right) $在$\left[ -\infty ,+\infty \right] $上连续，定义{\bf $f\left( x \right) $在$\left[ -\infty ,+\infty \right] $上的反常积分}为：
+\[
+\int_{-\infty}^{+\infty}{f\left( x \right) dx}:=\int_{-\infty}^0{f\left( x \right) dx}+\int_0^{+\infty}{f\left( x \right) dx}
+\]
+\end{definition}
+
+%============================================================
+\subsection{无界函数的反常积分}
+
+\begin{definition}[开区间型反常积分]
+设$f\left( x \right) $在$\left[ a,b \right) $上连续，在$b$点的左邻域内无界，则称极限$\underset{\varepsilon \rightarrow 0^+}{\lim}\int_a^{b-\varepsilon}{f\left( x \right) dx}$为{\bf $f\left( x \right) $在$\left[ a,b \right) $上的反常积分}：
+\[
+\int_a^b{f\left( x \right) dx}:=\underset{\varepsilon \rightarrow 0^+}{\lim}\int_a^{b-\varepsilon}{f\left( x \right) dx}
+\]
+如果该极限存在，称该{\bf 反常积分收敛}，反之称该{\bf 反常积分发散}。
+
+同理，设$f\left( x \right) $在$\left( a,b \right] $上连续，在$a$点的右邻域内无界，则称极限$\underset{\varepsilon \rightarrow 0^+}{\lim}\int_{a+\varepsilon}^b{f\left( x \right) dx}$为{\bf $f\left( x \right) $在$\left( a,b \right] $上的反常积分}：
+\[
+\int_a^b{f\left( x \right) dx}:=\underset{\varepsilon \rightarrow 0^+}{\lim}\int_{a+\varepsilon}^b{f\left( x \right) dx}
+\]
+
+综合以上，设$f\left( x \right) $在$\left[ a,b \right] -\left\{ c \right\} $上连续，在$c$点的某邻域内无界，定义{\bf $f\left( x \right) $在$\left[ a,b \right] $上的反常积分}为：
+\[
+\int_a^b{f\left( x \right) dx}:=\int_a^c{f\left( x \right) dx}+\int_c^b{f\left( x \right) dx}
+\]
+\end{definition}
+
+反常积分不是定积分，虽然采用定积分的符号，而是定积分的极限。
+无穷区间的反常积分是{\it x}轴上无限，无界函数的反常积分对应几何上是{\it y}轴上的无限。
+
+%============================================================
+\subsection{伽马函数和贝塔函数}
+
+\begin{definition}[伽马函数（$\Gamma $函数）]
+\[
+\Gamma \left( x \right) :=\int_0^{+\infty}{e^{-t}t^{x-1}dt} \qquad x>0
+\]
+\end{definition}
+
+$\Gamma $函数的性质，证明略：
+\begin{itemize}
+    \item $\Gamma \left( 1 \right) =1$；
+    \item $\Gamma \left( x \right) =\left( x-1 \right) \Gamma \left( x-1 \right) $，特别的取整数$n$时有$\Gamma \left( n \right) =\left( n-1 \right) !$；
+    \item $\Gamma \left( x \right) \Gamma \left( 1-x \right) =\frac{\pi}{\sin \pi x}$；
+    \item $\underset{x\rightarrow 0^+}{\lim}\Gamma \left( x \right) =+\infty $；
+    \item $\Gamma \left( \frac{1}{2} \right) =\sqrt{\pi}$。
+\end{itemize}
+
+\begin{definition}[贝塔函数（$\mathrm{B}$函数）]
+\[
+\mathrm{B}\left( \alpha ,\beta \right) :=\int_0^1{x^{\alpha -1}\left( 1-x \right) ^{\beta -1}dx} \qquad \alpha ,\beta \in \left( 0,1 \right)
+\]
+\end{definition}
+
+$\mathrm{B}$函数的性质，证明略。
+\begin{itemize}
+    \item $\mathrm{B}\left( 1,1 \right) =1$；
+    \item $\mathrm{B}\left( \alpha ,\beta \right) =\mathrm{B}\left( \beta ,\alpha \right) $，对称性；
+    \item $\mathrm{B}\left( \alpha +1,\beta +1 \right) =\frac{\alpha \beta}{\left( \alpha +\beta \right) \left( \alpha +\beta +1 \right)}\mathrm{B}\left( \alpha ,\beta \right) $，特别地，取整数$m,n$时有$\mathrm{B}\left( m,n \right) =\frac{\left( m-1 \right) !\left( n-1 \right) !}{\left( m+n-1 \right) !}$；
+    \item $\mathrm{B}\left( \alpha ,\beta \right) =\frac{\Gamma \left( \alpha \right) \Gamma \left( \beta \right)}{\Gamma \left( \alpha +\beta \right)}$。
+\end{itemize}
+
+\begin{tcolorbox}
+$\Gamma $函数和$\mathrm{B}$函数将以往以自然数为定义域的函数（如阶乘）扩展到了实数域，所以特别在数理统计有着广泛的应用。
+\end{tcolorbox}
+
+
+

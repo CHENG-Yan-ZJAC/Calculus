@@ -1,0 +1,143 @@
+\section{泰勒展开}
+
+\begin{tcolorbox}
+从逻辑概念的归属来讲，泰勒定理属于级数的范畴，应该和三角级数编排在一起。
+而从三角级数到傅里叶变换需要一点多元函数积分的概念，所以泰勒展开会在级数部分详细介绍。
+但如果把泰勒展开完全编排在最后，等学完所有的微积分内容（特别是多元函数微积分）再学级数，那对很多工程应用来说就学了一堆不需要的东西（电子电路就不需要多元函数微积分的概念），而且大大增加学习难度。
+所以一般教材的编排将泰勒定理放在这里讲述。
+\end{tcolorbox}
+
+本节讨论导数一个很重要、很典型的应用——多项式展开。
+
+本节要点：
+\begin{itemize}
+    \item 掌握泰勒展开的概念；
+    \item 从线性代数角度理解泰勒展开；
+    \item 掌握麦克劳林公式；
+    \item 熟悉泰勒展开的工程使用。
+\end{itemize}
+
+%============================================================
+\subsection{泰勒定理}
+
+之前在讨论微分时，我们将任意可导函数$f\left( x_0 \right) $在$x_0$的一个微小局部用一个线性表达式$f\left( x \right) \approx f\left( x_0 \right) +f'\left( x_0 \right) \left( x-x_0 \right) $描述。
+进一步地，我们希望在$x_0$附近找到一个关于$x$的多项式$P\left( x \right) $，能够表示$x\left( x \right) $，要求很简单：
+\begin{itemize}
+    \item $P\left( x \right) $和$x\left( x \right) $在$x_0$有相同的函数值和1～n阶导数；
+    \item $P\left( x \right) $和$x\left( x \right) $的误差能定量描述。
+\end{itemize}
+
+~
+
+\begin{theorem}[泰勒（Taylor）定理]
+若$f\left( x \right) $在$x_0$处满足n阶可导，则$f\left( x \right) $可以展开成：
+\begin{align*}
+f\left( x \right) &=f\left( x_0 \right) +f'\left( x_0 \right) \left( x-x_0 \right) +\frac{f''\left( x_0 \right)}{2!}\left( x-x_0 \right) ^2+\cdots \\
+&\quad +\frac{f^{\left( n \right)}\left( x_0 \right)}{n!}\left( x-x_0 \right) ^n+o\left( \left( x-x_0 \right) ^n \right) \\
+&=\left[ \sum_{i=0}^n{\frac{f^{\left( i \right)}\left( x_0 \right)}{i!}\left( x-x_0 \right) ^i} \right] +o\left( \left( x-x_0 \right) ^n \right)
+\end{align*}
+其中$R\left( x \right) :=o\left( \left( x-x_0 \right) ^n \right) $称为{\bf 佩亚诺（G. Peano）型余项}。
+\end{theorem}
+
+当$n=1$时，泰勒展开就是一阶微分形式：
+\begin{align*}
+&\because f\left( x \right) =f\left( x_0 \right) +f'\left( x_0 \right) \left( x-x_0 \right) +o\left( x-x_0 \right) \\
+&\therefore \Delta y=f\left( x \right) -f\left( x_0 \right) =f'\left( x_0 \right) \left( x-x_0 \right) +o\left( x-x_0 \right)
+\end{align*}
+
+\begin{theorem}[泰勒（Taylor）定理]
+若$f\left( x \right) $在区间$D$上满足n+1阶可导，则$\forall x,x_0\in D$，至少存在$\xi \in \left[ x,x_0 \right] $或$\xi \in \left[ x_0,x \right] $，使得：
+\begin{align*}
+f\left( x \right) &=f\left( x_0 \right) +f'\left( x_0 \right) \left( x-x_0 \right) +\frac{f''\left( x_0 \right)}{2!}\left( x-x_0 \right) ^2+\cdots \\
+&\quad +\frac{f^{\left( n \right)}\left( x_0 \right)}{n!}\left( x-x_0 \right) ^n+\frac{f^{\left( n+1 \right)}\left( \xi \right)}{\left( n+1 \right) !}\left( x-x_0 \right) ^{n+1} \\
+&=\left[ \sum_{i=0}^n{\frac{f^{\left( i \right)}\left( x_0 \right)}{i!}\left( x-x_0 \right) ^i} \right] +\frac{f^{\left( n+1 \right)}\left( \xi \right)}{\left( n+1 \right) !}\left( x-x_0 \right) ^{n+1}
+\end{align*}
+其中$R_n\left( x \right) :=\frac{f^{\left( n+1 \right)}\left( \xi \right)}{\left( n+1 \right) !}\left( x-x_0 \right) ^{n+1}$称为{\bf 朗格兰日（Lagrange）型余项}。
+\end{theorem}
+
+泰勒定理告诉我们，任何n阶可导函数，都可以展开成一个二项式。
+虽然两个都是泰勒定理，但第二个泰勒定理的要求更严格，好处是给出了余项的表达式，可以用来估算误差。
+泰勒定理其实就是一个函数的幂级数展开。
+
+%============================================================
+\subsection{从线性代数看泰勒展开}
+
+从线性代数角度看来，泰勒展开就将函数将基变换为多项式。
+原来$f\left( x \right) $的基为实数集$D$，变换后为：
+\[
+B=\left[ \begin{array}{c}
+	1\\
+	\left( x-x_0 \right)\\
+	\left( x-x_0 \right) ^2\\
+	\vdots\\
+	\left( x-x_0 \right) ^n\\
+\end{array} \right]
+\]
+相应地坐标为：
+\[
+\left[ f \right] _B=\left[ \begin{array}{c}
+	f\left( x_0 \right)\\
+	f'\left( x_0 \right)\\
+	\frac{f''\left( x_0 \right)}{2!}\\
+	\vdots\\
+	\frac{f^{\left( n \right)}\left( x_0 \right)}{n!}\\
+\end{array} \right]
+\]
+于是函数可以描述为：
+\[
+f\left( x \right) =B^T\left[ f \right] _B+R_n\left( x \right)
+\]
+
+%============================================================
+\subsection{麦克劳林公式}
+
+\begin{definition}[n阶麦克劳林（Maclaurin）公式]
+{\bf 麦克劳林公式}是函数在0点处的泰勒展开，取$x_0=0$，泰勒展开公式变为：
+\begin{align*}
+f\left( x \right) &=f\left( 0 \right) +f'\left( 0 \right) \cdot x+\frac{f''\left( 0 \right)}{2!}\cdot x^2+\cdots +\frac{f^{\left( n \right)}\left( 0 \right)}{n!}\cdot x^n+o\left( x \right) \\
+&=\left[ \sum_{i=0}^n{\frac{f^{\left( i \right)}\left( 0 \right)}{i!}\cdot x^i} \right] +o\left( x \right)
+\end{align*}
+\end{definition}
+
+~
+
+几个常用函数的麦克劳林公式：
+\begin{align*}
+&\left( 1+x \right) ^a=1+ax+\frac{a\left( a-1 \right)}{2!}x^2+\cdots +\frac{a\left( a-1 \right) \cdots \left( a-n \right)}{n!}x^n+o\left( x \right) \\
+&e^x=1+x+\frac{x^2}{2!}+\cdots +\frac{x^n}{n!}+o\left( x \right) \\
+&\sin x=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\cdots +\left( -1 \right) ^{m-1}\frac{x^{2m-1}}{\left( 2m-1 \right) !}+o\left( x \right) \\
+&\cos x=1-\frac{x^2}{2!}+\frac{x^4}{4!}-\cdots +\left( -1 \right) ^m\frac{x^{2m}}{\left( 2m \right) !}+o\left( x \right)
+\end{align*}
+
+特别地，一般在工程中常用：
+\begin{align*}
+&\left( 1+x \right) ^a=1+ax \\
+&e^x=1+x \\
+&\sin x=x \\
+&\cos x=1-\frac{x^2}{2!}
+\end{align*}
+
+麦克劳林公式常用于工程上的公式推导，通过麦克劳林公式将超越方程简化成一次或二次方程，进而求解解析式。
+如求解方程$e^x=\cos x-1$，在0附近可以用方程$1+x=-x^2/2!$代替求解。
+
+%============================================================
+\subsection{泰勒展开的工程意义}
+
+要估算一个复杂的函数，通常的做法是用另一个简单的函数代替，即“化繁为简”。
+这种方法（或思想）称为级数。
+代替的函数必须简单，最好是初等函数的组合。
+数学上有三种可行的初等函数代替展开：
+\begin{itemize}
+    \item 幂函数；
+    \item 三角函数；
+    \item 指数函数。
+\end{itemize}
+但由于欧拉公式，所以实际只剩下幂函数和三角函数两种方法。
+
+幂函数展开的方法之一就是泰勒展开，三角函数展开就是傅里叶级数。
+泰勒展开由于采用幂函数将超越方程化为二次方程，所以多用于手解超越方程或判断两个超越方程的大小关系。
+傅里叶级数采用三角函数，使得原函数由一系列不同角频的正弦函数组成，所以通常用于考察一个函数的特征。
+
+
+
+

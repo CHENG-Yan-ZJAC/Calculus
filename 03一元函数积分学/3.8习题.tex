@@ -1,0 +1,78 @@
+\section{习题}
+
+\begin{exercise}
+计算下列导数和极限：
+\begin{enumerate}
+    \item $\frac{d}{dx}\int_0^{x^2}{\sqrt{1+t^2}dt}$
+    \item $\frac{d}{dx}\int_{\sin x}^{\cos x}{\cos \left( \pi t^2 \right) dt}$
+    \item $\underset{x\rightarrow 0}{\lim}\frac{\int_0^x{\cos t^2dt}}{x}$
+    \item $\underset{x\rightarrow +\infty}{\lim}\frac{\left( \int_0^x{e^{t^2}dt} \right) ^2}{\int_0^x{e^{2t^2}dt}}$
+\end{enumerate}
+\end{exercise}
+
+解：
+
+1.
+\[
+\frac{d}{dx}\int_0^{x^2}{\sqrt{1+t^2}dt}=\sqrt{1+\left( x^2 \right) ^2}\cdot \left( x^2 \right) '=2x\sqrt{1+x^4}
+\]
+
+2.
+\begin{align*}
+&\frac{d}{dx}\int_{\sin x}^{\cos x}{\cos \left( \pi t^2 \right) dt} \\
+&=\frac{d}{dx}\int_{\sin x}^0{\cos \left( \pi t^2 \right) dt}+\frac{d}{dx}\int_0^{\cos x}{\cos \left( \pi t^2 \right) dt} \\
+&=-\cos \left( \pi \sin ^2x \right) \cdot \cos x-\cos \left( \pi \cos ^2x \right) \cdot \sin x
+\end{align*}
+
+3.
+\[
+\underset{x\rightarrow 0}{\lim}\frac{\int_0^x{\cos t^2dt}}{x}=\underset{x\rightarrow 0}{\lim}\frac{\cos x^2\cdot 1}{1}=1
+\]
+
+4.
+\begin{align*}
+\underset{x\rightarrow +\infty}{\lim}\frac{\left( \int_0^x{e^{t^2}dt} \right) ^2}{\int_0^x{e^{2t^2}dt}}&=\underset{x\rightarrow +\infty}{\lim}\frac{2\left( \int_0^x{e^{t^2}dt} \right) \cdot e^{x^2}}{e^{2x^2}} \\
+&=2\underset{x\rightarrow +\infty}{\lim}\frac{\int_0^x{e^{t^2}dt}}{e^{x^2}}=2\underset{x\rightarrow +\infty}{\lim}\frac{e^{x^2}\cdot 1}{2xe^{x^2}}=0
+\end{align*}
+
+\begin{tcolorbox}
+主要是理解含积分复合函数的求导。
+\end{tcolorbox}
+
+~
+
+\begin{exercise}
+若方程$\int_0^y{e^tdt}+\int_0^x{\cos tdt}=0$确定函数$y=f\left( x \right) $，求$\frac{dy}{dx}$。
+\end{exercise}
+
+解：
+
+大体思路是隐函数和积分复合函数的混合体，令隐函数$F\left( x,y \right) =\int_0^y{e^tdt}+\int_0^x{\cos tdt}=0$，则：
+\begin{align*}
+&\because \begin{cases}
+	F_x=\frac{d}{dx}\left( \int_0^y{e^tdt}+\int_0^x{\cos tdt} \right) =e^y\cdot 0+\cos x\cdot 1=\cos x\\
+	F_y=\frac{d}{dy}\left( \int_0^y{e^tdt}+\int_0^x{\cos tdt} \right) =e^y\cdot 1+\cos x\cdot 0=e^y\\
+\end{cases} \\
+&\therefore \frac{dy}{dx}=-\frac{F_x}{F_y}=-\frac{\cos y}{e^y}
+\end{align*}
+
+~
+
+\begin{exercise}
+若有一物体做直线运动，设其运动规律是$s=ct^3$，媒质阻力与速度的平方成正比，求物体由$s=0$运动至$s=b$时，克服阻力作的功。
+\end{exercise}
+
+解：
+
+做功微元是$dW=F\cdot ds$，对路程积分，阻力$F$对路程$s$的表达式：
+\[
+F\left( s \right) =kv^2=k\left( \frac{ds}{dt} \right) ^2=k\left( 3ct^2 \right) ^2=9kc^2\left( \frac{s}{c} \right) ^{\frac{4}{3}}
+\]
+所以得到克服阻力作的功：
+\[
+W=\int_0^b{dW}=\int_0^b{9kc^2\left( \frac{s}{c} \right) ^{\frac{4}{3}}\cdot ds}=\frac{27}{7}kc^{\frac{2}{3}}b^{\frac{7}{3}}
+\]
+
+
+
+

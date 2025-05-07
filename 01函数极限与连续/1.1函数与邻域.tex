@@ -1,0 +1,240 @@
+\section{函数与邻域}
+
+本节介绍最基本的邻域和函数的概念，并罗列出基本初等函数和它们相关的性质公式，用以查询。
+
+本节要点：
+\begin{itemize}
+    \item 掌握本节的各个概念；
+    \item 熟悉各个初等函数的性质。
+\end{itemize}
+
+%============================================================
+\subsection{集合}
+
+\begin{definition}[集合和元素]
+我们将具有某种特定性质的并可以彼此区别的事物的总体称为{\bf 集合}，集合中的每一个事物称为集合的{\bf 元素}，元素是确定的、互异的、无序的。
+元素和集合的关系有{\bf 属于}$x\in A$和{\bf 不属于}$x\notin A$。
+集合间的关系有{\bf 相等}$A=B$、{\bf 子集}$A\subseteq B$、{\bf 交集}$A\cup B$、{\bf 并集}$A\cap B$。
+\end{definition}
+
+\begin{definition}[差集和补集]
+设集合$A,B$，将所有属于$A$但不属于$B$的元素组成的集合称为{\bf $A$与$B$的差集}，记作$A\setminus B$或$A-B$，即：
+\[
+A-B:=\left\{ x \middle| x\in A,x\notin B \right\}
+\]
+同时，我们也称$A-B$为{\bf $B$关于$A$的补集}。
+\end{definition}
+
+\begin{definition}[直积]
+设集合$A,B$，$x,y$各为它们的元素，则称有序对$\left( x,y \right) $为一个{\bf 序偶}，由$A,B$中所有元素组成的序偶构成的集合称为{\bf $A$与$B$的直积}，记作$A\times B$，即：
+\[
+A\times B:=\left\{ \left( x,y \right) \middle| x\in A,y\in B \right\}
+\]
+\end{definition}
+
+%============================================================
+\subsection{映射}
+
+\begin{definition}[映射]
+设非空集合$X,Y$，若对于某种确定的法则$f$，对于$\forall x\in X$，$Y$都有唯一元素$y$与之对应，则称$f$为{\bf 从集合$X$到集合$Y$的映射}，记作：
+\[
+f:X\mapsto Y \quad \text{或} \quad f:x\mapsto y=f\left( x \right) ,x\in X
+\]
+若有$\varphi :X\mapsto U_1,f:U_2\mapsto Y$且$U_1\subseteq U_2$，则从$X$到$Y$存在唯一确定的法则，使得$\forall x\in X$，$Y$都有唯一元素$y$与之对应，我们称$X$到$Y$的这种映射为{\bf 复合映射}，也可称为{\bf 映射的乘积}，记作：
+\[
+f\circ \varphi :X\mapsto Y \quad \text{或} \quad f\circ \varphi :x\mapsto y=f\left[ \varphi \left( x \right) \right] ,x\in X
+\]
+若对于映射$f:X\mapsto Y$，$\forall y\in Y$，在$X$中都有唯一的原像与之对应，则称从$Y$到$X$的这种映射为{\bf 逆映射}，记作：
+\[
+f^{-1}:Y\mapsto X  \quad \text{或} \quad f^{-1}:y\mapsto x=f^{-1}\left( y \right) ,y\in Y
+\]
+而且有：
+\begin{align*}
+&f^{-1}\left[ f\left( x \right) \right] =\left( f^{-1}\circ  f \right) \left( x \right) =x \\
+&f\left[ f^{-1}\left( y \right) \right] =\left( f\circ  f^{-1} \right) \left( y \right) =y
+\end{align*}
+\end{definition}
+
+\begin{tcolorbox}
+根据集合的不同，映射在数学中也称“函数”、“算子”、“变换”等。
+微积分中我们讨论实数构成的集合，所以称为函数，线性代数中我们讨论向量组成的集合，常称为变换。
+\end{tcolorbox}
+
+%============================================================
+\subsection{邻域}
+
+\begin{definition}[邻域]
+称以$x_0$为中心，$\delta >0$为半径的开区间$\left( x_0-\delta ,x_0+\delta \right) $为{\bf 点$x_0$的$\delta $邻域}，记作$N\left( x_0,\delta \right) $，若将该邻域去掉中心点$x_0$，称为{\bf 点$x_0$的去心$\delta $邻域}，记作$N\left( \hat{x}_0,\delta \right) $，即：
+\begin{align*}
+&N\left( x_0,\delta \right) :=\left\{ x \middle| \left| x-x_0 \right|<\delta \right\} \\
+&N\left( \hat{x}_0,\delta \right) :=\left\{ x \middle| 0<\left| x-x_0 \right|<\delta \right\}
+\end{align*}
+\end{definition}
+
+邻域表示的是存在一个区域，并不关心它的大小和边界。
+
+%============================================================
+\subsection{函数}
+
+\begin{definition}[函数]
+设$X,Y$为两个非空实数集，$f$为$X\mapsto Y$的一个映射，则称$f$为{\bf 定义在$X$上的函数（function）}，记作
+\[
+y=f\left( x \right) \quad x\in X
+\]
+其中：
+\begin{itemize}
+    \item $f$：{\bf 映射关系}；
+    \item $x,y$：{\bf 自变量（independent variable）}，{\bf 因变量（dependent variable）}；
+    \item $X,Y$：{\bf 定义域（domain）}，{\bf 值域（range）}。
+\end{itemize}
+有些函数，其因变量可以明显地表达成自变量的解析式$y=f\left( x \right) $，我们称为{\bf 显函数}，有些则无法用解析式明显地表达，但可以确定$y$是$x$的函数，我们用
+\[
+F\left( x,y \right) =0
+\]
+表示，称为{\bf 隐函数（implicit function）}。
+\end{definition}
+
+函数最重要的是“映射关系$f$”和“定义域$X$”，只要这两个一样，就说是同一个函数，至于自变量、因变量、映射关系具体用哪个符号，都不重要。
+关于函数还有复合函数、反函数、奇偶性、周期性等概念，不再赘述。
+
+\begin{definition}[有界]
+设函数$f$，对于$\forall M>0$，若必存在$x\in D$使得$\left| f\left( x \right) \right|<M$，则称{\bf $f\left( x \right) $在$D$上有界}。
+\end{definition}
+
+%============================================================
+\subsection{基本初等函数和双曲函数}
+
+基本初等函数指的是幂函数、指数函数、对数函数、三角函数，反三角函数。
+
+常数函数：
+\[
+y=C
+\]
+
+幂函数：
+\[
+y=x^a\quad a\text{为常数}
+\]
+
+指数函数：
+\[
+y=a^x\quad a>0,a\ne 1
+\]
+
+对数函数：
+\[
+y=\log _ax\quad a>0,a\ne 1
+\]
+
+三角函数：
+\[
+\begin{matrix}
+	y=\sin x \hfill & y=\cos x \hfill \\
+	y=\tan x \hfill & y=\cot x \hfill \\
+\end{matrix}
+\]
+
+反三角函数：
+\[
+\begin{matrix}
+	y=\mathrm{arc}\sin x \hfill & y=\mathrm{arc}\cos x \hfill \\
+	y=\mathrm{arc}\tan x \hfill & y=\mathrm{arc}\cot x \hfill \\
+\end{matrix}
+\]
+
+双曲函数指的是由指数函数和对数函数构成的具有类似三角函数性质的函数。
+
+双曲正弦：
+\[
+y=\mathrm{sh}x=\frac{e^x-e^{-x}}{2}
+\]
+
+双曲余弦：
+\[
+y=\mathrm{ch}x=\frac{e^x+e^{-x}}{2}
+\]
+
+双曲正切：
+\[
+y=\mathrm{th}x=\frac{e^x-e^{-x}}{e^x+e^{-x}}
+\]
+
+反双曲正弦：
+\[
+y=\mathrm{arsh}x=\ln \left( x+\sqrt{x^2+1} \right)
+\]
+
+反双曲余弦：
+\[
+y=\mathrm{arch}x=\ln \left( x+\sqrt{x^2-1} \right)
+\]
+
+反双曲正切：
+\[
+y=\mathrm{arth}x=\frac{1}{2}\ln \frac{1+x}{1-x}
+\]
+
+%============================================================
+\subsection{常用函数公式}
+
+三角函数公式：
+\begin{align*}
+&\sin \left( \alpha +\beta \right) =\sin \alpha \cos \beta +\cos \alpha \sin \beta \\
+&\cos \left( \alpha +\beta \right) =\cos \alpha \cos \beta -\sin \alpha \sin \beta \\
+&\tan \left( \alpha +\beta \right) =\frac{\tan \alpha +\tan \beta}{1-\tan \alpha \tan \beta} \\
+&\sin 2\alpha =2\sin \alpha \cos \alpha \\
+&\cos 2\alpha =\cos ^2\alpha -\sin ^2\alpha =2\cos ^2\alpha -1=1-2\sin ^2\alpha \\
+&\tan 2\alpha =\frac{2\tan \alpha}{1-\tan ^2\alpha}
+\end{align*}
+\begin{align*}
+&\sin \alpha +\sin \beta =2\sin \left( \frac{\alpha +\beta}{2} \right) \cos \left( \frac{\alpha -\beta}{2} \right) \\
+&\sin \alpha -\sin \beta =2\cos \left( \frac{\alpha +\beta}{2} \right) \sin \left( \frac{\alpha -\beta}{2} \right) \\
+&\cos \alpha +\cos \beta =2\cos \left( \frac{\alpha +\beta}{2} \right) \cos \left( \frac{\alpha -\beta}{2} \right) \\
+&\cos \alpha -\cos \beta =-2\sin \left( \frac{\alpha +\beta}{2} \right) \sin \left( \frac{\alpha -\beta}{2} \right)
+\end{align*}
+\begin{align*}
+&\sin \alpha \cos \beta =\frac{1}{2}\left[ \sin \left( \alpha +\beta \right) +\sin \left( \alpha -\beta \right) \right] \\
+&\cos \alpha \sin \beta =\frac{1}{2}\left[ \sin \left( \alpha +\beta \right) -\sin \left( \alpha -\beta \right) \right] \\
+&\cos \alpha \cos \beta =\frac{1}{2}\left[ \cos \left( \alpha +\beta \right) +\cos \left( \alpha -\beta \right) \right] \\
+&\sin \alpha \sin \beta =-\frac{1}{2}\left[ \cos \left( \alpha +\beta \right) -\cos \left( \alpha -\beta \right) \right]
+\end{align*}
+
+幂函数公式：
+\[
+x^a=e^{\ln x^a}=e^{a\ln x}
+\]
+
+指数函数公式：
+\begin{align*}
+&a^{x+y}=a^x\cdot a^y \\
+&a^{xy}=\left( a^x \right) ^y \\
+&a^{\frac{1}{x}}=\sqrt[x]{a} \\
+&a^{-x}=\frac{1}{a^x}
+\end{align*}
+
+对数函数公式：
+\begin{align*}
+&\log _a1=0 \\
+&\log _aa=1 \\
+&\log \left( xy \right) =\log x+\log y \\
+&\log x^a=a\log x \\
+&\log \frac{1}{x}=-\log x
+\end{align*}
+
+%============================================================
+\subsection{光滑的好函数}
+
+函数使我们可以用代数描述几何关系、变化规律（如物理规律、化学规律、经济规律等）。
+建立函数的过程首先是确定自变量、因变量及其意义，然后找出它们之间的规律并翻译成数学公式，可能是直接可以用初等函数及其组合嵌套表示，或者近似拟合表示。
+
+这里我们对函数是有偏好的。
+我们偏好那些光滑的函数，光滑的函数是好的函数。
+光滑代表着平稳，没有突变，如电网没有冲击，汽车坐着不颠。
+微积分考察的也就是这些光滑的好函数。
+所以我们首先要对光滑在数学上给出严格的定义。
+其次，要考察光滑的特点，提炼出几个定理。
+最后，来几个实例，看看光滑能解决什么实际问题，带来什么实际的好处。
+
+
+
+

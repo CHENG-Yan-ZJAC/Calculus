@@ -1,0 +1,53 @@
+\section{连续}
+
+本节讨论二元函数的连续。
+
+本节要点：
+\begin{itemize}
+    \item 掌握连续的概念；
+    \item 理解关于连续的定理和推论。
+\end{itemize}
+
+%============================================================
+\subsection{连续的概念}
+
+\begin{definition}[连续]
+设二元数量值函数$z=f\left( \boldsymbol{p} \right) $的定义域为$D$，$\boldsymbol{p}_0$为$D$的聚点，且$\boldsymbol{p}_0\in D$，若满足
+\[
+\underset{\boldsymbol{p}\rightarrow \boldsymbol{p}_0}{\lim}f\left( \boldsymbol{p} \right) =f\left( \boldsymbol{p}_0 \right)
+\]
+则称{\bf $z=f\left( \boldsymbol{p} \right) $在$\boldsymbol{p}_0$处连续}。
+反之，则称{\bf $z=f\left( \boldsymbol{p} \right) $在$\boldsymbol{p}_0$处不连续}。
+不连续的点称为{\bf 间断点}。二元函数的间断点可以是孤立的点，也可以是一条或多条曲线。
+\end{definition}
+
+连续在数学上规范了什么是“不断”。
+这个断不再是一元函数中简单的断点，而是需要各个方向看来不断。
+虽然连续的定义从文字上和一元函数一样，但是具体判断起来要复杂得多。
+
+%============================================================
+\subsection{连续的定理}
+
+\begin{theorem}[初等函数连续定理]
+初等函数是指由常量及基本初等函数经过有限次四则运算与复合且能用一个式子表示的函数，一切二元初等函数在其定义区域内是连续的。
+因此二元初等函数在其定义区域内的极限值就等于其函数值。
+\end{theorem}
+
+\begin{theorem}[最值定理]
+若$z=f\left( \boldsymbol{p} \right) $在有界闭区域$D$连续，则必在$D$上有最大值和最小值。
+\end{theorem}
+
+\begin{theorem}[介值定理]
+若$z=f\left( \boldsymbol{p} \right) $在有界闭区域$D$连续，且$f\left( \boldsymbol{p}_1 \right) \ne f\left( \boldsymbol{p}_2 \right) $，则对于$\forall \mu \in \left[ f\left( \boldsymbol{p}_1 \right) ,f\left( \boldsymbol{p}_2 \right) \right] $，必有$\boldsymbol{q}\in D$，使得$f\left( \boldsymbol{q} \right) =\mu $。
+\end{theorem}
+
+\begin{corollary}
+若$z=f\left( \boldsymbol{p} \right) $在有界闭区域$D$连续，且有最大值和最小值$m,M$，则对于$\forall \mu \in \left[ M,m \right] $，必有$\boldsymbol{q}\in D$，使得$f\left( \boldsymbol{q} \right) =\mu $。
+\end{corollary}
+
+最值定理表达的是在有界闭区域连续的曲面必有界。
+介值定理及其推论表达的是连续曲面任意两点间必有通路。
+
+
+
+

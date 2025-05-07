@@ -1,0 +1,73 @@
+\section{无穷小量和无穷大量}
+
+本节给出无穷小量的概念，是微分的基础概念。
+
+本节要点：
+\begin{itemize}
+    \item 理解无穷小量和无穷大量的概念；
+    \item 理解本节最后一条定理。
+\end{itemize}
+
+%============================================================
+\subsection{无穷量的概念}
+
+\begin{definition}[无穷小量]
+若$\forall \varepsilon >0$时存在$\delta >0$，当$x\in N\left( \hat{x}_0,\delta \right) $时有$\left| f\left( x \right) -0 \right|<\varepsilon $，则称$f\left( x \right) $为{\bf 当$x\rightarrow x_0$时的无穷小量}，记作
+\[
+\underset{x\rightarrow x_0}{\lim}f\left( x \right) =0
+\]
+\end{definition}
+
+注意：0是一个特殊的无穷小量，也是唯一可以作为无穷小量的常数。
+
+\begin{definition}[无穷大量]
+若$\forall M>0$时存在$\delta >0$，当$x\in N\left( \hat{x}_0,\delta \right) $时有$\left| f\left( x \right) -0 \right|>M$，则称$f\left( x \right) $为{\bf 当$x\rightarrow x_0$时的无穷大量}，记作
+\[
+\underset{x\rightarrow x_0}{\lim}f\left( x \right) =\infty
+\]
+\end{definition}
+
+本质上，无穷小量和无穷大量都是极限，是函数的趋势。
+
+%============================================================
+\subsection{无穷量的定理}
+
+\begin{theorem}[互倒定理]
+在自变量趋向一致下，无穷小量和无穷大量互为倒数。
+\end{theorem}
+
+\begin{theorem}[有限和定理]
+有限个无穷小量之和（差）仍为无穷小量。
+\end{theorem}
+
+\begin{theorem}[有限积定理]
+有限个无穷小量之积仍为无穷小量。
+\end{theorem}
+
+\begin{theorem}[有界积定理]
+若$\underset{x\rightarrow x_0}{\lim}f\left( x \right) =0$，$g\left( x \right) $在$x_0$的某去心邻域内有界，则$\underset{x\rightarrow x_0}{\lim}\left[ f\left( x \right) \cdot g\left( x \right) \right] =0$。
+\end{theorem}
+
+\begin{theorem}
+$\underset{x\rightarrow x_0}{\lim}f\left( x \right) =A\Leftrightarrow f\left( x \right) =A+o\left( x \right) $，其中$A$为常数，$o\left( x \right) $为无穷小量，即$\underset{x\rightarrow x_0}{\lim}o\left( x \right) =0$。
+\end{theorem}
+
+最后一条定理反映的是极限运算，也是后续微分和近似分析的基础。
+
+%============================================================
+\subsection{无穷小的比较}
+
+\begin{definition}
+设$\underset{x\rightarrow x_0}{\lim}\alpha \left( x \right) =0,\underset{x\rightarrow x_0}{\lim}\beta \left( x \right) =0,\beta \left( x \right) \ne 0$ ，则可有如下定义：
+\begin{itemize}
+    \item 若有$\underset{x\rightarrow x_0}{\lim}\frac{\alpha \left( x \right)}{\beta \left( x \right)}=0$，则称当$x\rightarrow x_0$时，{\bf $\alpha \left( x \right) $是$\beta \left( x \right) $的高阶无穷小量}，或{\bf $\beta \left( x \right) $是$\alpha \left( x \right) $的低阶无穷小量}，记作$\alpha \left( x \right) =o\left( \beta \left( x \right) \right) $，
+    \item 若有$\underset{x\rightarrow x_0}{\lim}\frac{\alpha \left( x \right)}{\beta \left( x \right)}=C\ne 0$，则称当$x\rightarrow x_0$时，{\bf $\alpha \left( x \right) $和$\beta \left( x \right) $是同阶无穷小量}，特别地，如$C=1$，则称{\bf $\alpha \left( x \right) $和$\beta \left( x \right) $是等价无穷小}，记作$\alpha \left( x \right) \sim \beta \left( x \right) $，
+    \item 若$\underset{x\rightarrow x_0}{\lim}\frac{\alpha \left( x \right)}{\left[ \beta \left( x \right) \right] ^k}=C\ne 0,k>0$则称当$x\rightarrow x_0$时，{\bf $\alpha \left( x \right) $是$\beta \left( x \right) $的$k$阶无穷小量}。
+\end{itemize}
+\end{definition}
+
+无穷小量的比较的数学意义是描述谁的趋近速度快。
+
+
+
+

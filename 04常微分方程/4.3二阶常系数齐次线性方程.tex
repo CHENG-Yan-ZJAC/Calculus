@@ -1,0 +1,119 @@
+\section{二阶常系数齐次线性方程}
+
+对于二阶线性方程，本节只讨论二阶常系数齐次线性方程。
+
+本节要点：
+\begin{itemize}
+    \item 熟悉二阶线性方程的形式；
+    \item 推导二阶线性方程的通解；
+    \item 体会二阶线性方程的物理意义。
+\end{itemize}
+
+%============================================================
+\subsection{二阶常系数齐次线性方程}
+
+\begin{definition}[二阶常系数齐次线性方程]
+形如
+\[
+\frac{d^2y}{dx^2}+P\frac{dy}{dx}+Qy=0
+\]
+的微分方程称为{\bf 二阶常系数齐次线性方程}，其中$y=f\left( x \right) $。
+\end{definition}
+
+该微分方程的求解，全靠“凑”，求解过程如下：
+\begin{enumerate}
+    \item 假设函数形如：
+    \[
+    y=e^{rx}
+    \]
+    \item 将$y,y',y''$代入方程得到：
+    \[
+    r^2e^{rx}+Pre^{rx}+Qe^{rx}=0
+    \]
+    \item 由于$e^{rx}>0$，所以要使方程成立，即为求解特征方程：
+    \[
+    r^2+Pr+Q=0
+    \]
+    \item 得到两个根：
+    \[
+    r=\frac{-P\pm \sqrt{P^2-4Q}}{2}
+    \]
+\end{enumerate}
+
+根据特征方程的根，当$Q\ne 0$时，通解分成以下4个情形：
+\begin{itemize}
+    \item $P^2>4Q$，$r$有两个不等实根$r_{1,2}=\frac{-P\pm \sqrt{P^2-4Q}}{2}$，于是
+    \[
+    y=C_1e^{r_1x}+C_2e^{r_2x}
+    \]
+    物理上对应大阻尼，物理量呈指数衰减趋于0，没有振荡。
+    \item $P^2=4Q$，$r$有两个相等实根$r_{1,2}=-\frac{P}{2}$，于是
+    \[
+    y=\left( C_1+C_2 \right) e^{-Px/2}
+    \]
+    物理上对应临界阻尼，同上。
+    \item $P^2<4Q$，$r$有两个共轭复根$r_{1,2}=\frac{-P\pm i\sqrt{4Q-P^2}}{2}$，于是
+    \[
+    y=e^{-\frac{P}{2}x}\cdot \left[ C_1\cos \frac{x\sqrt{4Q-P^2}}{2}+C_2\sin \frac{x\sqrt{4Q-P^2}}{2} \right]
+    \]
+    物理上对应小阻尼，物理量以指数衰减的方式振荡趋于0。
+    \item $P=0$，$r$为纯虚根$r_{1,2}=\pm i\sqrt{Q}$，于是
+    \[
+    y=C_1\cos \left( x\sqrt{Q} \right) +C_2\sin \left( x\sqrt{Q} \right)
+    \]
+    物理上对应无阻尼振荡。
+\end{itemize}
+
+实部决定了{\it y}是否有衰减阻尼，虚部决定了{\it y}是否有振荡。
+很多物理过程都可以用二阶常系数齐次线性方程描述，如弹簧震动、RLC电路等。
+
+特别地，当$Q=0$时方程化为：
+\[
+\frac{d^2y}{dx^2}+P\frac{dy}{dx}=0
+\]
+求解特征方程$r^2+Pr=0$得到两个根$r=-P\mathrm{or}0$，于是解为：
+\begin{align*}
+&y=Ce^{-Px} \\
+&y=C
+\end{align*}
+
+%============================================================
+\subsection{PQ关系总结}
+
+将$P,Q$及其关系总结如下：
+\begin{itemize}
+    \item 当$Q\ne 0,P\ne 0$时，方程为$\frac{d^2y}{dx^2}+P\frac{dy}{dx}+Qy=0$：
+    \begin{itemize}
+        \item 当$P^2>4Q$时，通解表现为衰减$y=C_1e^{r_1x}+C_2e^{r_2x}$；
+        \item 当$P^2=4Q$时，通解表现为衰减$y=\left( C_1+C_2 \right) e^{-Px/2}$；
+        \item 当$P^2<4Q$时，通解表现为振荡衰减
+        \[
+        y=e^{-\frac{P}{2}x}\cdot \left[ C_1\cos \frac{x\sqrt{4Q-P^2}}{2}+C_2\sin \frac{x\sqrt{4Q-P^2}}{2} \right]
+        \]
+    \end{itemize}
+    \item 当$Q\ne 0,P=0$时，方程为$\frac{d^2y}{dx^2}+Qy=0$：
+    \begin{itemize}
+        \item 通解表现为振荡$y=C_1\cos \left( x\sqrt{Q} \right) +C_2\sin \left( x\sqrt{Q} \right) $。
+    \end{itemize}
+    \item 当$Q=0,P\ne 0$时，方程为$\frac{d^2y}{dx^2}+P\frac{dy}{dx}=0$：
+    \begin{itemize}
+        \item 通解表现为衰减$y=Ce^{-Px}$。
+    \end{itemize}
+    \item 当$Q=0,P=0$时，方程为$\frac{d^2y}{dx^2}=0$：
+    \begin{itemize}
+        \item 通解表现为恒定$y=C$。
+    \end{itemize}
+\end{itemize}
+
+~
+
+不难发现：
+\begin{itemize}
+    \item $P$表示阻尼，如果$P\ne 0$则衰减，如果$P=0$则恒定；
+    \item $Q$表示振荡，如果$Q\ne 0$则振荡，如果$Q=0$则无振荡；
+    \item 特别地，当$P^2\geqslant 4Q$，阻尼大过振荡，也振荡不起来。
+\end{itemize}
+
+
+
+

@@ -1,0 +1,28 @@
+\section{直角坐标系}
+
+本节介绍直角坐标系。
+
+%============================================================
+\subsection{直角坐标系的概念}
+
+通常，三维空间的直角坐标系的方向用右手规定。
+空间中的点可以用一个有序三元实数组表示，同时也可以用一个{\bf 3维列向量}（本笔记也称{\bf 矢量}）表示，于是下面两个表示方法等价：
+\begin{itemize}
+    \item 点$\mathrm{P}\left( x,y,z \right) $，有时也可以简单写成$\mathrm{P}$；
+    \item 矢量$\boldsymbol{p}=\left( x\,\,y\,\,z \right) ^T$。
+\end{itemize}
+其中，$x,y,z\in \mathbb{R} $表示点$\mathrm{P}$的{\it xyz}轴坐标。
+
+我们采用欧几里得范数（也即内积引导的范数）定义两个点$\mathrm{P},\mathrm{Q}$的距离，记为$\left\| \mathrm{PQ} \right\| $，有：
+\begin{align*}
+\left\| \mathrm{PQ} \right\| :&=\left\| \boldsymbol{p}-\boldsymbol{q} \right\| \\
+&=\sqrt{\left( \boldsymbol{p}-\boldsymbol{q} \right) ^T\left( \boldsymbol{p}-\boldsymbol{q} \right)}=\sqrt{\left( x_{\boldsymbol{p}}-x_{\boldsymbol{q}} \right) ^2+\left( y_{\boldsymbol{p}}-y_{\boldsymbol{q}} \right) ^2+\left( z_{\boldsymbol{p}}-z_{\boldsymbol{q}} \right) ^2}
+\end{align*}
+
+\begin{tcolorbox}
+直角坐标系的右手方向，只是规定！规定！规定！纯人为规定！
+\end{tcolorbox}
+
+
+
+

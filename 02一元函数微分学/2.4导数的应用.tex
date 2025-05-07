@@ -1,0 +1,66 @@
+\section{导数的应用}
+
+导数是描述一个函数的变化率，所以通过导数我们可以分析一个函数的变化趋势、形态、走向，进而用多项式近似该函数。
+微分中值定理解决前者，泰勒展开和麦克劳林公式解决后者。
+
+本节要点：
+\begin{itemize}
+    \item 掌握各个定理。
+\end{itemize}
+
+%============================================================
+\subsection{微分中值定理}
+
+\begin{theorem}[费马定理]
+设$f\left( x \right) $在点$x_0$处可导，若$x_0$处是$f\left( x \right) $的一个极值点，则$f'\left( x_0 \right) =0$。
+\end{theorem}
+
+\begin{theorem}[罗尔定理]
+设$f\left( x \right) $在$\left[ a,b \right] $连续，在$\left( a,b \right) $可导，若$f\left( a \right) =f\left( b \right) $，则必有$\xi \in \left( a,b \right) $，使得$f'\left( \xi \right) =0$。
+即两端相等的光滑曲线必有极值点。
+\end{theorem}
+
+\begin{theorem}[拉格朗日定理]
+设$f\left( x \right) $在$\left[ a,b \right] $连续，在$\left( a,b \right) $可导，则必有$\xi \in \left( a,b \right) $，使得$f'\left( \xi \right) =\frac{f\left( b \right) -f\left( a \right)}{b-a}$。
+即可作切线和割线平行。
+\end{theorem}
+
+\begin{theorem}[柯西定理]
+设$f\left( x \right) $在$\left[ a,b \right] $连续，在$\left( a,b \right) $可导，若$g'\left( x_0 \right) \ne 0$，则必有$\xi \in \left( a,b \right) $，使得$\frac{f'\left( \xi \right)}{g'\left( \xi \right)}=\frac{f\left( b \right) -f\left( a \right)}{g\left( b \right) -g\left( a \right)}$。
+\end{theorem}
+
+微分中值定理建立了函数在考察区间内的变化形态。
+这四个微分中值定理，前提都是要求可导，说明被考察对象都是光滑曲线。
+而光滑，则直觉上必然会有这些定理描述的现象。
+充分理解光滑的含义，这些定理也将是不证自明。
+
+费马定理可用于求解区间内的最大值最小值问题。
+
+罗尔定理可用于判断一个方程有无根，考察它的原函数在区间内连续可导，如果区间端点值相等，则必有根。
+
+拉格朗日定理和后面的积分中值定理是对应关系，以不同的角度描述了一个事情，一个从微分角度，一个从积分角度。
+
+柯西定理是拉格朗日定理的推广。
+
+%============================================================
+\subsection{洛必达法则}
+
+\begin{theorem}[洛必达法则（L'Hopital's rule）]
+若$f\left( x \right) ,g\left( x \right) $满足：
+\begin{itemize}
+    \item $\underset{x\rightarrow x_0}{\lim}f\left( x \right) =0,\underset{x\rightarrow x_0}{\lim}g\left( x \right) =0$；
+    \item 在点$x_0$的去心邻域内$f'\left( x \right) ,g'\left( x \right) $均存在，且$g'\left( x \right) \ne 0$；
+    \item $\underset{x\rightarrow x_0}{\lim}\frac{f'\left( x \right)}{g'\left( x \right)}$存在（或为$\infty $）；
+\end{itemize}
+则有：
+\[
+\underset{x\rightarrow x_0}{\lim}\frac{f\left( x \right)}{g\left( x \right)}=\underset{x\rightarrow x_0}{\lim}\frac{f'\left( x \right)}{g'\left( x \right)}
+\]
+\end{theorem}
+
+洛必达法则用于求解$\frac{0}{0}$和$\frac{\infty}{\infty}$之类的不定型极限。
+注意，其他类型的极限不能用洛必达法则。
+
+
+
+

@@ -1,0 +1,165 @@
+\section{多元复合函数的求导}
+
+对于多元复合函数，本节给出链式求导法则。
+
+本节要点：
+\begin{itemize}
+    \item 掌握链式求导法则；
+    \item 掌握引入中间变量转化为复合函数求解非初等多元函数的偏导；
+    \item 掌握使用链式求导求解多元函数的高阶偏导；
+    \item 了解雅可比矩阵和雅可比行列式。
+\end{itemize}
+
+%============================================================
+\subsection{多元复合函数的概念}
+
+\begin{definition}[复合函数]
+设二元函数$z=z\left( u,v \right) $在某开集$D$有定义，又设$u=u\left( x,y \right) ,v=v\left( x,y \right) $在开集$E$内有定义，于是由$z,u,v$可构成一个{\bf 复合函数}：
+\[
+z=z\left( u\left( x,y \right) ,v\left( x,y \right) \right) \qquad \left( x,y \right) \in E
+\]
+\end{definition}
+
+%============================================================
+\subsection{多元复合函数的链式求导法则}
+
+\begin{theorem}[链式求导法则]
+对于复合函数$z=z\left( u\left( x,y \right) ,v\left( x,y \right) \right) $，若：
+\begin{itemize}
+    \item $u=u\left( x,y \right) ,v=v\left( x,y \right) $在点$\left( x,y \right) $处偏导存在；
+    \item $z=z\left( u,v \right) $对应点$\left( u,v \right) $可微，
+\end{itemize}
+则$z=z\left( u\left( x,y \right) ,v\left( x,y \right) \right) $在点$\left( x,y \right) $处的偏导数存在，且有链式法则：
+\begin{align*}
+&\frac{\partial z}{\partial x}=\frac{\partial z}{\partial u}\cdot \frac{\partial u}{\partial x}+\frac{\partial z}{\partial v}\cdot \frac{\partial v}{\partial x} \\
+&\frac{\partial z}{\partial y}=\frac{\partial z}{\partial u}\cdot \frac{\partial u}{\partial y}+\frac{\partial z}{\partial v}\cdot \frac{\partial v}{\partial y}
+\end{align*}
+\end{theorem}
+
+证明略，关键是条件2不能减弱为$z=z\left( u,v \right) $在点$\left( u,v \right) $存在偏导。
+
+~
+
+三种特殊情况。
+
+1、当有三个中间变量时，即$z=z\left( u,v,w \right) $，$u=u\left( x,y \right) $，$v=v\left( x,y \right) $，$w=w\left( x,y \right) $：
+\begin{align*}
+&\frac{\partial z}{\partial x}=\frac{\partial z}{\partial u}\cdot \frac{\partial u}{\partial x}+\frac{\partial z}{\partial v}\cdot \frac{\partial v}{\partial x}+\frac{\partial z}{\partial w}\cdot \frac{\partial w}{\partial x} \\
+&\frac{\partial z}{\partial y}=\frac{\partial z}{\partial u}\cdot \frac{\partial u}{\partial y}+\frac{\partial z}{\partial v}\cdot \frac{\partial v}{\partial y}+\frac{\partial z}{\partial w}\cdot \frac{\partial w}{\partial y}
+\end{align*}
+
+2、当只有一个中间变量时，即$z=z\left( u \right) ,u=u\left( x,y \right) $：
+\begin{align*}
+&\frac{\partial z}{\partial x}=\frac{dz}{du}\cdot \frac{\partial u}{\partial x} \\
+&\frac{\partial z}{\partial y}=\frac{dz}{du}\cdot \frac{\partial u}{\partial y}
+\end{align*}
+
+3、当只有一个自变量时，即$z=z\left( u,v \right) ,u=u\left( x \right) ,v=v\left( x \right) $，此时的$z$称为{\bf 一元复合函数}：
+\[
+\frac{dz}{dx}=\frac{\partial z}{\partial u}\cdot \frac{du}{dx}+\frac{\partial z}{\partial v}\cdot \frac{dv}{dx}
+\]
+该导数称为{\bf $z$对$x$的全导数}。
+
+~
+
+\begin{example}
+设$z=\left( x^2+y^2 \right) ^{\sin \left( 2x+y \right)}$，求$\frac{\partial z}{\partial x}$。
+\end{example}
+
+解：
+
+对于这类非初等函数，可以引入中间变量，令
+\[
+\begin{cases}
+	u=x^2+y^2\\
+	v=\sin \left( 2x+y \right)\\
+\end{cases}
+\]
+则$z=u^v$，有：
+\begin{align*}
+\frac{\partial z}{\partial x}&=\frac{\partial z}{\partial u}\cdot \frac{\partial u}{\partial x}+\frac{\partial z}{\partial v}\cdot \frac{\partial v}{\partial x} \\
+&=vu^{v-1}\cdot 2x+u^v\ln u\cdot 2\cos \left( 2x+y \right) \\
+&=2x\cdot \sin \left( 2x+y \right) \cdot \left( x^2+y^2 \right) ^{\sin \left( 2x+y \right) -1} \\
+& \quad +2\left( x^2+y^2 \right) ^{\sin \left( 2x+y \right)}\cdot \ln \left( x^2+y^2 \right) \cdot \cos \left( 2x+y \right)
+\end{align*}
+
+%============================================================
+\subsection{雅可比矩阵和雅可比行列式}
+
+对比一元函数的链式求导，复合函数$y=y\left( u\left( x \right) \right) $对$x$的求导：
+\[
+\frac{dy}{dx}=\frac{dy}{du}\cdot \frac{du}{dx}
+\]
+二元函数的链式求导能不能采用这种写法？
+
+考察二元函数的链式求导，二元函数$z=z\left( u\left( x,y \right) ,v\left( x,y \right) \right) $在对$x,y$的偏导数为：
+\begin{align*}
+&\frac{\partial z}{\partial x}=\frac{\partial z}{\partial u}\cdot \frac{\partial u}{\partial x}+\frac{\partial z}{\partial v}\cdot \frac{\partial v}{\partial x} \\
+&\frac{\partial z}{\partial y}=\frac{\partial z}{\partial u}\cdot \frac{\partial u}{\partial y}+\frac{\partial z}{\partial v}\cdot \frac{\partial v}{\partial y}
+\end{align*}
+采用矩阵方程的形式，可以写成：
+\[
+\left( \begin{array}{c}
+	\frac{\partial z}{\partial x}\\
+	\frac{\partial z}{\partial y}\\
+\end{array} \right) =\left[ \begin{matrix}
+	\frac{\partial u}{\partial x}&		\frac{\partial v}{\partial x}\\
+	\frac{\partial u}{\partial y}&		\frac{\partial v}{\partial y}\\
+\end{matrix} \right] \left( \begin{array}{c}
+	\frac{\partial z}{\partial u}\\
+	\frac{\partial z}{\partial v}\\
+\end{array} \right)
+\]
+
+~
+
+\begin{definition}
+我们称由两个二元函数$u\left( x,y \right) ,v\left( x,y \right) $的四个一阶偏导数组成的矩阵称为这两个二元函数的{\bf 雅可比矩阵}，即：
+\[
+\left[ \begin{matrix}
+	\frac{\partial u}{\partial x}&		\frac{\partial u}{\partial y}\\
+	\frac{\partial v}{\partial x}&		\frac{\partial v}{\partial y}\\
+\end{matrix} \right]
+\]
+其对应的行列式称为{\bf 雅可比行列式}，记为$\frac{\partial \left( u,v \right)}{\partial \left( x,y \right)}$，即；
+\[
+\frac{\partial \left( u,v \right)}{\partial \left( x,y \right)}=\left| \begin{matrix}
+	\frac{\partial u}{\partial x}&		\frac{\partial u}{\partial y}\\
+	\frac{\partial v}{\partial x}&		\frac{\partial v}{\partial y}\\
+\end{matrix} \right|
+\]
+于是上式可以写为：
+\[
+\left( \begin{array}{c}
+	\frac{\partial z}{\partial x}\\
+	\frac{\partial z}{\partial y}\\
+\end{array} \right) =\left[ \begin{matrix}
+	\frac{\partial u}{\partial x}&		\frac{\partial u}{\partial y}\\
+	\frac{\partial v}{\partial x}&		\frac{\partial v}{\partial y}\\
+\end{matrix} \right] ^T\left( \begin{array}{c}
+	\frac{\partial z}{\partial u}\\
+	\frac{\partial z}{\partial v}\\
+\end{array} \right)
+\]
+\end{definition}
+
+同样可扩展三个三元函数$u\left( x,y,z \right) ,v\left( x,y,z \right) ,w\left( x,y,z \right) $的九个一阶偏导数组成的雅可比矩阵：
+\[
+\left[ \begin{matrix}
+	\frac{\partial u}{\partial x}&		\frac{\partial u}{\partial y}&		\frac{\partial u}{\partial z}\\
+	\frac{\partial v}{\partial x}&		\frac{\partial v}{\partial y}&		\frac{\partial v}{\partial z}\\
+	\frac{\partial w}{\partial x}&		\frac{\partial w}{\partial y}&		\frac{\partial w}{\partial z}\\
+\end{matrix} \right]
+\]
+
+对于雅可比行列式，有如下法则：
+\begin{align*}
+&\frac{\partial \left( u,v \right)}{\partial \left( x,y \right)}=\frac{\partial \left( u,v \right)}{\partial \left( s,t \right)}\cdot \frac{\partial \left( s,t \right)}{\partial \left( x,y \right)} \\
+&\frac{\partial \left( u,v \right)}{\partial \left( x,y \right)}\cdot \frac{\partial \left( x,y \right)}{\partial \left( u,v \right)}=1 \\
+&\frac{\partial \left( u,v \right)}{\partial \left( x,y \right)}=-\frac{\partial \left( v,u \right)}{\partial \left( x,y \right)} \\
+&\frac{\partial \left( u,u \right)}{\partial \left( x,y \right)}=0
+\end{align*}
+
+
+
+
